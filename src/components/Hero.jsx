@@ -77,7 +77,7 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
       {/* MOBILE VIEW (< md) - Redesigned Editorial Athlete Poster Layout           */}
       {/* "ACHIEVE YOUR FITNESS DREAMS" is placed in the background of the athlete  */}
       {/* ========================================================================= */}
-      <div className="block md:hidden relative z-10 w-full flex-grow flex flex-col items-center pt-16 pb-0 px-3 xs:px-4">
+      <div className="block md:hidden relative z-10 w-full flex-grow flex flex-col items-center pt-22 xs:pt-24 pb-0 px-3 xs:px-4">
 
         {/* Dynamically Centered Welcome Message: Automatically Centers Between Navbar & Athlete Head */}
         <div className="w-full flex-1 flex flex-col items-center justify-center z-20 select-none py-2 my-auto">
