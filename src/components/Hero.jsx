@@ -9,15 +9,14 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
 
   useEffect(() => {
     const checkSupport = () => {
-      const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 1024px)').matches;
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      setEnableSplash(hasFinePointer && !prefersReduced);
+      // Enable on all desktop/laptop screens (min-width: 1024px)
+      const isDesktop = window.innerWidth >= 1024 || window.matchMedia('(min-width: 1024px)').matches;
+      setEnableSplash(isDesktop);
     };
 
     checkSupport();
-    const mql = window.matchMedia('(min-width: 1024px)');
-    mql.addEventListener('change', checkSupport);
-    return () => mql.removeEventListener('change', checkSupport);
+    window.addEventListener('resize', checkSupport);
+    return () => window.removeEventListener('resize', checkSupport);
   }, []);
 
   // Bottom ribbon ticker items
@@ -34,7 +33,7 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
 
   return (
     <section className="relative w-full min-h-svh bg-[#112708] flex flex-col justify-between overflow-hidden select-none">
-      {/* Interactive WebGL Fluid Splash Cursor Effect - Desktop Fine Pointer Only */}
+      {/* Interactive WebGL Fluid Splash Cursor Effect - Desktop Only */}
       {enableSplash && (
         <Suspense fallback={null}>
           <SplashCursor
@@ -48,8 +47,8 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
             SHADING={true}
             RAINBOW_MODE={false}
             COLOR="#d8f801"
-            DYE_RESOLUTION={768}
-            PRESSURE_ITERATIONS={10}
+            DYE_RESOLUTION={1024}
+            PRESSURE_ITERATIONS={14}
             zIndex={35}
           />
         </Suspense>
@@ -60,6 +59,7 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
         className="hidden md:block absolute right-0 md:right-[6%] lg:right-[10%] top-[52%] -translate-y-1/2 w-[460px] sm:w-[560px] md:w-[660px] lg:w-[740px] h-[460px] sm:h-[560px] md:h-[660px] lg:h-[740px] rounded-full pointer-events-none -z-0"
         style={{
           background: 'radial-gradient(circle, rgba(216, 248, 1, 0.42) 0%, rgba(142, 210, 10, 0.22) 42%, rgba(17, 39, 8, 0) 72%)',
+          filter: 'blur(35px)',
         }}
       />
 
@@ -68,6 +68,7 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
         className="absolute -top-32 -left-32 w-96 h-96 rounded-full pointer-events-none -z-0"
         style={{
           background: 'radial-gradient(circle, rgba(216, 248, 1, 0.12) 0%, rgba(17, 39, 8, 0) 70%)',
+          filter: 'blur(40px)',
         }}
       />
 
