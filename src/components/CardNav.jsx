@@ -49,14 +49,15 @@ const CardNav = ({
 
         const topBar = 60;
         const padding = 16;
-        const contentHeight = contentEl.scrollHeight;
+        const maxHeight = typeof window !== 'undefined' ? window.innerHeight * 0.85 : 600;
+        const targetHeight = Math.min(topBar + contentEl.scrollHeight + padding, maxHeight);
 
         contentEl.style.visibility = wasVisible;
         contentEl.style.pointerEvents = wasPointerEvents;
         contentEl.style.position = wasPosition;
         contentEl.style.height = wasHeight;
 
-        return topBar + contentHeight + padding;
+        return targetHeight;
       }
     }
     return 260;
@@ -67,17 +68,17 @@ const CardNav = ({
     if (!navEl) return null;
 
     gsap.set(navEl, { height: 60, overflow: 'hidden' });
-    gsap.set(cardsRef.current, { y: 50, opacity: 0 });
+    gsap.set(cardsRef.current, { y: 25, opacity: 0 });
 
     const tl = gsap.timeline({ paused: true });
 
     tl.to(navEl, {
       height: calculateHeight,
-      duration: 0.4,
+      duration: 0.35,
       ease
     });
 
-    tl.to(cardsRef.current, { y: 0, opacity: 1, duration: 0.4, ease, stagger: 0.08 }, '-=0.1');
+    tl.to(cardsRef.current, { y: 0, opacity: 1, duration: 0.3, ease, stagger: 0.035 }, '-=0.15');
 
     return tl;
   };
@@ -187,36 +188,62 @@ const CardNav = ({
         </div>
 
         <div className="card-nav-content" aria-hidden={!isExpanded}>
-          {(items || []).slice(0, 3).map((item, idx) => (
-            <div
-              key={`${item.label}-${idx}`}
-              className="nav-card"
-              ref={setCardRef(idx)}
-              style={{ backgroundColor: item.bgColor, color: item.textColor }}
-            >
-              <div className="nav-card-label">{item.label}</div>
-              <div className="nav-card-links">
-                {item.links?.map((lnk, i) => (
-                  <a
-                    key={`${lnk.label}-${i}`}
-                    className="nav-card-link"
-                    href={lnk.href || '#'}
-                    aria-label={lnk.ariaLabel || lnk.label}
-                    onClick={e => {
-                      if (lnk.onClick) {
-                        e.preventDefault();
-                        lnk.onClick();
-                      }
-                      closeMenu();
-                    }}
-                  >
-                    <ArrowUpRight className="nav-card-link-icon" size={16} aria-hidden="true" />
-                    <span>{lnk.label}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-          ))}
+          {(items || []).map((item, idx) => {
+            const hasLinks = item.links && item.links.length > 0;
+            if (hasLinks) {
+              return (
+                <div
+                  key={`${item.label}-${idx}`}
+                  className="nav-card"
+                  ref={setCardRef(idx)}
+                  style={{ backgroundColor: item.bgColor, color: item.textColor }}
+                >
+                  <div className="nav-card-label">{item.label}</div>
+                  <div className="nav-card-links">
+                    {item.links.map((lnk, i) => (
+                      <a
+                        key={`${lnk.label}-${i}`}
+                        className="nav-card-link"
+                        href={lnk.href || '#'}
+                        aria-label={lnk.ariaLabel || lnk.label}
+                        onClick={e => {
+                          if (lnk.onClick) {
+                            e.preventDefault();
+                            lnk.onClick();
+                          }
+                          closeMenu();
+                        }}
+                      >
+                        <ArrowUpRight className="nav-card-link-icon" size={16} aria-hidden="true" />
+                        <span>{lnk.label}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+
+            // Single section box: 1 section per box as requested
+            return (
+              <a
+                key={`${item.label}-${idx}`}
+                className={`nav-card nav-card-single ${item.isCta ? 'nav-card-cta' : ''}`}
+                ref={setCardRef(idx)}
+                href={item.href || '#'}
+                style={{ backgroundColor: item.bgColor, color: item.textColor }}
+                onClick={e => {
+                  if (item.onClick) {
+                    e.preventDefault();
+                    item.onClick();
+                  }
+                  closeMenu();
+                }}
+              >
+                <span className="nav-card-label">{item.label}</span>
+                <ArrowUpRight className="nav-card-link-icon" size={18} aria-hidden="true" />
+              </a>
+            );
+          })}
         </div>
       </nav>
     </div>

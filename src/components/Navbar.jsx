@@ -24,35 +24,20 @@ export default function Navbar({ onOpenBooking }) {
   ];
 
   const mobileNavItems = [
+    { label: "About", href: "#about", bgColor: "#122509", textColor: "#ffffff" },
+    { label: "Services", href: "#services", bgColor: "#162c0b", textColor: "#ffffff" },
+    { label: "Team", href: "#team", bgColor: "#1a340e", textColor: "#ffffff" },
+    { label: "Testimonials", href: "#testimonials", bgColor: "#1f3d10", textColor: "#ffffff" },
+    { label: "Pricing", href: "#pricing", bgColor: "#244613", textColor: "#ffffff" },
+    { label: "Gallery", href: "#gallery", bgColor: "#295016", textColor: "#ffffff" },
+    { label: "Faq's", href: "#faqs", bgColor: "#2e5a19", textColor: "#ffffff" },
     {
-      label: "About",
-      bgColor: "#142c09",
-      textColor: "#ffffff",
-      links: [
-        { label: "About Gym", href: "#about", ariaLabel: "About P Academy Gym" },
-        { label: "Why Choose Us", href: "#why-us", ariaLabel: "Why Choose Us" },
-        { label: "Our Coaches", href: "#team", ariaLabel: "Coaches" }
-      ]
-    },
-    {
-      label: "Programs", 
-      bgColor: "#1b3a0c",
-      textColor: "#ffffff",
-      links: [
-        { label: "Personal Training", href: "#services", ariaLabel: "Services" },
-        { label: "Strength & Cardio", href: "#services", ariaLabel: "Strength Floor" },
-        { label: "Client Results", href: "#testimonials", ariaLabel: "Reviews" }
-      ]
-    },
-    {
-      label: "Membership",
-      bgColor: "#234d10", 
-      textColor: "#ffffff",
-      links: [
-        { label: "Pricing Plans", href: "#pricing", ariaLabel: "Pricing" },
-        { label: "Photo Gallery", href: "#gallery", ariaLabel: "Gallery" },
-        { label: "Book Free Visit", href: "#", onClick: onOpenBooking, ariaLabel: "Book Visit" }
-      ]
+      label: "Start Free Trial",
+      href: "#",
+      onClick: onOpenBooking,
+      bgColor: "#d2ff00",
+      textColor: "#081303",
+      isCta: true
     }
   ];
 
@@ -109,10 +94,10 @@ export default function Navbar({ onOpenBooking }) {
           logo="/logo.webp"
           logoAlt="P Academy Gym"
           items={mobileNavItems}
-          baseColor="#090e06"
-          menuColor="#ffffff"
-          buttonBgColor="#d2ff00"
-          buttonTextColor="#081303"
+          baseColor="#ffffff"
+          menuColor="#081303"
+          buttonBgColor="#081303"
+          buttonTextColor="#d8f801"
           callText="Call"
           callNumber="+917014792446"
           onCtaClick={onOpenBooking}
