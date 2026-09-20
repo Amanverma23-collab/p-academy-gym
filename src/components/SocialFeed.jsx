@@ -41,7 +41,7 @@ export default function SocialFeed() {
               className="px-6 py-3 rounded-full bg-white border border-zinc-200 text-black font-heading font-bold text-xs uppercase tracking-wider flex items-center gap-2 hover:border-pink-500 hover:text-pink-600 transition-colors shadow-sm"
             >
               <InstagramIcon className="w-4 h-4 text-pink-500" />
-              @oxygen_gym01
+              @p_academy_gym
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
 
@@ -74,7 +74,7 @@ export default function SocialFeed() {
             >
               <img
                 src={post.image}
-                alt="Oxygen Gym Instagram Feed"
+                alt="P Academy Gym Instagram Feed"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>

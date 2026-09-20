@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Star, ExternalLink, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Star, ExternalLink, CheckCircle2, Quote, Sparkles } from 'lucide-react';
 
 export default function Reviews() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // 100% Real Google Reviews extracted directly from Google Business Profile
-  // https://share.google/jtFzTjcuAYyYf9cPV (P Academy Gym)
+  // https://share.google/jtFzTjcuAYyYf9cPV (P Academy Gym, Uttam Nagar)
   const testimonials = [
     {
       id: 1,
@@ -14,7 +14,7 @@ export default function Reviews() {
       role: 'Google Local Reviewer',
       avatar: '/avatars/prateek.webp',
       rating: 5,
-      date: 'Google Maps Review',
+      tag: 'Weight Loss & Training',
       quote:
         'Devender Dhaiya (Trainer) has been excellent with his work and the gym having good machinery. They give us great workout training and full support to new people, especially for weight loss. If anyone wants to lose weight, go & join..!',
     },
@@ -24,7 +24,7 @@ export default function Reviews() {
       role: 'Google Local Reviewer',
       avatar: '/avatars/vikrant.webp',
       rating: 5,
-      date: 'Google Maps Review',
+      tag: 'Equipment & Cleanliness',
       quote:
         'Great place to workout and train yourself.. The machines and equipment are well-maintained, the space is clean, and the environment keeps you motivated every single day.',
     },
@@ -34,7 +34,7 @@ export default function Reviews() {
       role: 'Google Verified Reviewer',
       avatar: '/avatars/akash.webp',
       rating: 5,
-      date: 'Google Maps Review',
+      tag: 'Personal Mentorship',
       quote:
         'Awesome place to workout.... getting trained by Devender Dahiya... do not want to change as getting results here only... 😎🤟',
     },
@@ -44,7 +44,7 @@ export default function Reviews() {
       role: 'Google Local Reviewer',
       avatar: '/avatars/aditya.webp',
       rating: 5,
-      date: 'Google Maps Review',
+      tag: 'Spacious & Cost Effective',
       quote:
         'New machines, cost effective, well-behaved owner and very spacious gym. Highly recommended for everyone in the area looking for real results.',
     },
@@ -54,7 +54,7 @@ export default function Reviews() {
       role: 'Google Verified Reviewer',
       avatar: '/avatars/kaajjal.webp',
       rating: 5,
-      date: 'Google Maps Review',
+      tag: 'Technique & Guidance',
       quote:
         'More equivalent and new techniques to be taught... Enjoy your best experience of gyming... Especially for gym freak people! ❤👍',
     },
@@ -64,7 +64,7 @@ export default function Reviews() {
       role: 'Google Verified Reviewer',
       avatar: '/avatars/jennifer.webp',
       rating: 5,
-      date: 'Google Maps Review',
+      tag: 'Goal Achievement',
       quote:
         'This is the best place to workout.... people go with the goals and surely achieve them. Guys do join this! 🤩',
     },
@@ -81,10 +81,27 @@ export default function Reviews() {
   const current = testimonials[currentIndex];
 
   return (
-    <section id="testimonials" className="relative bg-white text-black py-20 sm:py-24 lg:py-28 overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section 
+      id="testimonials" 
+      className="relative bg-white text-zinc-900 py-20 sm:py-24 lg:py-28 overflow-hidden select-none border-t border-zinc-100"
+    >
+      {/* Subtle soft warm background glows for premium depth */}
+      <div 
+        className="absolute left-[-100px] top-[20%] w-[450px] h-[450px] rounded-full pointer-events-none -z-0"
+        style={{
+          background: 'radial-gradient(circle, rgba(250, 204, 21, 0.08) 0%, transparent 70%)',
+        }}
+      />
+      <div 
+        className="absolute right-[-100px] bottom-[15%] w-[500px] h-[500px] rounded-full pointer-events-none -z-0"
+        style={{
+          background: 'radial-gradient(circle, rgba(240, 245, 238, 0.9) 0%, transparent 70%)',
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
-        {/* Split Grid: Left Headline & Controls + Right Stacked Review Card */}
+        {/* Split Grid: Left Headline & Controls + Right Elevated Testimonial Card */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
           {/* Left Column: Pill Badge, Headline, Subtitle, Google Rating Chip, Arrows */}
@@ -97,29 +114,30 @@ export default function Reviews() {
           >
             {/* Pill Tag: Reviews */}
             <div className="mb-4">
-              <span className="font-sans-clean bg-[#facc15] text-[#081303] text-xs font-extrabold px-5 py-1.5 rounded-full inline-block uppercase tracking-wider shadow-sm">
-                Reviews
+              <span className="font-sans-clean bg-[#facc15] text-[#081303] text-xs font-black px-4 py-1.5 rounded-full inline-flex items-center gap-1.5 uppercase tracking-wider shadow-sm">
+                <Sparkles className="w-3.5 h-3.5 fill-[#081303]" />
+                <span>Reviews</span>
               </span>
             </div>
 
             {/* Headline: HEAR FROM HAPPY CLIENTS */}
-            <h2 className="font-headline font-black text-5xl sm:text-6xl lg:text-[72px] leading-[0.93] text-[#0e2205] uppercase tracking-tight mb-4">
+            <h2 className="font-headline font-black text-5xl sm:text-6xl lg:text-[72px] leading-[0.93] text-[#081404] uppercase tracking-tight mb-4">
               HEAR FROM
               <br />
               <span className="text-[#eab308]">HAPPY</span> CLIENTS
             </h2>
 
             {/* Subtitle Description */}
-            <p className="font-sans-clean text-zinc-600 text-xs sm:text-[13.5px] font-normal leading-relaxed max-w-sm mb-5">
-              Authentic reviews directly from our members at P Academy Gym. Verified on Google Maps with an outstanding 4.7★ community score.
+            <p className="font-sans-clean text-zinc-600 text-xs sm:text-[13.5px] font-normal leading-relaxed max-w-sm mb-6">
+              Authentic reviews directly from our members at P Academy Gym, Uttam Nagar. Verified on Google Maps with an outstanding community score.
             </p>
 
-            {/* Official Google Reviews Badge (Clickable) */}
+            {/* Official Google Reviews Badge (Clickable Clean Light Pill) */}
             <a
               href="https://share.google/jtFzTjcuAYyYf9cPV"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-zinc-300 hover:bg-zinc-100 transition-all shadow-sm w-fit mb-8 group cursor-pointer"
+              className="inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white border border-zinc-200 hover:border-zinc-300 hover:shadow-md transition-all shadow-sm w-fit mb-8 group cursor-pointer"
             >
               {/* Google 4-color 'G' icon */}
               <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24">
@@ -152,70 +170,98 @@ export default function Reviews() {
               </div>
             </a>
 
-            {/* Carousel Arrow Controls & Review Counter */}
-            <div className="flex items-center gap-4">
-              <button
-                onClick={prevReview}
-                aria-label="Previous Review"
-                className="w-11 h-11 rounded-full bg-[#facc15] hover:bg-[#eab308] text-[#081303] flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
-              >
-                <ArrowLeft className="w-5 h-5 stroke-[2.5]" />
-              </button>
-              <button
-                onClick={nextReview}
-                aria-label="Next Review"
-                className="w-11 h-11 rounded-full bg-[#facc15] hover:bg-[#eab308] text-[#081303] flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
-              >
-                <ArrowRight className="w-5 h-5 stroke-[2.5]" />
-              </button>
-              <span className="font-sans-clean text-xs font-bold text-zinc-400">
-                {currentIndex + 1} / {testimonials.length}
-              </span>
+            {/* Carousel Arrow Controls & Member Thumbnails */}
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={prevReview}
+                  aria-label="Previous Review"
+                  className="w-11 h-11 rounded-full bg-[#facc15] hover:bg-[#eab308] text-[#081303] flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+                >
+                  <ArrowLeft className="w-5 h-5 stroke-[2.5]" />
+                </button>
+                <button
+                  onClick={nextReview}
+                  aria-label="Next Review"
+                  className="w-11 h-11 rounded-full bg-[#facc15] hover:bg-[#eab308] text-[#081303] flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+                >
+                  <ArrowRight className="w-5 h-5 stroke-[2.5]" />
+                </button>
+                <span className="font-sans-clean text-xs font-bold text-zinc-500">
+                  0{currentIndex + 1} <span className="text-zinc-400">/ 0{testimonials.length}</span>
+                </span>
+              </div>
+
+              {/* Quick Member Avatar Jump Chips */}
+              <div className="flex items-center gap-2 pt-1 overflow-x-auto pb-1 scrollbar-none">
+                {testimonials.map((t, idx) => (
+                  <button
+                    key={t.id}
+                    onClick={() => setCurrentIndex(idx)}
+                    title={t.name}
+                    className={`w-9 h-9 rounded-full overflow-hidden transition-all duration-200 flex-shrink-0 cursor-pointer ${
+                      currentIndex === idx
+                        ? 'ring-2 ring-[#eab308] ring-offset-2 scale-110 shadow-sm'
+                        : 'opacity-60 hover:opacity-100 ring-1 ring-zinc-200'
+                    }`}
+                  >
+                    <img
+                      src={t.avatar}
+                      alt={t.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
             </div>
+
           </motion.div>
 
-          {/* Right Column: Stacked Testimonial Card */}
+          {/* Right Column: Sculpted Elevated White Testimonial Card */}
           <div className="lg:col-span-7 relative flex items-center justify-center">
             
-            {/* Background layered card for 3D stacked effect */}
-            <div className="absolute inset-0 bg-zinc-100 rounded-3xl translate-y-3 sm:translate-y-4 scale-[0.96] opacity-70 border border-zinc-200 pointer-events-none" />
+            {/* Background layered card for 3D stacked depth */}
+            <div className="absolute inset-0 bg-zinc-100/90 rounded-3xl translate-y-3 sm:translate-y-4 scale-[0.96] opacity-75 border border-zinc-200 pointer-events-none" />
 
             {/* Foreground Active Review Card */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.id}
-                initial={{ opacity: 0, scale: 0.96, y: 10 }}
+                initial={{ opacity: 0, scale: 0.97, y: 10 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.96, y: -10 }}
-                transition={{ duration: 0.35 }}
-                className="relative w-full bg-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-zinc-100 flex flex-col items-center text-center z-10"
+                exit={{ opacity: 0, scale: 0.97, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="relative w-full bg-white rounded-3xl p-8 sm:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-zinc-100 flex flex-col items-center text-center z-10 overflow-hidden"
               >
+                {/* Decorative Giant Quote Icon in background */}
+                <Quote className="absolute right-6 top-6 w-20 h-20 text-zinc-100 pointer-events-none rotate-180" />
+
                 {/* Google Verified Review Top Badge */}
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-sans-clean font-semibold mb-5">
+                <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-sans-clean font-bold mb-5 shadow-sm">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Google Verified Review</span>
                   <span className="text-zinc-400">•</span>
-                  <span className="text-emerald-700 font-bold">5.0 ★</span>
+                  <span className="text-emerald-700 font-extrabold">5.0 ★</span>
                 </div>
 
                 {/* 5 Stars */}
-                <div className="flex items-center gap-1 mb-6 text-[#facc15]">
+                <div className="flex items-center gap-1 mb-6 text-amber-400">
                   {[...Array(current.rating)].map((_, i) => (
                     <Star
                       key={i}
-                      className="w-4 h-4 fill-[#facc15] text-[#facc15]"
+                      className="w-4 h-4 fill-amber-400 text-amber-400 drop-shadow-sm"
                     />
                   ))}
                 </div>
 
                 {/* Review Quote Text */}
-                <p className="font-sans-clean italic text-zinc-800 text-base sm:text-lg leading-relaxed max-w-lg mb-8 font-medium">
+                <p className="font-sans-clean italic text-zinc-800 text-base sm:text-lg lg:text-xl leading-relaxed max-w-lg mb-8 font-medium relative z-10">
                   "{current.quote}"
                 </p>
 
                 {/* Member Profile Avatar & Name */}
-                <div className="flex flex-col items-center">
-                  <div className="w-14 h-14 rounded-full p-0.5 border-2 border-[#0e2205] shadow-md mb-2 overflow-hidden bg-zinc-100">
+                <div className="flex flex-col items-center relative z-10">
+                  <div className="w-14 h-14 rounded-full p-0.5 border-2 border-[#eab308] shadow-md mb-2 overflow-hidden bg-zinc-50">
                     <img
                       src={current.avatar}
                       alt={current.name}
@@ -226,23 +272,23 @@ export default function Reviews() {
                       className="w-full h-full rounded-full object-cover select-none"
                     />
                   </div>
-                  <h4 className="font-sans-clean font-extrabold text-base text-[#0e2205]">
+                  <h4 className="font-headline font-black text-lg text-zinc-900 tracking-wide uppercase">
                     {current.name}
                   </h4>
-                  <span className="font-sans-clean text-zinc-500 text-xs font-medium">
-                    {current.role}
+                  <span className="font-sans-clean text-zinc-500 text-xs font-semibold mt-0.5">
+                    {current.role} • <span className="text-amber-600 font-bold">{current.tag}</span>
                   </span>
                 </div>
 
                 {/* Pagination indicator dots */}
-                <div className="flex items-center gap-1.5 mt-6">
+                <div className="flex items-center gap-1.5 mt-7">
                   {testimonials.map((_, idx) => (
                     <button
                       key={idx}
                       onClick={() => setCurrentIndex(idx)}
                       className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                         currentIndex === idx
-                          ? 'w-6 bg-[#0e2205]'
+                          ? 'w-6 bg-[#081404]'
                           : 'w-1.5 bg-zinc-200 hover:bg-zinc-300'
                       }`}
                       aria-label={`Go to review ${idx + 1}`}

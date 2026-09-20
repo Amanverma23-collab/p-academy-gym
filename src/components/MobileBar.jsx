@@ -4,7 +4,7 @@ import { GYM_INFO } from '../data/gymData';
 
 export default function MobileBar({ onOpenBooking }) {
   const handleWhatsApp = () => {
-    const text = encodeURIComponent('Hi Oxygen Gym Sikar! I am looking for membership details and would like to visit the gym.');
+    const text = encodeURIComponent('Hi P Academy Gym Uttam Nagar! I am looking for membership details and would like to visit the gym.');
     window.open(`https://wa.me/${GYM_INFO.whatsappNumber}?text=${text}`, '_blank');
   };
 

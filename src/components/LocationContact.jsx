@@ -19,7 +19,7 @@ export default function LocationContact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const text = encodeURIComponent(
-      `Hello Oxygen Gym Sikar!\n\nName: ${formData.name}\nPhone: ${formData.phone}\nInterested Plan: ${formData.membership}\nMessage: ${formData.message || 'I want to schedule a visit.'}`
+      `Hello P Academy Gym Uttam Nagar!\n\nName: ${formData.name}\nPhone: ${formData.phone}\nInterested Plan: ${formData.membership}\nMessage: ${formData.message || 'I want to schedule a visit.'}`
     );
     window.open(`https://wa.me/${GYM_INFO.whatsappNumber}?text=${text}`, '_blank');
     setSubmitted(true);
@@ -111,7 +111,7 @@ export default function LocationContact() {
                 <div className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-center">
                   <CheckCircle className="w-10 h-10 text-emerald-600 mx-auto mb-2" />
                   <h4 className="font-heading text-base font-bold text-black">Inquiry Redirected to WhatsApp</h4>
-                  <p className="text-xs text-zinc-600 mt-1">We look forward to meeting you at Oxygen Gym Sikar!</p>
+                  <p className="text-xs text-zinc-600 mt-1">We look forward to meeting you at P Academy Gym Uttam Nagar!</p>
                   <button
                     onClick={() => setSubmitted(false)}
                     className="mt-4 text-xs font-bold text-emerald-600 underline"
@@ -144,7 +144,7 @@ export default function LocationContact() {
                       type="tel"
                       name="phone"
                       required
-                      placeholder="7014792446"
+                      placeholder="9582887741"
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl bg-white border border-zinc-300 text-black placeholder-zinc-400 focus:outline-none focus:border-emerald-500 text-sm shadow-sm"

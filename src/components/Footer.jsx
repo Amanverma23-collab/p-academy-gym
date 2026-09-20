@@ -30,37 +30,8 @@ const TwitterIcon = () => (
 
 export default function Footer({ onOpenBooking }) {
   return (
-    <footer className="relative bg-[#0a1804] text-white pt-20 sm:pt-24 pb-12 overflow-hidden select-none border-t border-[#18360a]">
+    <footer className="relative bg-[#0a1804] text-white pt-16 sm:pt-20 pb-12 overflow-hidden select-none border-t border-[#18360a]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        
-        {/* Top CTA Banner: GET STARTED TODAY! FIRST SESSION FREE */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pb-16 sm:pb-20 border-b border-white/10">
-          
-          {/* Left Headline */}
-          <div className="lg:col-span-7 text-left">
-            <h2 className="font-headline font-black text-4xl sm:text-5xl lg:text-6xl text-white uppercase leading-[0.94] tracking-tight">
-              GET STARTED <span className="text-[#facc15]">TODAY!</span>
-              <br />
-              FIRST SESSION FREE
-            </h2>
-          </div>
-
-          {/* Right Description & Action */}
-          <div className="lg:col-span-5 flex flex-col lg:items-end text-left lg:text-right">
-            <p className="font-sans-clean text-[#b4ceaf] text-xs sm:text-[13px] leading-relaxed max-w-sm mb-5">
-              Booking Your Appointment Is Quick And Easy — Choose Your Preferred Time, And We'll Take Care Of The Rest.
-            </p>
-            <button
-              onClick={onOpenBooking}
-              className="bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-extrabold text-xs sm:text-sm px-8 py-3.5 rounded-full inline-flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all w-fit cursor-pointer"
-            >
-              <span>Start Free Trial</span>
-              <ChevronRight className="w-4 h-4 stroke-[3]" />
-            </button>
-          </div>
-
-        </div>
-
         {/* Middle Footer Navigation Grid (4 Columns) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 py-16 sm:py-20 text-left">
           
@@ -134,13 +105,13 @@ export default function Footer({ onOpenBooking }) {
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-[#facc15] transition-colors">
-                  Services
+                <a href="#machines" className="hover:text-[#facc15] transition-colors">
+                  Machines & Equipment
                 </a>
               </li>
               <li>
                 <a href="#team" className="hover:text-[#facc15] transition-colors">
-                  Coaches
+                  Head Coach
                 </a>
               </li>
               <li>
@@ -213,7 +184,7 @@ export default function Footer({ onOpenBooking }) {
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-[#facc15] flex-shrink-0" />
                 <a href="tel:+919582887741" className="hover:text-[#facc15] transition-colors">
-                  +91 95828 87741 / +91 70147 92446
+                  +91 95828 87741
                 </a>
               </li>
               <li className="flex items-center gap-3">

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
 import CardNav from './CardNav';
+import StickerPeel from './StickerPeel';
 
 export default function Navbar({ onOpenBooking }) {
   const [scrolled, setScrolled] = useState(false);
@@ -15,22 +16,20 @@ export default function Navbar({ onOpenBooking }) {
 
   const navLinks = [
     { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Team', href: '#team' },
+    { name: 'Machines', href: '#machines' },
+    { name: 'Coach', href: '#team' },
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'Pricing', href: '#pricing' },
     { name: 'Gallery', href: '#gallery' },
-    { name: "Faq's", href: '#faqs' },
   ];
 
   const mobileNavItems = [
     { label: "About", href: "#about", bgColor: "#122509", textColor: "#ffffff" },
-    { label: "Services", href: "#services", bgColor: "#162c0b", textColor: "#ffffff" },
-    { label: "Team", href: "#team", bgColor: "#1a340e", textColor: "#ffffff" },
+    { label: "Machines", href: "#machines", bgColor: "#162c0b", textColor: "#ffffff" },
+    { label: "Coach", href: "#team", bgColor: "#1a340e", textColor: "#ffffff" },
     { label: "Testimonials", href: "#testimonials", bgColor: "#1f3d10", textColor: "#ffffff" },
     { label: "Pricing", href: "#pricing", bgColor: "#244613", textColor: "#ffffff" },
     { label: "Gallery", href: "#gallery", bgColor: "#295016", textColor: "#ffffff" },
-    { label: "Faq's", href: "#faqs", bgColor: "#2e5a19", textColor: "#ffffff" },
     {
       label: "Start Free Trial",
       href: "#",
@@ -52,14 +51,20 @@ export default function Navbar({ onOpenBooking }) {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
-          {/* Logo: P Academy Gym */}
-          <a href="#" className="flex items-center group py-1">
-            <img
-              src="/logo.webp"
-              alt="P Academy Gym"
-              className="h-10 sm:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
+          {/* Logo: P Academy Gym with StickerPeel Effect */}
+          <div className="flex items-center group py-1 cursor-pointer">
+            <StickerPeel
+              imageSrc="/logo.webp"
+              width={145}
+              rotate={0}
+              peelBackHoverPct={32}
+              peelBackActivePct={42}
+              shadowIntensity={0.5}
+              lightingIntensity={0.12}
+              initialPosition="center"
+              peelDirection={0}
             />
-          </a>
+          </div>
 
           {/* Desktop Nav Links */}
           <nav className="flex items-center gap-7 lg:gap-9">
@@ -99,7 +104,7 @@ export default function Navbar({ onOpenBooking }) {
           buttonBgColor="#081303"
           buttonTextColor="#facc15"
           callText="Call"
-          callNumber="+917014792446"
+          callNumber="+919582887741"
           onCtaClick={onOpenBooking}
         />
       </div>

@@ -7,19 +7,17 @@ export const GYM_INFO = {
   heroSubheading: "Premier Fitness & Bodybuilding Destination",
   heroParagraph: "Build strength. Improve endurance. Transform your lifestyle.",
   address: "1st Floor, Om Vihar-II, Plot No. 135-136, near by Aryan Garden, Phase 1, Om Vihar, Uttam Nagar, Delhi - 110059",
-  phone: "7014792446",
-  phoneFormatted: "+91 70147 92446",
-  altPhone: "9582887741",
-  altPhoneFormatted: "+91 95828 87741",
+  phone: "9582887741",
+  phoneFormatted: "+91 95828 87741",
   hours: "Mon – Sat: 6:00 AM – 11:00 AM & 4:00 PM – 10:00 PM",
   timingDetails: "Monday – Saturday: 6–11 AM & 4–10 PM | Sunday: Closed",
   rating: 4.7,
   totalReviews: "40+",
   googleShareUrl: "https://maps.app.goo.gl/e3T3Vqe8W6evK8jN8",
   googleMapsUrl: "https://maps.app.goo.gl/e3T3Vqe8W6evK8jN8",
-  instagramUrl: "https://www.instagram.com/oxygen_gym01/",
-  facebookUrl: "https://www.facebook.com/people/Oxygen-gym-sikar/61551582437714/",
-  whatsappNumber: "917014792446",
+  instagramUrl: "https://www.instagram.com/p_academy_gym/",
+  facebookUrl: "https://www.facebook.com/people/P-Academy-Gym/",
+  whatsappNumber: "919582887741",
   googleMapIframe: `<iframe src="https://maps.google.com/maps?q=P+Academy+Gym,+Plot+No+135-136,+Om+Vihar+Phase+1,+Uttam+Nagar,+Delhi+110059&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0;border-radius:16px;" allowfullscreen="" loading="lazy"></iframe>`
 };
 
@@ -209,7 +207,7 @@ export const GOOGLE_REVIEWS = [
     author: "Rahul Sharma",
     rating: 5,
     date: "2 weeks ago",
-    text: "Best gym in Sikar on Piprali Road! Super clean environment, high quality imported machines, and the trainers are very helpful. Steam bath after heavy leg day is amazing.",
+    text: "Best gym in Uttam Nagar! Super clean environment, high quality imported machines, and Coach Devender is very helpful. Steam bath after heavy leg day is amazing.",
     avatarBg: "#059669"
   },
   {
@@ -217,7 +215,7 @@ export const GOOGLE_REVIEWS = [
     author: "Vikram Singh",
     rating: 5,
     date: "1 month ago",
-    text: "Being an Allen student, Oxygen Gym is super convenient. The timings 5 AM to 10 PM fit right into my study schedule. High energy environment and very reasonable membership prices.",
+    text: "Being in West Delhi, P Academy Gym is super convenient. The timings fit right into my schedule. High energy environment and very reasonable membership prices.",
     avatarBg: "#2563EB"
   },
   {
@@ -225,7 +223,7 @@ export const GOOGLE_REVIEWS = [
     author: "Amit Choudhary",
     rating: 5,
     date: "1 month ago",
-    text: "Very spacious, properly ventilated, and not overcrowded like other local gyms in Sikar. Dedicated cardio and steam room. 10/10 recommendation!",
+    text: "Very spacious, properly ventilated, and not overcrowded like other local gyms in Uttam Nagar. Dedicated cardio and steam room. 10/10 recommendation!",
     avatarBg: "#D97706"
   },
   {
@@ -233,7 +231,7 @@ export const GOOGLE_REVIEWS = [
     author: "Pooja Shekhawat",
     rating: 5,
     date: "2 months ago",
-    text: "Safe and respectful environment for women. Trainers give honest fitness advice without forcing expensive supplements. Really satisfied with my 6-month cardio transformation plan.",
+    text: "Safe and respectful environment for women. Coach Devender gives honest fitness advice without forcing expensive supplements. Really satisfied with my 6-month transformation plan.",
     avatarBg: "#7C3AED"
   }
 ];
@@ -243,17 +241,17 @@ export const INSTAGRAM_POSTS = [
     id: 1,
     likes: "248",
     comments: "19",
-    caption: "Pro Bodyline machines ready for your next heavy session. Train at Oxygen Gym Sikar.",
+    caption: "Pro Bodyline machines ready for your next heavy session. Train at P Academy Gym Uttam Nagar.",
     image: "/images/gym-machines-white.webp",
-    url: "https://www.instagram.com/oxygen_gym01/"
+    url: "https://www.instagram.com/p_academy_gym/"
   },
   {
     id: 2,
     likes: "312",
     comments: "27",
-    caption: "Evening sessions on the cable and strength floor. Near Allen Coaching, Piprali Road.",
+    caption: "Evening sessions on the cable and strength floor. Phase 1, Om Vihar, Uttam Nagar.",
     image: "/images/gym-floor-dark.webp",
-    url: "https://www.instagram.com/oxygen_gym01/"
+    url: "https://www.instagram.com/p_academy_gym/"
   },
   {
     id: 3,
@@ -261,7 +259,7 @@ export const INSTAGRAM_POSTS = [
     comments: "34",
     caption: "Full dumbbell rack for isolation and compound lifts. Open 5 AM – 10 PM daily.",
     image: "/images/dumbbell-rack.webp",
-    url: "https://www.instagram.com/oxygen_gym01/"
+    url: "https://www.instagram.com/p_academy_gym/"
   },
   {
     id: 4,
@@ -269,6 +267,6 @@ export const INSTAGRAM_POSTS = [
     comments: "14",
     caption: "Spacious equipment floor with heavy-duty plate-loaded machines.",
     image: "/images/equipment-floor.webp",
-    url: "https://www.instagram.com/oxygen_gym01/"
+    url: "https://www.instagram.com/p_academy_gym/"
   }
 ];

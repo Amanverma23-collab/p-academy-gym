@@ -57,6 +57,16 @@
   animation-play-state: paused;
 }
 
+.animate-marquee-slow {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee-slow:hover {
+  animation-play-state: paused;
+}
+
 .text-gradient {
   background: linear-gradient(180deg, #0A0A0A 0%, #52525B 100%);
   -webkit-background-clip: text;

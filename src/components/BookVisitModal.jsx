@@ -93,7 +93,7 @@ export default function BookVisitModal({ isOpen, onClose }) {
                 <input
                   type="tel"
                   required
-                  placeholder="7014792446"
+                  placeholder="9582887741"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-black placeholder-zinc-400 focus:outline-none focus:border-yellow-500 text-xs"

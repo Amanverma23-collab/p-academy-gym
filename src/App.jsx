@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Programs from './components/Programs';
+import Machines from './components/Machines';
 import WhyChooseUs from './components/WhyChooseUs';
 import Team from './components/Team';
 import Reviews from './components/Reviews';
 import Pricing from './components/Pricing';
 import Gallery from './components/Gallery';
-import FAQ from './components/FAQ';
+import ReadyCta from './components/ReadyCta';
 import Footer from './components/Footer';
 import BookVisitModal from './components/BookVisitModal';
 
@@ -46,14 +46,14 @@ export default function App() {
         {/* Section 2: About (The Power Behind Your Vision + Video Banner + 4 Stats) */}
         <About playTrigger={videoPlayTrigger} />
 
-        {/* Section 3: Services (Tailored Programs For Every Goal + Interactive Carousel) */}
-        <Programs onOpenBooking={handleOpenBooking} />
+        {/* Section 3: Gym Machines & Equipment Fleet (Interactive Slideshow) */}
+        <Machines onOpenBooking={handleOpenBooking} />
 
         {/* Section 4: Why Choose Us (Why We're The Right Fit For You + Central Athlete + 6 Features) */}
         <WhyChooseUs onOpenBooking={handleOpenBooking} />
 
-        {/* Section 5: Team (Meet Your Dedicated Coaches + 4 Coaches Grid) */}
-        <Team />
+        {/* Section 5: Head Coach Spotlight (Devender Dahiya) */}
+        <Team onOpenBooking={handleOpenBooking} />
 
         {/* Section 6: Testimonials (Hear From Happy Clients + Interactive Carousel) */}
         <Reviews />
@@ -64,11 +64,11 @@ export default function App() {
         {/* Section 8: Gallery (Explore Our Gym Atmosphere & Spaces + Lightbox) */}
         <Gallery onOpenBooking={handleOpenBooking} />
 
-        {/* Section 9: FAQ's (We Have Collected The Most Asked Questions + Accordion) */}
-        <FAQ onOpenBooking={handleOpenBooking} />
+        {/* Section 9: Call To Action (We're Ready When You Are) */}
+        <ReadyCta onOpenBooking={handleOpenBooking} />
       </main>
 
-      {/* Section 9: CTA Banner + Footer Links */}
+      {/* Footer / CTA Banner */}
       <Footer onOpenBooking={handleOpenBooking} />
 
       {/* Interactive Free Trial / Booking Modal */}

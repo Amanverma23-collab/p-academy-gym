@@ -1,163 +1,198 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, Plus, Minus } from 'lucide-react';
+import { Plus, Minus, HelpCircle, MessageCircle, Phone, ArrowRight } from 'lucide-react';
+import { GYM_INFO } from '../data/gymData';
 
 export default function FAQ({ onOpenBooking }) {
-  const [openIndex, setOpenIndex] = useState(0); // First item open by default like in reference
+  // Initially null so NO question is open by default
+  const [openIndex, setOpenIndex] = useState(null);
 
   const faqs = [
     {
       question: 'I am a complete beginner. Is this gym for me?',
       answer:
-        'Absolutely! Over 60% of our members started as complete beginners. Our dedicated personal trainers guide you step-by-step through machine orientations, proper lifting mechanics, and custom routines tailored to your starting fitness level.',
+        'Absolutely! Over 60% of our members started as complete beginners. Head Coach Devender Dahiya personally guides you step-by-step through equipment orientation, proper biomechanics, and a customized routine tailored to your current fitness level.',
     },
     {
-      question: 'Do you offer a free trial?',
+      question: 'Do you offer a free trial before joining?',
       answer:
-        'Yes, your first session is 100% free! You get full access to our gym facilities, locker rooms, and an introductory consultation with one of our certified fitness coaches with zero obligations.',
+        'Yes, your first trial session is 100% free! You get full access to our imported strength machines, cardio floor, and locker facilities with zero commitment.',
     },
     {
-      question: 'Are there any hidden fees?',
+      question: 'Are there any hidden admission or maintenance fees?',
       answer:
-        'None at all. All our membership pricing is 100% transparent. No hidden enrollment fees, maintenance surcharges, or surprise cancellation penalties.',
+        'None at all. All our membership pricing is 100% upfront and transparent. No hidden registration fees, maintenance surcharges, or surprise fees.',
     },
     {
-      question: "What's your cancellation policy?",
+      question: 'What are the gym operating hours?',
       answer:
-        'We offer flexible month-to-month plans with no long-term lock-in contracts. You can pause or cancel your membership anytime with a simple 7-day notice.',
+        'We are open Monday through Saturday with dedicated morning and evening slots: Morning 6:00 AM – 11:00 AM and Evening 4:00 PM – 10:00 PM. Sundays are reserved for maintenance.',
     },
     {
-      question: 'What do I need to bring for my first session?',
+      question: 'What should I bring for my first gym workout?',
       answer:
-        'Just bring comfortable athletic workout clothes, clean training shoes, and a water bottle. We provide lockers, fresh towels, shower amenities, and premium workout equipment.',
+        'Just wear comfortable athletic gym clothing and clean sports shoes, and bring a water bottle. We provide private lockers, changing areas, and all training gear.',
     },
     {
-      question: 'Do you have parking and showers?',
+      question: 'Where is P Academy Gym located in Uttam Nagar?',
       answer:
-        'Yes! We offer free dedicated member parking right in front of the facility, along with private, hygienic showers, changing rooms, and steam & sauna recovery suites.',
+        'We are located at 1st Floor, Om Vihar-II, Plot No. 135-136, near Aryan Garden, Phase 1, Om Vihar, Uttam Nagar, Delhi - 110059. Free member parking is available right in front.',
     },
   ];
 
   const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? -1 : index);
+    setOpenIndex((prev) => (prev === index ? null : index));
   };
 
+  const whatsappInquiryUrl = `https://wa.me/${GYM_INFO.whatsappNumber}?text=${encodeURIComponent(
+    'Hi P Academy Gym! I have a question regarding gym membership and facilities.'
+  )}`;
+
   return (
-    <section id="faqs" className="relative bg-white text-black py-20 sm:py-24 lg:py-28 overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          
-          {/* Left Column: Solid Athletic Yellow Card */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5 bg-[#facc15] text-[#081303] rounded-3xl p-8 sm:p-10 shadow-2xl flex flex-col justify-between min-h-[440px] text-left"
-          >
-            <div>
-              {/* Pill Tag: FAQ'S */}
-              <div className="mb-6">
-                <span className="font-sans-clean border border-[#081303]/40 text-[#081303] text-xs font-extrabold px-4 py-1 rounded-full inline-block uppercase tracking-wider">
-                  FAQ'S
-                </span>
-              </div>
+    <section 
+      id="faqs" 
+      className="relative bg-[#0d2106] py-16 sm:py-20 lg:py-24 overflow-hidden select-none border-t border-[#1a380e] scroll-mt-24"
+    >
+      {/* Ambient background glows */}
+      <div 
+        className="absolute left-[-100px] top-[25%] w-[500px] h-[500px] rounded-full pointer-events-none -z-0"
+        style={{
+          background: 'radial-gradient(circle, rgba(250, 204, 21, 0.12) 0%, transparent 70%)',
+        }}
+      />
+      <div 
+        className="absolute right-[-100px] bottom-[20%] w-[500px] h-[500px] rounded-full pointer-events-none -z-0"
+        style={{
+          background: 'radial-gradient(circle, rgba(74, 130, 20, 0.18) 0%, transparent 70%)',
+        }}
+      />
 
-              {/* Heading */}
-              <h2 className="font-headline font-black text-4xl sm:text-5xl lg:text-[54px] text-[#081303] uppercase leading-[0.94] tracking-tight mb-8">
-                We Have
-                <br />
-                Collected The
-                <br />
-                Most Asked
-                <br />
-                Questions
-              </h2>
-            </div>
-
-            {/* Bottom Question Prompt & CTA */}
-            <div className="pt-6 border-t border-[#081303]/15">
-              <p className="font-sans-clean text-[#081303]/80 text-xs sm:text-[13px] font-medium mb-3">
-                Do you have any questions?
-              </p>
-              <button
-                onClick={onOpenBooking}
-                className="bg-[#0e2205] hover:bg-black text-white font-sans-clean font-bold text-xs px-6 py-3 rounded-full inline-flex items-center gap-2 shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer"
-              >
-                <span>Contact Us</span>
-                <ChevronRight className="w-3.5 h-3.5 stroke-[3]" />
-              </button>
-            </div>
-          </motion.div>
-
-          {/* Right Column: Interactive Accordion Capsules */}
-          <div className="lg:col-span-7 flex flex-col gap-3.5">
-            {faqs.map((faq, index) => {
-              const isOpen = openIndex === index;
-              return (
-                <motion.div
-                  key={faq.question}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.06 }}
-                  className={`rounded-2xl transition-all duration-300 overflow-hidden ${
-                    isOpen
-                      ? 'bg-[#0e2205] text-white shadow-lg border border-[#0e2205]'
-                      : 'bg-white text-zinc-900 border border-zinc-200 hover:border-zinc-400'
-                  }`}
-                >
-                  {/* Accordion Header / Trigger */}
-                  <button
-                    onClick={() => toggleFAQ(index)}
-                    className="w-full py-4 sm:py-4.5 px-6 flex items-center justify-between text-left cursor-pointer focus:outline-none"
-                  >
-                    <span
-                      className={`font-sans-clean font-bold text-sm sm:text-[15px] pr-4 ${
-                        isOpen ? 'text-white' : 'text-zinc-900'
-                      }`}
-                    >
-                      {faq.question}
-                    </span>
-                    <div
-                      className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
-                        isOpen
-                          ? 'bg-[#facc15] text-[#081303]'
-                          : 'text-zinc-600 group-hover:text-black'
-                      }`}
-                    >
-                      {isOpen ? (
-                        <Minus className="w-4 h-4 stroke-[3]" />
-                      ) : (
-                        <Plus className="w-4 h-4 stroke-[2.5]" />
-                      )}
-                    </div>
-                  </button>
-
-                  {/* Accordion Expandable Answer */}
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-6 pb-5 pt-1 border-t border-white/10">
-                          <p className="font-sans-clean text-xs sm:text-[13.5px] text-[#b4ceaf] font-normal leading-relaxed">
-                            {faq.answer}
-                          </p>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              );
-            })}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Centered Clean Header */}
+        <div className="text-center mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 bg-[#facc15] text-[#081303] text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm mb-3.5">
+            <HelpCircle className="w-3.5 h-3.5 stroke-[2.5]" />
+            <span>Got Questions?</span>
           </div>
 
+          <h2 className="font-headline font-black text-4xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight leading-[0.95] mb-4">
+            FREQUENTLY ASKED <span className="text-[#facc15]">QUESTIONS</span>
+          </h2>
+
+          <p className="font-sans-clean text-[#b4ceaf] text-xs sm:text-sm max-w-lg mx-auto leading-relaxed">
+            Everything you need to know about joining P Academy Gym, personal coaching with Devender Dahiya, timings, and membership.
+          </p>
         </div>
+
+        {/* Sleek Accordion List */}
+        <div className="flex flex-col gap-3 sm:gap-3.5 mb-10">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <motion.div
+                key={faq.question}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.04 }}
+                className={`rounded-2xl transition-all duration-200 overflow-hidden ${
+                  isOpen
+                    ? 'bg-[#0f2708] border border-[#facc15] shadow-lg shadow-[#facc15]/5'
+                    : 'bg-[#091a04]/90 border border-[#1a380c] hover:border-[#facc15]/50'
+                }`}
+              >
+                {/* Accordion Trigger Header */}
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full py-4 sm:py-5 px-5 sm:px-6 flex items-center justify-between text-left cursor-pointer focus:outline-none group"
+                >
+                  <span
+                    className={`font-sans-clean font-bold text-sm sm:text-base pr-4 transition-colors leading-snug ${
+                      isOpen ? 'text-[#facc15]' : 'text-white group-hover:text-[#facc15]'
+                    }`}
+                  >
+                    {faq.question}
+                  </span>
+
+                  <div
+                    className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 ${
+                      isOpen
+                        ? 'bg-[#facc15] text-[#081303] rotate-180 shadow-md'
+                        : 'bg-[#12280a] text-zinc-300 border border-[#214713] group-hover:border-[#facc15] group-hover:text-[#facc15]'
+                    }`}
+                  >
+                    {isOpen ? (
+                      <Minus className="w-4 h-4 stroke-[3]" />
+                    ) : (
+                      <Plus className="w-4 h-4 stroke-[2.5]" />
+                    )}
+                  </div>
+                </button>
+
+                {/* Accordion Expandable Content */}
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: 'easeOut' }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 sm:px-6 pb-5 pt-1 border-t border-[#1a380c]">
+                        <p className="font-sans-clean text-xs sm:text-[13.5px] text-[#b4ceaf] font-normal leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Bottom Contact Help Card */}
+        <div className="bg-[#091a04]/90 border border-[#1a380c] rounded-3xl p-6 sm:p-7 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
+          <div className="text-center sm:text-left">
+            <h4 className="font-headline font-black text-white text-lg sm:text-xl uppercase tracking-wide">
+              Still Have A Question?
+            </h4>
+            <p className="font-sans-clean text-xs text-[#a1c499] mt-0.5">
+              Chat directly with Coach Devender or call us at +91 95828 87741.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <button
+              onClick={onOpenBooking}
+              className="bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-extrabold text-xs px-5 py-3 rounded-xl inline-flex items-center gap-2 shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer"
+            >
+              <span>Book Free Trial</span>
+              <ArrowRight className="w-3.5 h-3.5 stroke-[3]" />
+            </button>
+
+            <a
+              href={whatsappInquiryUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#12280a] hover:bg-[#1a390e] border border-[#214713] hover:border-[#facc15]/50 text-white font-sans-clean font-bold text-xs px-4 py-3 rounded-xl inline-flex items-center gap-2 transition-all shadow-sm cursor-pointer"
+            >
+              <MessageCircle className="w-4 h-4 text-[#25D366]" />
+              <span>WhatsApp</span>
+            </a>
+
+            <a
+              href={`tel:${GYM_INFO.phone}`}
+              className="bg-[#12280a] hover:bg-[#1a390e] border border-[#214713] hover:border-[#facc15]/50 text-white font-sans-clean font-bold text-xs px-4 py-3 rounded-xl inline-flex items-center gap-2 transition-all shadow-sm cursor-pointer"
+            >
+              <Phone className="w-4 h-4 text-[#facc15]" />
+              <span>Call Us</span>
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
   );

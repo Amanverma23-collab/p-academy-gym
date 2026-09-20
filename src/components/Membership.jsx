@@ -10,7 +10,7 @@ export default function Membership({ onOpenBooking }) {
 
   const handleJoinWhatsApp = (planName, price) => {
     const text = encodeURIComponent(
-      `Hi Oxygen Gym Sikar! I want to join the "${planName}" plan for ₹${price.toLocaleString('en-IN')}. Please share admission details.`
+      `Hi P Academy Gym! I want to join the "${planName}" plan for ₹${price.toLocaleString('en-IN')}. Please share admission details.`
     );
     window.open(`https://wa.me/${GYM_INFO.whatsappNumber}?text=${text}`, '_blank');
   };

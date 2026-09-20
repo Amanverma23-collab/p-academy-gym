@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ArrowUpRight, Phone } from 'lucide-react';
+import StickerPeel from './StickerPeel';
 import './CardNav.css';
 
 const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
@@ -17,7 +18,7 @@ const CardNav = ({
   buttonTextColor = '#081303',
   ctaText = 'Call',
   callText = 'Call',
-  callNumber = '+917014792446',
+  callNumber = '+919582887741',
   onCtaClick
 }) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
@@ -171,9 +172,17 @@ const CardNav = ({
           </div>
 
           <div className="logo-container">
-            <a href="#" onClick={closeMenu}>
-              <img src={logo} alt={logoAlt} className="logo" />
-            </a>
+            <StickerPeel
+              imageSrc={logo || "/logo.webp"}
+              width={110}
+              rotate={0}
+              peelBackHoverPct={32}
+              peelBackActivePct={42}
+              shadowIntensity={0.5}
+              lightingIntensity={0.12}
+              initialPosition="center"
+              peelDirection={0}
+            />
           </div>
 
           <a

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Maximize2, 
@@ -10,10 +11,22 @@ import {
 } from 'lucide-react';
 import { GALLERY_ITEMS, GYM_INFO } from '../data/gymData';
 import DepthCarousel from './DepthCarousel';
+import TargetCursor from './TargetCursor';
 
 export default function Gallery({ onOpenBooking }) {
   const [selectedFilter, setSelectedFilter] = useState('All');
   const [lightboxIndex, setLightboxIndex] = useState(null);
+
+  // Lock body scroll when lightbox modal is open
+  useEffect(() => {
+    if (lightboxIndex !== null) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [lightboxIndex]);
 
   const categories = ['All', 'Machines', 'Free Weights', 'Athletes', 'Facility'];
 
@@ -64,6 +77,17 @@ export default function Gallery({ onOpenBooking }) {
       id="gallery" 
       className="relative bg-[#0d2106] py-16 sm:py-20 lg:py-22 overflow-hidden select-none border-t border-[#1a380e] scroll-mt-24"
     >
+      {/* Desktop Target Cursor Effect */}
+      <TargetCursor 
+        spinDuration={2}
+        hideDefaultCursor
+        parallaxOn
+        hoverDuration={0.2}
+        cursorColor="#ffffff"
+        cursorColorOnTarget="#B497CF"
+        containerSelector="#gallery"
+      />
+
       {/* Ambient background glow */}
       <div 
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full pointer-events-none -z-0 opacity-30"
@@ -95,7 +119,7 @@ export default function Gallery({ onOpenBooking }) {
                 <button
                   key={cat}
                   onClick={() => setSelectedFilter(cat)}
-                  className={`font-sans-clean text-xs font-bold px-4 py-1.5 rounded-full transition-all duration-200 cursor-pointer ${
+                  className={`cursor-target font-sans-clean text-xs font-bold px-4 py-1.5 rounded-full transition-all duration-200 cursor-pointer ${
                     isActive
                       ? 'bg-[#facc15] text-[#081303] shadow-md scale-105'
                       : 'bg-[#102409] text-zinc-300 hover:text-white border border-[#214314]'
@@ -148,7 +172,7 @@ export default function Gallery({ onOpenBooking }) {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: idx * 0.02 }}
                   onClick={() => setLightboxIndex(idx)}
-                  className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0a1804] border border-[#1f3f13] hover:border-[#facc15]/80 cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 ${item.span}`}
+                  className={`group cursor-target relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0a1804] border border-[#1f3f13] hover:border-[#facc15]/80 cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 ${item.span}`}
                 >
                   {/* Image */}
                   <img
@@ -191,7 +215,7 @@ export default function Gallery({ onOpenBooking }) {
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.25 }}
                     onClick={() => setLightboxIndex(idx)}
-                    className="group relative rounded-2xl overflow-hidden bg-[#0a1804] border border-[#1f3f13] hover:border-[#facc15]/80 aspect-[4/3] cursor-pointer shadow-md hover:shadow-xl transition-all duration-300"
+                    className="group cursor-target relative rounded-2xl overflow-hidden bg-[#0a1804] border border-[#1f3f13] hover:border-[#facc15]/80 aspect-[4/3] cursor-pointer shadow-md hover:shadow-xl transition-all duration-300"
                   >
                     <img
                       src={item.image}
@@ -255,73 +279,107 @@ export default function Gallery({ onOpenBooking }) {
           </div>
         </div>
 
-        {/* Fullscreen Lightbox Modal */}
-        <AnimatePresence>
-          {lightboxIndex !== null && currentItem && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setLightboxIndex(null)}
-              className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 sm:p-6"
-            >
-              {/* Close Button */}
-              <button
+        {/* Fullscreen Lightbox Modal (Portaled to document.body to avoid stacking context & navbar overlap) */}
+        {typeof document !== 'undefined' && createPortal(
+          <AnimatePresence>
+            {lightboxIndex !== null && currentItem && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
                 onClick={() => setLightboxIndex(null)}
-                aria-label="Close modal"
-                className="absolute top-5 right-5 sm:top-7 sm:right-7 p-2.5 rounded-full bg-[#12260a] text-zinc-300 hover:text-white border border-[#244b16] transition-all cursor-pointer z-50 shadow-lg"
+                className="fixed inset-0 z-[99999] bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 md:p-8 select-none"
               >
-                <X className="w-5 h-5" />
-              </button>
+                {/* Top Action Bar */}
+                <div 
+                  onClick={(e) => e.stopPropagation()} 
+                  className="w-full max-w-5xl mx-auto flex items-center justify-between z-30 pt-1 pb-2"
+                >
+                  {/* Left: Counter Badge */}
+                  <div className="flex items-center gap-2">
+                    <span className="bg-[#12260a] border border-[#244b16] text-[#facc15] font-headline text-xs sm:text-sm font-bold px-3 py-1 rounded-full">
+                      {String(lightboxIndex + 1).padStart(2, '0')} / {String(filteredItems.length).padStart(2, '0')}
+                    </span>
+                    <span className="text-zinc-400 font-sans-clean text-xs uppercase tracking-wider hidden sm:inline">
+                      • {currentItem.category}
+                    </span>
+                  </div>
 
-              {/* Prev Button */}
-              <button
-                onClick={handlePrev}
-                aria-label="Previous photo"
-                className="absolute left-3 sm:left-6 p-3 rounded-full bg-[#12260a]/90 text-zinc-200 hover:text-[#facc15] border border-[#244b16] transition-all cursor-pointer z-50 shadow-lg"
-              >
-                <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
-              </button>
-
-              {/* Next Button */}
-              <button
-                onClick={handleNext}
-                aria-label="Next photo"
-                className="absolute right-3 sm:right-6 p-3 rounded-full bg-[#12260a]/90 text-zinc-200 hover:text-[#facc15] border border-[#244b16] transition-all cursor-pointer z-50 shadow-lg"
-              >
-                <ChevronRight className="w-5 h-5 stroke-[2.5]" />
-              </button>
-
-              {/* Lightbox Center */}
-              <div
-                onClick={(e) => e.stopPropagation()}
-                className="max-w-4xl w-full flex flex-col items-center justify-center"
-              >
-                <div className="relative rounded-2xl overflow-hidden border border-[#214314] bg-black shadow-2xl max-h-[78vh] flex items-center justify-center">
-                  <img
-                    src={currentItem.image}
-                    alt={currentItem.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="max-h-[76vh] w-auto max-w-full object-contain rounded-2xl"
-                  />
-                  <span className="absolute top-3 left-3 bg-black/85 text-[#facc15] font-sans-clean text-xs font-bold px-3 py-1 rounded-full border border-white/10">
-                    {lightboxIndex + 1} / {filteredItems.length}
-                  </span>
-                </div>
-
-                <div className="text-center mt-3">
-                  <span className="text-[10px] font-sans-clean font-extrabold uppercase text-[#facc15] tracking-wider block">
-                    {currentItem.category}
-                  </span>
-                  <h3 className="font-headline font-black text-white text-xl sm:text-2xl uppercase tracking-wide mt-0.5">
+                  {/* Center: Image Title */}
+                  <h3 className="font-headline font-black text-white text-sm sm:text-lg lg:text-xl uppercase tracking-wide truncate max-w-[200px] sm:max-w-md text-center px-2">
                     {currentItem.title}
                   </h3>
+
+                  {/* Right: Close Button */}
+                  <button
+                    onClick={() => setLightboxIndex(null)}
+                    aria-label="Close Lightbox"
+                    className="w-10 h-10 rounded-full bg-[#12260a] hover:bg-[#facc15] text-zinc-300 hover:text-[#081303] border border-[#244b16] hover:border-[#facc15] flex items-center justify-center transition-all duration-200 cursor-pointer shadow-lg group"
+                  >
+                    <X className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  </button>
                 </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+
+                {/* Center Image Area with Navigation Buttons */}
+                <div 
+                  onClick={(e) => e.stopPropagation()} 
+                  className="relative flex-1 flex items-center justify-center w-full max-w-5xl mx-auto my-auto overflow-hidden py-1"
+                >
+                  {/* Left Prev Arrow */}
+                  <button
+                    onClick={handlePrev}
+                    aria-label="Previous photo"
+                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/80 hover:bg-[#facc15] text-white hover:text-[#081303] border border-white/20 hover:border-[#facc15] flex items-center justify-center transition-all duration-200 cursor-pointer z-40 shadow-2xl backdrop-blur-sm group"
+                  >
+                    <ChevronLeft className="w-6 h-6 stroke-[2.5] group-hover:-translate-x-0.5 transition-transform" />
+                  </button>
+
+                  {/* Active Image Box */}
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentItem.id || currentItem.image}
+                      initial={{ opacity: 0, scale: 0.96 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.96 }}
+                      transition={{ duration: 0.2 }}
+                      className="max-h-[72vh] sm:max-h-[76vh] max-w-full flex items-center justify-center rounded-2xl overflow-hidden border border-[#214314]/80 bg-zinc-950 shadow-[0_0_50px_rgba(0,0,0,0.85)]"
+                    >
+                      <img
+                        src={currentItem.image}
+                        alt={currentItem.title}
+                        className="max-h-[72vh] sm:max-h-[76vh] w-auto max-w-full object-contain select-none"
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+
+                  {/* Right Next Arrow */}
+                  <button
+                    onClick={handleNext}
+                    aria-label="Next photo"
+                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/80 hover:bg-[#facc15] text-white hover:text-[#081303] border border-white/20 hover:border-[#facc15] flex items-center justify-center transition-all duration-200 cursor-pointer z-40 shadow-2xl backdrop-blur-sm group"
+                  >
+                    <ChevronRight className="w-6 h-6 stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
+                  </button>
+                </div>
+
+                {/* Bottom Bar: Instructions */}
+                <div 
+                  onClick={(e) => e.stopPropagation()}
+                  className="w-full max-w-5xl mx-auto flex items-center justify-between text-[11px] sm:text-xs text-zinc-400 pt-2 z-30"
+                >
+                  <span className="hidden sm:inline">
+                    Click outside or press <kbd className="px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono text-[10px] border border-zinc-700">ESC</kbd> to close
+                  </span>
+                  <span className="text-[#facc15] font-sans-clean font-semibold mx-auto sm:mx-0">
+                    P Academy Gym • Uttam Nagar, Delhi
+                  </span>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body
+        )}
 
       </div>
     </section>
