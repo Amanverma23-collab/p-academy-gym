@@ -109,11 +109,12 @@ export default function Navbar({ onOpenBooking }) {
           logo="/logo.webp"
           logoAlt="P Academy Gym"
           items={mobileNavItems}
-          baseColor="#ffffff"
-          menuColor="#081303"
-          buttonBgColor="#081303"
-          buttonTextColor="#d8f801"
-          ctaText="Join Now"
+          baseColor="#090e06"
+          menuColor="#ffffff"
+          buttonBgColor="#d2ff00"
+          buttonTextColor="#081303"
+          callText="Call"
+          callNumber="+917014792446"
           onCtaClick={onOpenBooking}
         />
       </div>

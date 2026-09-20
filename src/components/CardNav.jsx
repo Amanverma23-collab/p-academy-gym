@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Phone } from 'lucide-react';
 import './CardNav.css';
 
 const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
@@ -11,11 +11,13 @@ const CardNav = ({
   items,
   className = '',
   ease = 'power3.out',
-  baseColor = '#fff',
-  menuColor = '#000',
-  buttonBgColor = '#111',
-  buttonTextColor = '#fff',
-  ctaText = 'Get Started',
+  baseColor = '#081303',
+  menuColor = '#fff',
+  buttonBgColor = '#d8f801',
+  buttonTextColor = '#081303',
+  ctaText = 'Call',
+  callText = 'Call',
+  callNumber = '+917014792446',
   onCtaClick
 }) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
@@ -173,14 +175,15 @@ const CardNav = ({
             </a>
           </div>
 
-          <button
-            type="button"
+          <a
+            href={`tel:${callNumber}`}
             className="card-nav-cta-button"
-            onClick={onCtaClick}
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
+            aria-label={`Call Gym at ${callNumber}`}
           >
-            {ctaText}
-          </button>
+            <Phone className="w-3.5 h-3.5 stroke-[2.5]" />
+            <span>{callText || 'Call'}</span>
+          </a>
         </div>
 
         <div className="card-nav-content" aria-hidden={!isExpanded}>
