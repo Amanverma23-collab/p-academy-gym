@@ -31,7 +31,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0d2106] text-white selection:bg-[#d8f801] selection:text-black font-sans antialiased overflow-x-hidden">
+    <div className="min-h-screen bg-[#0d2106] text-white selection:bg-[#facc15] selection:text-black font-sans antialiased overflow-x-hidden">
       {/* 1. Header / Navigation */}
       <Navbar onOpenBooking={handleOpenBooking} />
 

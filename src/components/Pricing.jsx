@@ -24,10 +24,10 @@ export default function Pricing({ onOpenBooking }) {
         'Basic workout chart & BMI check',
         'Free vehicle parking space',
       ],
-      buttonBg: 'bg-[#d8f801] hover:bg-[#c6e600] text-[#081303]',
+      buttonBg: 'bg-[#facc15] hover:bg-[#eab308] text-[#081303]',
       cardBg: 'bg-white text-zinc-900 border border-zinc-100 shadow-xl',
       priceColor: 'text-black',
-      checkBg: 'bg-[#0e2205] text-[#d8f801]',
+      checkBg: 'bg-[#0e2205] text-[#facc15]',
       dividerColor: 'bg-zinc-200',
     },
     {
@@ -51,9 +51,9 @@ export default function Pricing({ onOpenBooking }) {
         'Dedicated locker & changing room access',
       ],
       buttonBg: 'bg-[#081303] hover:bg-black text-white shadow-lg',
-      cardBg: 'bg-[#d8f801] text-[#081303] border-2 border-[#c2e400] shadow-[0_20px_50px_rgba(216,248,1,0.35)]',
+      cardBg: 'bg-[#facc15] text-[#081303] border-2 border-[#eab308] shadow-[0_20px_50px_rgba(250,204,21,0.2)]',
       priceColor: 'text-[#081303]',
-      checkBg: 'bg-[#081303] text-[#d8f801]',
+      checkBg: 'bg-[#081303] text-[#facc15]',
       dividerColor: 'bg-[#081303]/20',
     },
     {
@@ -77,10 +77,10 @@ export default function Pricing({ onOpenBooking }) {
         'Priority floor trainer support',
         'Quarterly fitness audits & progress checkups',
       ],
-      buttonBg: 'bg-[#d8f801] hover:bg-[#c6e600] text-[#081303]',
+      buttonBg: 'bg-[#facc15] hover:bg-[#eab308] text-[#081303]',
       cardBg: 'bg-white text-zinc-900 border border-zinc-100 shadow-xl',
       priceColor: 'text-black',
-      checkBg: 'bg-[#0e2205] text-[#d8f801]',
+      checkBg: 'bg-[#0e2205] text-[#facc15]',
       dividerColor: 'bg-zinc-200',
     },
   ];
@@ -91,7 +91,7 @@ export default function Pricing({ onOpenBooking }) {
       <div 
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none -z-0"
         style={{
-          background: 'radial-gradient(circle, rgba(216, 248, 1, 0.18) 0%, rgba(132, 204, 22, 0.08) 45%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(250, 204, 21, 0.15) 0%, rgba(132, 204, 22, 0.08) 45%, transparent 70%)',
         }}
       />
 
@@ -107,14 +107,14 @@ export default function Pricing({ onOpenBooking }) {
         >
           {/* Pill Badge: Pricing */}
           <div className="mb-4">
-            <span className="font-sans-clean bg-[#d8f801] text-[#081303] text-xs font-extrabold px-5 py-1.5 rounded-full inline-block uppercase tracking-wider shadow-sm">
+            <span className="font-sans-clean bg-[#facc15] text-[#081303] text-xs font-extrabold px-5 py-1.5 rounded-full inline-block uppercase tracking-wider shadow-sm">
               Pricing
             </span>
           </div>
 
           {/* Headline: CHOOSE THE BEST PRICING FOR YOU */}
           <h2 className="font-headline font-black text-5xl sm:text-6xl lg:text-[76px] xl:text-[84px] leading-[0.92] text-white uppercase tracking-tight">
-            CHOOSE <span className="text-[#d8f801]">THE BEST</span>
+            CHOOSE <span className="text-[#facc15]">THE BEST</span>
             <br />
             PRICING FOR YOU
           </h2>
@@ -149,7 +149,7 @@ export default function Pricing({ onOpenBooking }) {
                     <div className="flex items-center justify-between gap-2 mb-3">
                       <span className={`font-sans-clean text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full ${
                         plan.isFeatured
-                          ? 'bg-[#081303] text-[#d8f801]'
+                          ? 'bg-[#081303] text-[#facc15]'
                           : 'bg-zinc-100 text-zinc-800 border border-zinc-200'
                       }`}>
                         {plan.badge}

@@ -68,7 +68,7 @@ export default function Gallery({ onOpenBooking }) {
       <div 
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full pointer-events-none -z-0 opacity-30"
         style={{
-          background: 'radial-gradient(circle, rgba(216, 248, 1, 0.16) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(250, 204, 21, 0.12) 0%, transparent 70%)',
         }}
       />
 
@@ -78,12 +78,12 @@ export default function Gallery({ onOpenBooking }) {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-7 sm:mb-8 gap-4">
           <div>
             <div className="mb-2">
-              <span className="font-sans-clean bg-[#d8f801] text-[#081303] text-[11px] font-black px-3.5 py-1 rounded-full inline-block uppercase tracking-wider shadow-sm">
+              <span className="font-sans-clean bg-[#facc15] text-[#081303] text-[11px] font-black px-3.5 py-1 rounded-full inline-block uppercase tracking-wider shadow-sm">
                 Gallery
               </span>
             </div>
             <h2 className="font-headline font-black text-4xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight leading-none">
-              INSIDE <span className="text-[#d8f801]">P ACADEMY GYM</span>
+              INSIDE <span className="text-[#facc15]">P ACADEMY GYM</span>
             </h2>
           </div>
 
@@ -97,7 +97,7 @@ export default function Gallery({ onOpenBooking }) {
                   onClick={() => setSelectedFilter(cat)}
                   className={`font-sans-clean text-xs font-bold px-4 py-1.5 rounded-full transition-all duration-200 cursor-pointer ${
                     isActive
-                      ? 'bg-[#d8f801] text-[#081303] shadow-md scale-105'
+                      ? 'bg-[#facc15] text-[#081303] shadow-md scale-105'
                       : 'bg-[#102409] text-zinc-300 hover:text-white border border-[#214314]'
                   }`}
                 >
@@ -148,7 +148,7 @@ export default function Gallery({ onOpenBooking }) {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: idx * 0.02 }}
                   onClick={() => setLightboxIndex(idx)}
-                  className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0a1804] border border-[#1f3f13] hover:border-[#d8f801]/80 cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 ${item.span}`}
+                  className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0a1804] border border-[#1f3f13] hover:border-[#facc15]/80 cursor-pointer shadow-md hover:shadow-2xl transition-all duration-300 ${item.span}`}
                 >
                   {/* Image */}
                   <img
@@ -162,13 +162,13 @@ export default function Gallery({ onOpenBooking }) {
                   {/* Clean Hover Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-4 flex flex-col justify-between">
                     <div className="flex justify-end">
-                      <span className="w-7 h-7 rounded-full bg-white/20 md:backdrop-blur-md text-[#d8f801] border border-white/20 flex items-center justify-center shadow">
+                      <span className="w-7 h-7 rounded-full bg-white/20 md:backdrop-blur-md text-[#facc15] border border-white/20 flex items-center justify-center shadow">
                         <Maximize2 className="w-3 h-3" />
                       </span>
                     </div>
 
                     <div>
-                      <span className="text-[10px] font-sans-clean font-extrabold uppercase text-[#d8f801] tracking-wider block">
+                      <span className="text-[10px] font-sans-clean font-extrabold uppercase text-[#facc15] tracking-wider block">
                         {item.category}
                       </span>
                       <h3 className="font-headline font-black text-white text-base sm:text-lg uppercase tracking-wide leading-tight">
@@ -191,7 +191,7 @@ export default function Gallery({ onOpenBooking }) {
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.25 }}
                     onClick={() => setLightboxIndex(idx)}
-                    className="group relative rounded-2xl overflow-hidden bg-[#0a1804] border border-[#1f3f13] hover:border-[#d8f801]/80 aspect-[4/3] cursor-pointer shadow-md hover:shadow-xl transition-all duration-300"
+                    className="group relative rounded-2xl overflow-hidden bg-[#0a1804] border border-[#1f3f13] hover:border-[#facc15]/80 aspect-[4/3] cursor-pointer shadow-md hover:shadow-xl transition-all duration-300"
                   >
                     <img
                       src={item.image}
@@ -203,13 +203,13 @@ export default function Gallery({ onOpenBooking }) {
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-4 flex flex-col justify-between">
                       <div className="flex justify-end">
-                        <span className="w-7 h-7 rounded-full bg-white/20 md:backdrop-blur-md text-[#d8f801] border border-white/20 flex items-center justify-center shadow">
+                        <span className="w-7 h-7 rounded-full bg-white/20 md:backdrop-blur-md text-[#facc15] border border-white/20 flex items-center justify-center shadow">
                           <Maximize2 className="w-3 h-3" />
                         </span>
                       </div>
 
                       <div>
-                        <span className="text-[10px] font-sans-clean font-extrabold uppercase text-[#d8f801] tracking-wider block">
+                        <span className="text-[10px] font-sans-clean font-extrabold uppercase text-[#facc15] tracking-wider block">
                           {item.category}
                         </span>
                         <h3 className="font-headline font-black text-white text-base uppercase tracking-wide">
@@ -238,7 +238,7 @@ export default function Gallery({ onOpenBooking }) {
           <div className="flex items-center gap-3">
             <button
               onClick={onOpenBooking}
-              className="bg-[#d8f801] hover:bg-[#c6e500] text-[#081303] font-sans-clean font-extrabold text-xs px-5 py-2.5 rounded-full inline-flex items-center gap-1.5 shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer"
+              className="bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-extrabold text-xs px-5 py-2.5 rounded-full inline-flex items-center gap-1.5 shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer"
             >
               <span>Book Free Visit</span>
               <ArrowRight className="w-3.5 h-3.5 stroke-[3]" />
@@ -278,7 +278,7 @@ export default function Gallery({ onOpenBooking }) {
               <button
                 onClick={handlePrev}
                 aria-label="Previous photo"
-                className="absolute left-3 sm:left-6 p-3 rounded-full bg-[#12260a]/90 text-zinc-200 hover:text-[#d8f801] border border-[#244b16] transition-all cursor-pointer z-50 shadow-lg"
+                className="absolute left-3 sm:left-6 p-3 rounded-full bg-[#12260a]/90 text-zinc-200 hover:text-[#facc15] border border-[#244b16] transition-all cursor-pointer z-50 shadow-lg"
               >
                 <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
               </button>
@@ -287,7 +287,7 @@ export default function Gallery({ onOpenBooking }) {
               <button
                 onClick={handleNext}
                 aria-label="Next photo"
-                className="absolute right-3 sm:right-6 p-3 rounded-full bg-[#12260a]/90 text-zinc-200 hover:text-[#d8f801] border border-[#244b16] transition-all cursor-pointer z-50 shadow-lg"
+                className="absolute right-3 sm:right-6 p-3 rounded-full bg-[#12260a]/90 text-zinc-200 hover:text-[#facc15] border border-[#244b16] transition-all cursor-pointer z-50 shadow-lg"
               >
                 <ChevronRight className="w-5 h-5 stroke-[2.5]" />
               </button>
@@ -305,13 +305,13 @@ export default function Gallery({ onOpenBooking }) {
                     decoding="async"
                     className="max-h-[76vh] w-auto max-w-full object-contain rounded-2xl"
                   />
-                  <span className="absolute top-3 left-3 bg-black/85 text-[#d8f801] font-sans-clean text-xs font-bold px-3 py-1 rounded-full border border-white/10">
+                  <span className="absolute top-3 left-3 bg-black/85 text-[#facc15] font-sans-clean text-xs font-bold px-3 py-1 rounded-full border border-white/10">
                     {lightboxIndex + 1} / {filteredItems.length}
                   </span>
                 </div>
 
                 <div className="text-center mt-3">
-                  <span className="text-[10px] font-sans-clean font-extrabold uppercase text-[#d8f801] tracking-wider block">
+                  <span className="text-[10px] font-sans-clean font-extrabold uppercase text-[#facc15] tracking-wider block">
                     {currentItem.category}
                   </span>
                   <h3 className="font-headline font-black text-white text-xl sm:text-2xl uppercase tracking-wide mt-0.5">

@@ -16,7 +16,7 @@ function SplashCursor({
   BACK_COLOR = { r: 0.5, g: 0, b: 0 },
   TRANSPARENT = true,
   RAINBOW_MODE = false,
-  COLOR = '#d8f801',
+  COLOR = '#facc15',
   zIndex = 30,
   isFixed = false,
   className = '',

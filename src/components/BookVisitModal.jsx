@@ -42,7 +42,7 @@ export default function BookVisitModal({ isOpen, onClose }) {
 
           {/* Header */}
           <div className="mb-6">
-            <span className="text-[10px] uppercase font-bold text-lime-600 tracking-widest block mb-1">
+            <span className="text-[10px] uppercase font-bold text-yellow-600 tracking-widest block mb-1">
               P Academy Gym
             </span>
             <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-black">
@@ -82,7 +82,7 @@ export default function BookVisitModal({ isOpen, onClose }) {
                   placeholder="e.g. Vikram Singh"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-black placeholder-zinc-400 focus:outline-none focus:border-emerald-500 text-xs"
+                  className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-black placeholder-zinc-400 focus:outline-none focus:border-yellow-500 text-xs"
                 />
               </div>
 
@@ -96,11 +96,11 @@ export default function BookVisitModal({ isOpen, onClose }) {
                   placeholder="7014792446"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-black placeholder-zinc-400 focus:outline-none focus:border-emerald-500 text-xs"
+                  className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-black placeholder-zinc-400 focus:outline-none focus:border-yellow-500 text-xs"
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-wider text-zinc-600 mb-1">
                     Interested Plan
@@ -108,14 +108,13 @@ export default function BookVisitModal({ isOpen, onClose }) {
                   <select
                     value={formData.membership}
                     onChange={(e) => setFormData({ ...formData, membership: e.target.value })}
-                    className="w-full px-3 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-black focus:outline-none focus:border-emerald-500 text-xs"
+                    className="w-full px-3 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-black focus:outline-none focus:border-yellow-500 text-xs"
                   >
-                    <option value="Monthly Plan (₹1,600 / 1 Month)">Monthly Plan (₹1,600 / 1 Month)</option>
-                    <option value="Quarterly Plan (₹4,500 / 3 Months)">Quarterly Plan (₹4,500 / 3 Months) - Most Popular</option>
-                    <option value="Yearly Plan (₹10,000 / 12 Months)">Yearly Plan (₹10,000 / 12 Months) - Best Value</option>
-                    <option value="6 Months Standard (₹7,000)">6 Months Standard (₹7,000)</option>
-                    <option value="Quarterly Cardio Plan (₹5,500)">Quarterly Cardio Plan (₹5,500)</option>
-                    <option value="Yearly Cardio Plan (₹13,000)">Yearly Cardio Plan (₹13,000)</option>
+                    <option value="1 Month Standard (₹1600)">1 Month Standard (₹1,600)</option>
+                    <option value="1 Month Cardio (₹2100)">1 Month Cardio (₹2,100)</option>
+                    <option value="3 Months Standard (₹4500)">3 Months Standard (₹4,500)</option>
+                    <option value="6 Months Standard (₹7000)">6 Months Standard (₹7,000)</option>
+                    <option value="1 Year Transformation (₹10000)">1 Year Transformation (₹10,000)</option>
                   </select>
                 </div>
 
@@ -126,7 +125,7 @@ export default function BookVisitModal({ isOpen, onClose }) {
                   <select
                     value={formData.timeSlot}
                     onChange={(e) => setFormData({ ...formData, timeSlot: e.target.value })}
-                    className="w-full px-3 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-black focus:outline-none focus:border-emerald-500 text-xs"
+                    className="w-full px-3 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-black focus:outline-none focus:border-yellow-500 text-xs"
                   >
                     <option value="Morning (6 AM - 10 AM)">Morning (6 AM - 10 AM)</option>
                     <option value="Afternoon (12 PM - 4 PM)">Afternoon (12 PM - 4 PM)</option>
@@ -138,7 +137,7 @@ export default function BookVisitModal({ isOpen, onClose }) {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-xl bg-emerald-500 text-black hover:bg-emerald-400 font-heading font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-colors"
+                  className="w-full py-3.5 rounded-xl bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-heading font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-colors"
                 >
                   <Send className="w-4 h-4" />
                   Confirm Visit on WhatsApp
@@ -150,7 +149,7 @@ export default function BookVisitModal({ isOpen, onClose }) {
                   href={`tel:${GYM_INFO.phone}`}
                   className="text-[11px] font-bold text-zinc-600 hover:text-black flex items-center justify-center gap-1.5"
                 >
-                  <Phone className="w-3.5 h-3.5 text-emerald-600" />
+                  <Phone className="w-3.5 h-3.5 text-yellow-600" />
                   Or Call Directly: {GYM_INFO.phoneFormatted}
                 </a>
               </div>

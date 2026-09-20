@@ -39,7 +39,7 @@ export default function Team() {
       <div 
         className="absolute left-[-100px] top-[30%] w-[500px] h-[500px] rounded-full pointer-events-none -z-0"
         style={{
-          background: 'radial-gradient(circle, rgba(216, 248, 1, 0.2) 0%, rgba(132, 204, 22, 0.1) 40%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(250, 204, 21, 0.15) 0%, rgba(132, 204, 22, 0.08) 40%, transparent 70%)',
         }}
       />
       <div 
@@ -65,7 +65,7 @@ export default function Team() {
             <div>
               {/* Pill Tag: Our Team */}
               <div className="mb-4">
-                <span className="font-sans-clean bg-[#d8f801] text-[#081303] text-xs font-extrabold px-5 py-1.5 rounded-full inline-block uppercase tracking-wider shadow-sm">
+                <span className="font-sans-clean bg-[#facc15] text-[#081303] text-xs font-extrabold px-5 py-1.5 rounded-full inline-block uppercase tracking-wider shadow-sm">
                   Our Team
                 </span>
               </div>
@@ -74,7 +74,7 @@ export default function Team() {
               <h2 className="font-headline font-black text-4xl sm:text-5xl lg:text-[56px] text-white uppercase leading-[0.94] tracking-tight mb-5">
                 Meet Your
                 <br />
-                <span className="text-[#d8f801]">Dedicated</span>
+                <span className="text-[#facc15]">Dedicated</span>
                 <br />
                 Coaches
               </h2>
@@ -88,7 +88,7 @@ export default function Team() {
               <div className="flex flex-col gap-3.5">
                 {highlights.map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3">
-                    <div className="w-4 h-4 rounded-full bg-[#d8f801] text-[#081303] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                    <div className="w-4 h-4 rounded-full bg-[#facc15] text-[#081303] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                       <Check className="w-2.5 h-2.5 stroke-[3.5]" />
                     </div>
                     <span className="font-sans-clean text-xs sm:text-[13px] font-semibold text-zinc-200 leading-snug">
@@ -104,7 +104,7 @@ export default function Team() {
               <span className="font-brand-serif font-bold text-lg text-white">
                 P Academy Elite
               </span>
-              <span className="text-xs text-[#d8f801] font-sans-clean font-bold uppercase tracking-wider">
+              <span className="text-xs text-[#facc15] font-sans-clean font-bold uppercase tracking-wider">
                 • 100% Certified
               </span>
             </div>
@@ -119,7 +119,7 @@ export default function Team() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group rounded-3xl overflow-hidden shadow-2xl flex flex-col bg-zinc-900 border border-[#1a380c] hover:border-[#d8f801]/60 transition-all duration-300"
+                className="group rounded-3xl overflow-hidden shadow-2xl flex flex-col bg-zinc-900 border border-[#1a380c] hover:border-[#facc15]/60 transition-all duration-300"
               >
                 {/* Coach Photo */}
                 <div className="relative h-64 sm:h-72 overflow-hidden bg-zinc-950">
@@ -133,8 +133,8 @@ export default function Team() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                 </div>
 
-                {/* Bottom Neon Lime Label Bar */}
-                <div className="bg-[#d8f801] text-[#081303] py-3.5 px-4 text-center flex flex-col justify-center items-center">
+                {/* Bottom Athletic Yellow Label Bar */}
+                <div className="bg-[#facc15] text-[#081303] py-3.5 px-4 text-center flex flex-col justify-center items-center">
                   <h3 className="font-sans-clean font-extrabold text-sm sm:text-base leading-tight text-[#081303]">
                     {coach.name}
                   </h3>

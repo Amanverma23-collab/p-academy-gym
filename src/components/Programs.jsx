@@ -70,7 +70,7 @@ export default function Programs({ onOpenBooking }) {
       <div 
         className="absolute right-[-150px] top-[20%] w-[550px] h-[550px] rounded-full pointer-events-none -z-0"
         style={{
-          background: 'radial-gradient(circle, rgba(216, 248, 1, 0.25) 0%, rgba(132, 204, 22, 0.12) 40%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(250, 204, 21, 0.18) 0%, rgba(132, 204, 22, 0.1) 40%, transparent 70%)',
         }}
       />
       <div 
@@ -95,14 +95,14 @@ export default function Programs({ onOpenBooking }) {
           >
             {/* Pill Tag: Services */}
             <div className="mb-4">
-              <span className="font-sans-clean bg-[#d8f801] text-[#081303] text-xs font-extrabold px-5 py-1.5 rounded-full inline-block uppercase tracking-wider shadow-sm">
+              <span className="font-sans-clean bg-[#facc15] text-[#081303] text-xs font-extrabold px-5 py-1.5 rounded-full inline-block uppercase tracking-wider shadow-sm">
                 Services
               </span>
             </div>
 
             {/* Headline: TAILORED PROGRAMS FOR EVERY GOAL */}
             <h2 className="font-headline font-black text-5xl sm:text-6xl lg:text-[76px] xl:text-[84px] leading-[0.92] text-white uppercase tracking-tight">
-              TAILORED <span className="text-[#d8f801]">PROGRAMS</span>
+              TAILORED <span className="text-[#facc15]">PROGRAMS</span>
               <br />
               FOR EVERY GOAL
             </h2>
@@ -145,7 +145,7 @@ export default function Programs({ onOpenBooking }) {
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
-                <span className="absolute bottom-5 left-5 bg-black/70 md:backdrop-blur-md text-[#d8f801] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                <span className="absolute bottom-5 left-5 bg-black/70 md:backdrop-blur-md text-[#facc15] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
                   {current.badge}
                 </span>
               </div>
@@ -153,8 +153,8 @@ export default function Programs({ onOpenBooking }) {
               {/* Right White Details Card */}
               <div className="lg:col-span-6 bg-white rounded-3xl p-8 sm:p-10 shadow-2xl flex flex-col justify-between text-left">
                 <div>
-                  {/* Neon Lime Circle Icon */}
-                  <div className="w-12 h-12 rounded-full bg-[#d8f801] flex items-center justify-center mb-6 shadow-sm">
+                  {/* Athletic Yellow Circle Icon */}
+                  <div className="w-12 h-12 rounded-full bg-[#facc15] flex items-center justify-center mb-6 shadow-sm">
                     <IconComponent className="w-6 h-6 text-[#081303] stroke-[2.2]" />
                   </div>
 
@@ -172,7 +172,7 @@ export default function Programs({ onOpenBooking }) {
                   <div className="flex flex-col gap-3 mb-6">
                     {current.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-3">
-                        <div className="w-4 h-4 rounded-full bg-[#0e2205] text-[#d8f801] flex items-center justify-center flex-shrink-0">
+                        <div className="w-4 h-4 rounded-full bg-[#0e2205] text-[#facc15] flex items-center justify-center flex-shrink-0">
                           <Check className="w-2.5 h-2.5 stroke-[3]" />
                         </div>
                         <span className="font-sans-clean text-xs sm:text-[13px] font-semibold text-zinc-800">
@@ -187,7 +187,7 @@ export default function Programs({ onOpenBooking }) {
                 <div className="pt-2">
                   <button
                     onClick={onOpenBooking}
-                    className="bg-[#d8f801] hover:bg-[#c6e600] text-[#081303] font-sans-clean font-extrabold text-xs sm:text-sm px-7 py-3 rounded-full inline-flex items-center gap-1.5 shadow-[0_4px_20px_rgba(216,248,1,0.4)] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                    className="bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-extrabold text-xs sm:text-sm px-7 py-3 rounded-full inline-flex items-center gap-1.5 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer"
                   >
                     <span>Join Now</span>
                     <ChevronRight className="w-4 h-4 stroke-[3]" />
@@ -203,14 +203,14 @@ export default function Programs({ onOpenBooking }) {
             <button
               onClick={prevProgram}
               aria-label="Previous Program"
-              className="w-11 h-11 rounded-full bg-[#d8f801] hover:bg-[#c6e600] text-[#081303] flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+              className="w-11 h-11 rounded-full bg-[#facc15] hover:bg-[#eab308] text-[#081303] flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
             >
               <ArrowLeft className="w-5 h-5 stroke-[2.5]" />
             </button>
             <button
               onClick={nextProgram}
               aria-label="Next Program"
-              className="w-11 h-11 rounded-full bg-[#d8f801] hover:bg-[#c6e600] text-[#081303] flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+              className="w-11 h-11 rounded-full bg-[#facc15] hover:bg-[#eab308] text-[#081303] flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
             >
               <ArrowRight className="w-5 h-5 stroke-[2.5]" />
             </button>

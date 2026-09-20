@@ -39,7 +39,7 @@ export default function Footer({ onOpenBooking }) {
           {/* Left Headline */}
           <div className="lg:col-span-7 text-left">
             <h2 className="font-headline font-black text-4xl sm:text-5xl lg:text-6xl text-white uppercase leading-[0.94] tracking-tight">
-              GET STARTED <span className="text-[#d8f801]">TODAY!</span>
+              GET STARTED <span className="text-[#facc15]">TODAY!</span>
               <br />
               FIRST SESSION FREE
             </h2>
@@ -52,7 +52,7 @@ export default function Footer({ onOpenBooking }) {
             </p>
             <button
               onClick={onOpenBooking}
-              className="bg-[#d8f801] hover:bg-[#c6e600] text-[#081303] font-sans-clean font-extrabold text-xs sm:text-sm px-8 py-3.5 rounded-full inline-flex items-center gap-2 shadow-[0_4px_25px_rgba(216,248,1,0.45)] hover:scale-105 active:scale-95 transition-all w-fit cursor-pointer"
+              className="bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-extrabold text-xs sm:text-sm px-8 py-3.5 rounded-full inline-flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all w-fit cursor-pointer"
             >
               <span>Start Free Trial</span>
               <ChevronRight className="w-4 h-4 stroke-[3]" />
@@ -84,33 +84,33 @@ export default function Footer({ onOpenBooking }) {
               Through personalized coaching, cutting edge techniques and support we will help you achieve the fitness goals we have always wanted
             </p>
 
-            {/* 4 Neon Lime Social Media Circles */}
+            {/* 4 Athletic Yellow Social Media Circles */}
             <div className="flex items-center gap-3">
               <a
                 href="#"
                 aria-label="Facebook"
-                className="w-9 h-9 rounded-full bg-[#d8f801] hover:bg-[#c6e600] text-[#081303] flex items-center justify-center shadow-sm hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                className="w-9 h-9 rounded-full bg-[#facc15] hover:bg-[#eab308] text-[#081303] flex items-center justify-center shadow-sm hover:scale-110 active:scale-95 transition-all cursor-pointer"
               >
                 <FacebookIcon />
               </a>
               <a
                 href="#"
                 aria-label="Instagram"
-                className="w-9 h-9 rounded-full bg-[#d8f801] hover:bg-[#c6e600] text-[#081303] flex items-center justify-center shadow-sm hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                className="w-9 h-9 rounded-full bg-[#facc15] hover:bg-[#eab308] text-[#081303] flex items-center justify-center shadow-sm hover:scale-110 active:scale-95 transition-all cursor-pointer"
               >
                 <InstagramIcon />
               </a>
               <a
                 href="#"
                 aria-label="LinkedIn"
-                className="w-9 h-9 rounded-full bg-[#d8f801] hover:bg-[#c6e600] text-[#081303] flex items-center justify-center shadow-sm hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                className="w-9 h-9 rounded-full bg-[#facc15] hover:bg-[#eab308] text-[#081303] flex items-center justify-center shadow-sm hover:scale-110 active:scale-95 transition-all cursor-pointer"
               >
                 <LinkedinIcon />
               </a>
               <a
                 href="#"
                 aria-label="Twitter / X"
-                className="w-9 h-9 rounded-full bg-[#d8f801] hover:bg-[#c6e600] text-[#081303] flex items-center justify-center shadow-sm hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                className="w-9 h-9 rounded-full bg-[#facc15] hover:bg-[#eab308] text-[#081303] flex items-center justify-center shadow-sm hover:scale-110 active:scale-95 transition-all cursor-pointer"
               >
                 <TwitterIcon />
               </a>
@@ -124,22 +124,22 @@ export default function Footer({ onOpenBooking }) {
             </h4>
             <ul className="space-y-2.5 font-sans-clean text-xs sm:text-[13px] text-zinc-400">
               <li>
-                <a href="#hero" className="hover:text-[#d8f801] transition-colors">
+                <a href="#hero" className="hover:text-[#facc15] transition-colors">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#about" className="hover:text-[#d8f801] transition-colors">
+                <a href="#about" className="hover:text-[#facc15] transition-colors">
                   About us
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-[#d8f801] transition-colors">
+                <a href="#services" className="hover:text-[#facc15] transition-colors">
                   Services
                 </a>
               </li>
               <li>
-                <a href="#team" className="hover:text-[#d8f801] transition-colors">
+                <a href="#team" className="hover:text-[#facc15] transition-colors">
                   Coaches
                 </a>
               </li>
@@ -150,7 +150,7 @@ export default function Footer({ onOpenBooking }) {
                     e.preventDefault();
                     onOpenBooking();
                   }}
-                  className="hover:text-[#d8f801] transition-colors"
+                  className="hover:text-[#facc15] transition-colors"
                 >
                   Contact us
                 </a>
@@ -165,22 +165,22 @@ export default function Footer({ onOpenBooking }) {
             </h4>
             <ul className="space-y-2.5 font-sans-clean text-xs sm:text-[13px] text-zinc-400">
               <li>
-                <a href="#" className="hover:text-[#d8f801] transition-colors">
+                <a href="#" className="hover:text-[#facc15] transition-colors">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-[#d8f801] transition-colors">
+                <a href="#" className="hover:text-[#facc15] transition-colors">
                   Terms & Conditions
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-[#d8f801] transition-colors">
+                <a href="#" className="hover:text-[#facc15] transition-colors">
                   Member Guidelines
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-[#d8f801] transition-colors">
+                <a href="#" className="hover:text-[#facc15] transition-colors">
                   Support
                 </a>
               </li>
@@ -194,35 +194,35 @@ export default function Footer({ onOpenBooking }) {
             </h4>
             <ul className="space-y-3.5 font-sans-clean text-xs sm:text-[13px] text-zinc-400">
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#d8f801] flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#facc15] flex-shrink-0 mt-0.5" />
                 <a
                   href="https://maps.app.goo.gl/e3T3Vqe8W6evK8jN8"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#d8f801] transition-colors leading-relaxed"
+                  className="hover:text-[#facc15] transition-colors leading-relaxed"
                 >
                   1st Floor, Om Vihar-II, Plot No. 135-136, Near Aryan Garden, Uttam Nagar, Delhi 110059 ↗
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Clock className="w-4 h-4 text-[#d8f801] flex-shrink-0" />
+                <Clock className="w-4 h-4 text-[#facc15] flex-shrink-0" />
                 <span className="text-zinc-300">
                   Mon–Sat: 6–11 AM & 4–10 PM (Sun Closed)
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-[#d8f801] flex-shrink-0" />
-                <a href="tel:+919582887741" className="hover:text-[#d8f801] transition-colors">
+                <Phone className="w-4 h-4 text-[#facc15] flex-shrink-0" />
+                <a href="tel:+919582887741" className="hover:text-[#facc15] transition-colors">
                   +91 95828 87741 / +91 70147 92446
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Star className="w-4 h-4 text-[#d8f801] flex-shrink-0" />
+                <Star className="w-4 h-4 text-[#facc15] flex-shrink-0" />
                 <a
                   href="https://maps.app.goo.gl/e3T3Vqe8W6evK8jN8"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#d8f801] transition-colors font-medium text-[#d8f801]"
+                  className="hover:text-[#facc15] transition-colors font-medium text-[#facc15]"
                 >
                   4.7 ★ on Google Maps (40+ Reviews) ↗
                 </a>

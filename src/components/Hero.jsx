@@ -46,7 +46,7 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
             COLOR_UPDATE_SPEED={10}
             SHADING={true}
             RAINBOW_MODE={false}
-            COLOR="#d8f801"
+            COLOR="#facc15"
             DYE_RESOLUTION={1024}
             PRESSURE_ITERATIONS={14}
             zIndex={35}
@@ -54,11 +54,11 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
         </Suspense>
       )}
       
-      {/* Dynamic Lime Backlight Glowing Halo behind athlete (Desktop only) */}
+      {/* Subtle Warm Amber-Yellow Backlight Glow behind athlete (Desktop only) */}
       <div 
         className="hidden md:block absolute right-0 md:right-[4%] lg:right-[8%] top-[50%] -translate-y-1/2 w-[520px] sm:w-[620px] md:w-[720px] lg:w-[820px] h-[520px] sm:h-[620px] md:h-[720px] lg:h-[820px] rounded-full pointer-events-none -z-0"
         style={{
-          background: 'radial-gradient(circle, rgba(216, 248, 1, 0.44) 0%, rgba(142, 210, 10, 0.22) 44%, rgba(17, 39, 8, 0) 72%)',
+          background: 'radial-gradient(circle, rgba(250, 204, 21, 0.22) 0%, rgba(180, 140, 15, 0.12) 44%, rgba(17, 39, 8, 0) 72%)',
           filter: 'blur(35px)',
         }}
       />
@@ -67,7 +67,7 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
       <div 
         className="absolute -top-32 -left-32 w-96 h-96 rounded-full pointer-events-none -z-0"
         style={{
-          background: 'radial-gradient(circle, rgba(216, 248, 1, 0.12) 0%, rgba(17, 39, 8, 0) 70%)',
+          background: 'radial-gradient(circle, rgba(250, 204, 21, 0.08) 0%, rgba(17, 39, 8, 0) 70%)',
           filter: 'blur(40px)',
         }}
       />
@@ -87,32 +87,32 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
             transition={{ duration: 0.7, ease: 'easeOut' }}
             className="flex flex-col items-center justify-center text-center w-full px-2"
           >
-            {/* "Welcome to" in stylish neon script */}
+            {/* "Welcome to" in stylish yellow script */}
             <span 
-              className="font-script font-bold text-[#d8f801] tracking-wide block"
+              className="font-script font-bold text-[#facc15] tracking-wide block"
               style={{ 
                 fontSize: '48px', 
                 lineHeight: '0.9',
-                textShadow: '0 4px 20px rgba(216,248,1,0.65), 0 2px 8px rgba(0,0,0,0.8)' 
+                textShadow: '0 2px 10px rgba(0,0,0,0.8)' 
               }}
             >
               Welcome to
             </span>
 
-            {/* "P ACADEMY GYM" in athletic typography with glowing accent bars */}
+            {/* "P ACADEMY GYM" in athletic typography with clean yellow accent bars */}
             <div className="flex items-center justify-center gap-2 xs:gap-3 mt-1 w-full">
-              <span className="w-5 xs:w-7 h-[2px] bg-[#d8f801] rounded-full flex-shrink-0 shadow-[0_0_8px_#d8f801]" />
+              <span className="w-5 xs:w-7 h-[2px] bg-[#facc15] rounded-full flex-shrink-0" />
               <span 
                 className="font-headline uppercase text-white tracking-[0.1em] whitespace-nowrap block"
                 style={{ 
                   fontSize: '28px', 
                   lineHeight: '1',
-                  textShadow: '0 4px 18px rgba(0,0,0,0.95), 0 0 12px rgba(216,248,1,0.3)' 
+                  textShadow: '0 4px 18px rgba(0,0,0,0.95)' 
                 }}
               >
                 P ACADEMY GYM
               </span>
-              <span className="w-5 xs:w-7 h-[2px] bg-[#d8f801] rounded-full flex-shrink-0 shadow-[0_0_8px_#d8f801]" />
+              <span className="w-5 xs:w-7 h-[2px] bg-[#facc15] rounded-full flex-shrink-0" />
             </div>
 
             {/* Compact Location Pill Link */}
@@ -123,9 +123,9 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
               className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-black/60 hover:bg-black/80 border border-white/20 text-[10.5px] text-zinc-200 active:scale-95 transition-all mt-1.5 group shadow-sm cursor-pointer"
               title="View on Google Maps"
             >
-              <MapPin className="w-2.5 h-2.5 text-[#d8f801] flex-shrink-0" />
+              <MapPin className="w-2.5 h-2.5 text-[#facc15] flex-shrink-0" />
               <span className="font-sans-clean font-medium">Uttam Nagar</span>
-              <ArrowUpRight className="w-2.5 h-2.5 text-zinc-400 group-hover:text-[#d8f801]" />
+              <ArrowUpRight className="w-2.5 h-2.5 text-zinc-400 group-hover:text-[#facc15]" />
             </a>
           </motion.div>
         </div>
@@ -133,11 +133,11 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
         {/* Center/Bottom: Athlete Standing Flush on the Yellow Marquee Ribbon */}
         <div className="relative w-full max-w-[480px] mx-auto flex items-end justify-center -mb-[1px] mt-auto">
           
-          {/* Neon Lime Radial Backlight Glow behind athlete's torso/silhouette */}
+          {/* Warm Yellow Radial Backlight Glow behind athlete's torso/silhouette */}
           <div
             className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] xs:w-[420px] h-[360px] xs:h-[420px] rounded-full pointer-events-none z-0"
             style={{
-              background: 'radial-gradient(circle, rgba(216, 248, 1, 0.52) 0%, rgba(142, 210, 10, 0.28) 45%, rgba(17, 39, 8, 0) 75%)',
+              background: 'radial-gradient(circle, rgba(250, 204, 21, 0.25) 0%, rgba(202, 138, 4, 0.12) 45%, rgba(17, 39, 8, 0) 75%)',
             }}
           />
 
@@ -153,17 +153,17 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
                 <span>Y</span>
                 <span className="relative inline-flex items-center justify-center">
                   <span>O</span>
-                  {/* Glowing neon lime electric aura behind the bolt */}
+                  {/* Subtle warm glow behind the bolt */}
                   <span
                     className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2 w-[75%] h-[45%] rounded-full pointer-events-none"
                     style={{
-                      background: 'radial-gradient(circle, rgba(250, 255, 200, 0.98) 0%, rgba(216, 248, 1, 0.75) 35%, rgba(132, 204, 22, 0.3) 60%, transparent 75%)',
+                      background: 'radial-gradient(circle, rgba(254, 240, 138, 0.8) 0%, rgba(250, 204, 21, 0.35) 40%, transparent 70%)',
                       filter: 'blur(3px)',
                     }}
                   />
-                  {/* Sharp electric lightning bolt inside O */}
+                  {/* Lightning bolt inside O */}
                   <svg
-                    className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2 w-[58%] h-[38%] text-[#d8f801] fill-[#d8f801] pointer-events-none drop-shadow-[0_0_8px_rgba(216,248,1,0.95)]"
+                    className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2 w-[58%] h-[38%] text-[#facc15] fill-[#facc15] pointer-events-none drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]"
                     viewBox="0 0 24 24"
                   >
                     <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
@@ -207,7 +207,7 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               onClick={onOpenBooking}
-              className="bg-[#d8f801] hover:bg-[#c6e600] active:scale-95 text-[#081303] font-sans-clean font-bold text-xs xs:text-[13px] py-2.5 xs:py-3 px-3.5 xs:px-4.5 rounded-full flex items-center gap-1 shadow-[0_0_22px_rgba(216,248,1,0.5)] transition-all duration-200 cursor-pointer whitespace-nowrap"
+              className="bg-[#facc15] hover:bg-[#eab308] active:scale-95 text-[#081303] font-sans-clean font-bold text-xs xs:text-[13px] py-2.5 xs:py-3 px-3.5 xs:px-4.5 rounded-full flex items-center gap-1 shadow-md transition-all duration-200 cursor-pointer whitespace-nowrap"
             >
               <span>Join Now</span>
               <ChevronRight className="w-3.5 h-3.5 stroke-[3]" />
@@ -252,17 +252,17 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
                 href="https://maps.app.goo.gl/e3T3Vqe8W6evK8jN8"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] border border-white/15 text-xs text-zinc-200 hover:text-[#d8f801] transition-all group cursor-pointer backdrop-blur-sm shadow-sm"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] border border-white/15 text-xs text-zinc-200 hover:text-[#facc15] transition-all group cursor-pointer backdrop-blur-sm shadow-sm"
                 title="View Gym on Google Maps"
               >
-                <MapPin className="w-3.5 h-3.5 text-[#d8f801] group-hover:scale-110 transition-transform flex-shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-[#facc15] group-hover:scale-110 transition-transform flex-shrink-0" />
                 <span className="font-sans-clean font-medium">Om Vihar, Uttam Nagar, Delhi</span>
-                <ArrowUpRight className="w-3 h-3 text-zinc-400 group-hover:text-[#d8f801]" />
+                <ArrowUpRight className="w-3 h-3 text-zinc-400 group-hover:text-[#facc15]" />
               </a>
 
               <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-xs text-zinc-300 font-sans-clean">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#d8f801] animate-pulse"></span>
-                <Clock className="w-3 h-3 text-[#d8f801] flex-shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#facc15] animate-pulse"></span>
+                <Clock className="w-3 h-3 text-[#facc15] flex-shrink-0" />
                 <span>Mon–Sat: 6–11 AM & 4–10 PM</span>
               </div>
             </div>
@@ -275,17 +275,17 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
                   <span>Y</span>
                   <span className="relative inline-flex items-center justify-center">
                     <span className="text-white">O</span>
-                    {/* Glowing neon lime electric aura behind the bolt */}
+                    {/* Subtle warm glow behind the bolt */}
                     <span
                       className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2 w-[72%] h-[40%] rounded-full pointer-events-none"
                       style={{
-                        background: 'radial-gradient(circle, rgba(250, 255, 200, 0.98) 0%, rgba(216, 248, 1, 0.65) 35%, rgba(132, 204, 22, 0.2) 60%, transparent 75%)',
+                        background: 'radial-gradient(circle, rgba(254, 240, 138, 0.8) 0%, rgba(250, 204, 21, 0.35) 40%, transparent 70%)',
                         filter: 'blur(3.5px)',
                       }}
                     />
-                    {/* Sharp electric lightning bolt inside O */}
+                    {/* Lightning bolt inside O */}
                     <svg
-                      className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2 w-[56%] h-[35%] text-[#d8f801] fill-[#d8f801] pointer-events-none drop-shadow-[0_0_8px_rgba(216,248,1,0.95)]"
+                      className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2 w-[56%] h-[35%] text-[#facc15] fill-[#facc15] pointer-events-none drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]"
                       viewBox="0 0 24 24"
                     >
                       <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
@@ -309,7 +309,7 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
               {/* Join Now Pill Button */}
               <button
                 onClick={onOpenBooking}
-                className="bg-[#d8f801] hover:bg-[#c6e600] text-[#081303] font-sans-clean font-bold text-sm sm:text-[14.5px] px-7 sm:px-8 py-3.5 rounded-full flex items-center gap-1.5 shadow-[0_0_25px_rgba(216,248,1,0.35)] hover:shadow-[0_0_35px_rgba(216,248,1,0.55)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+                className="bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-bold text-sm sm:text-[14.5px] px-7 sm:px-8 py-3.5 rounded-full flex items-center gap-1.5 shadow-md hover:shadow-lg hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 cursor-pointer"
               >
                 <span>Join Now</span>
                 <ChevronRight className="w-4 h-4 stroke-[3]" />
@@ -321,10 +321,10 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
                 className="flex items-center gap-3 group cursor-pointer text-left focus:outline-none"
                 aria-label="Watch gym video below"
               >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-[#d8f801] transition-all duration-200">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-[#facc15] transition-all duration-200">
                   <Play className="w-4 h-4 fill-[#081303] text-[#081303] ml-0.5" />
                 </div>
-                <span className="font-sans-clean font-semibold text-white text-sm sm:text-base group-hover:text-[#d8f801] transition-colors">
+                <span className="font-sans-clean font-semibold text-white text-sm sm:text-base group-hover:text-[#facc15] transition-colors">
                   Watch video
                 </span>
               </button>
@@ -366,11 +366,11 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
               {/* Stars & Rating */}
               <div className="flex flex-col justify-center">
                 <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-0.5 text-[#d8f801]">
+                  <div className="flex items-center gap-0.5 text-[#facc15]">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className="w-3.5 h-3.5 fill-[#d8f801] text-[#d8f801]"
+                        className="w-3.5 h-3.5 fill-[#facc15] text-[#facc15]"
                       />
                     ))}
                   </div>
@@ -407,8 +407,8 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
         </div>
       </div>
 
-      {/* Bottom Full-Width Neon Lime Marquee Ticker */}
-      <div className="relative w-full bg-[#d8f801] py-3 sm:py-3.5 overflow-hidden z-20 border-t border-[#c2de00]">
+      {/* Bottom Full-Width Athletic Yellow Marquee Ticker */}
+      <div className="relative w-full bg-[#facc15] py-3 sm:py-3.5 overflow-hidden z-20 border-t border-[#eab308]">
         <div className="animate-marquee whitespace-nowrap flex items-center">
           {/* Loop twice for continuous infinite ticker */}
           {[...marqueeItems, ...marqueeItems].map((text, idx) => (

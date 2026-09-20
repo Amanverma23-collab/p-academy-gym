@@ -187,8 +187,8 @@
 /* Highlighted CTA card */
 .nav-card-cta {
   font-weight: 800 !important;
-  box-shadow: 0 4px 14px rgba(210, 255, 0, 0.35) !important;
-  border: 1px solid rgba(210, 255, 0, 0.5) !important;
+  box-shadow: 0 4px 14px rgba(250, 204, 21, 0.25) !important;
+  border: 1px solid rgba(250, 204, 21, 0.5) !important;
 }
 
 /* Default Multi-link Card (Fallback) */

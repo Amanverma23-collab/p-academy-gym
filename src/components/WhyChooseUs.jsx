@@ -53,7 +53,7 @@ export default function WhyChooseUs({ onOpenBooking }) {
         >
           {/* Pill Badge: Why Choose Us */}
           <div className="mb-4">
-            <span className="font-sans-clean bg-[#d8f801] text-[#081303] text-xs font-extrabold px-5 py-1.5 rounded-full inline-block uppercase tracking-wider shadow-sm">
+            <span className="font-sans-clean bg-[#facc15] text-[#081303] text-xs font-extrabold px-5 py-1.5 rounded-full inline-block uppercase tracking-wider shadow-sm">
               Why Choose Us
             </span>
           </div>
@@ -62,7 +62,7 @@ export default function WhyChooseUs({ onOpenBooking }) {
           <h2 className="font-headline font-black text-5xl sm:text-6xl lg:text-[76px] xl:text-[84px] leading-[0.92] text-[#0e2205] uppercase tracking-tight">
             WHY WE'RE THE
             <br />
-            <span className="text-[#d8f801]">RIGHT FIT</span> FOR YOU
+            <span className="text-[#eab308]">RIGHT FIT</span> FOR YOU
           </h2>
         </motion.div>
 
@@ -90,8 +90,8 @@ export default function WhyChooseUs({ onOpenBooking }) {
                       {item.description}
                     </p>
                   </div>
-                  {/* Neon Lime Circle Icon */}
-                  <div className="w-12 h-12 rounded-full bg-[#d8f801] flex items-center justify-center flex-shrink-0 shadow-md">
+                  {/* Athletic Yellow Circle Icon */}
+                  <div className="w-12 h-12 rounded-full bg-[#facc15] flex items-center justify-center flex-shrink-0 shadow-md">
                     <Icon className="w-5 h-5 text-[#081303] stroke-[2.2]" />
                   </div>
                 </motion.div>
@@ -99,7 +99,7 @@ export default function WhyChooseUs({ onOpenBooking }) {
             })}
           </div>
 
-          {/* Center Athlete Photo with Glowing Lime Aura */}
+          {/* Center Athlete Photo with Warm Yellow Aura */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -111,7 +111,7 @@ export default function WhyChooseUs({ onOpenBooking }) {
             <div 
               className="absolute w-[320px] sm:w-[380px] h-[320px] sm:h-[380px] rounded-full pointer-events-none -z-0"
               style={{
-                background: 'radial-gradient(circle, rgba(216, 248, 1, 0.6) 0%, rgba(132, 204, 22, 0.35) 45%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(250, 204, 21, 0.35) 0%, rgba(202, 138, 4, 0.15) 45%, transparent 70%)',
               }}
             />
 
@@ -140,8 +140,8 @@ export default function WhyChooseUs({ onOpenBooking }) {
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className="flex items-center gap-4 text-left justify-start"
                 >
-                  {/* Neon Lime Circle Icon */}
-                  <div className="w-12 h-12 rounded-full bg-[#d8f801] flex items-center justify-center flex-shrink-0 shadow-md">
+                  {/* Athletic Yellow Circle Icon */}
+                  <div className="w-12 h-12 rounded-full bg-[#facc15] flex items-center justify-center flex-shrink-0 shadow-md">
                     <Icon className="w-5 h-5 text-[#081303] stroke-[2.2]" />
                   </div>
                   <div className="flex-1">
@@ -163,7 +163,7 @@ export default function WhyChooseUs({ onOpenBooking }) {
         <div className="flex justify-center mt-6">
           <button
             onClick={onOpenBooking}
-            className="bg-[#d8f801] hover:bg-[#c6e600] text-[#081303] font-sans-clean font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-full inline-flex items-center gap-2 shadow-[0_4px_25px_rgba(216,248,1,0.5)] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+            className="bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-full inline-flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer"
           >
             <span>Start Your Free Trial</span>
             <ChevronRight className="w-4 h-4 stroke-[3]" />

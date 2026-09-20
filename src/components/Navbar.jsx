@@ -35,7 +35,7 @@ export default function Navbar({ onOpenBooking }) {
       label: "Start Free Trial",
       href: "#",
       onClick: onOpenBooking,
-      bgColor: "#d2ff00",
+      bgColor: "#facc15",
       textColor: "#081303",
       isCta: true
     }
@@ -67,10 +67,10 @@ export default function Navbar({ onOpenBooking }) {
               <a
                 key={link.name}
                 href={link.href}
-                className="font-sans-clean text-[14px] font-medium text-zinc-200 hover:text-[#d2ff00] transition-colors relative py-1 group"
+                className="font-sans-clean text-[14px] font-medium text-zinc-200 hover:text-[#facc15] transition-colors relative py-1 group"
               >
                 {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#d2ff00] group-hover:w-full transition-all duration-200"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#facc15] group-hover:w-full transition-all duration-200"></span>
               </a>
             ))}
           </nav>
@@ -79,7 +79,7 @@ export default function Navbar({ onOpenBooking }) {
           <div className="flex items-center">
             <button
               onClick={onOpenBooking}
-              className="bg-[#d2ff00] hover:bg-[#c3ec00] text-[#091204] font-sans-clean font-bold text-[13.5px] px-6 py-2.5 rounded-full flex items-center gap-1.5 shadow-[0_0_25px_rgba(210,255,0,0.35)] hover:shadow-[0_0_35px_rgba(210,255,0,0.55)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+              className="bg-[#facc15] hover:bg-[#eab308] text-[#091204] font-sans-clean font-bold text-[13.5px] px-6 py-2.5 rounded-full flex items-center gap-1.5 shadow-md hover:shadow-lg hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 cursor-pointer"
             >
               <span>Start Free Trial</span>
               <ChevronRight className="w-4 h-4 stroke-[2.5]" />
@@ -97,7 +97,7 @@ export default function Navbar({ onOpenBooking }) {
           baseColor="#ffffff"
           menuColor="#081303"
           buttonBgColor="#081303"
-          buttonTextColor="#d8f801"
+          buttonTextColor="#facc15"
           callText="Call"
           callNumber="+917014792446"
           onCtaClick={onOpenBooking}

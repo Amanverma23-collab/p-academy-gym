@@ -97,7 +97,7 @@ export default function Reviews() {
           >
             {/* Pill Tag: Reviews */}
             <div className="mb-4">
-              <span className="font-sans-clean bg-[#d8f801] text-[#081303] text-xs font-extrabold px-5 py-1.5 rounded-full inline-block uppercase tracking-wider shadow-sm">
+              <span className="font-sans-clean bg-[#facc15] text-[#081303] text-xs font-extrabold px-5 py-1.5 rounded-full inline-block uppercase tracking-wider shadow-sm">
                 Reviews
               </span>
             </div>
@@ -106,7 +106,7 @@ export default function Reviews() {
             <h2 className="font-headline font-black text-5xl sm:text-6xl lg:text-[72px] leading-[0.93] text-[#0e2205] uppercase tracking-tight mb-4">
               HEAR FROM
               <br />
-              <span className="text-[#d8f801]">HAPPY</span> CLIENTS
+              <span className="text-[#eab308]">HAPPY</span> CLIENTS
             </h2>
 
             {/* Subtitle Description */}
@@ -157,14 +157,14 @@ export default function Reviews() {
               <button
                 onClick={prevReview}
                 aria-label="Previous Review"
-                className="w-11 h-11 rounded-full bg-[#d8f801] hover:bg-[#c6e600] text-[#081303] flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+                className="w-11 h-11 rounded-full bg-[#facc15] hover:bg-[#eab308] text-[#081303] flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
               >
                 <ArrowLeft className="w-5 h-5 stroke-[2.5]" />
               </button>
               <button
                 onClick={nextReview}
                 aria-label="Next Review"
-                className="w-11 h-11 rounded-full bg-[#d8f801] hover:bg-[#c6e600] text-[#081303] flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+                className="w-11 h-11 rounded-full bg-[#facc15] hover:bg-[#eab308] text-[#081303] flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
               >
                 <ArrowRight className="w-5 h-5 stroke-[2.5]" />
               </button>
@@ -199,11 +199,11 @@ export default function Reviews() {
                 </div>
 
                 {/* 5 Stars */}
-                <div className="flex items-center gap-1 mb-6 text-[#d8f801]">
+                <div className="flex items-center gap-1 mb-6 text-[#facc15]">
                   {[...Array(current.rating)].map((_, i) => (
                     <Star
                       key={i}
-                      className="w-4 h-4 fill-[#d8f801] text-[#d8f801]"
+                      className="w-4 h-4 fill-[#facc15] text-[#facc15]"
                     />
                   ))}
                 </div>

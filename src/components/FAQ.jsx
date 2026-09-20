@@ -47,13 +47,13 @@ export default function FAQ({ onOpenBooking }) {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* Left Column: Solid Neon Lime Card */}
+          {/* Left Column: Solid Athletic Yellow Card */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-5 bg-[#d8f801] text-[#081303] rounded-3xl p-8 sm:p-10 shadow-2xl flex flex-col justify-between min-h-[440px] text-left"
+            className="lg:col-span-5 bg-[#facc15] text-[#081303] rounded-3xl p-8 sm:p-10 shadow-2xl flex flex-col justify-between min-h-[440px] text-left"
           >
             <div>
               {/* Pill Tag: FAQ'S */}
@@ -122,7 +122,7 @@ export default function FAQ({ onOpenBooking }) {
                     <div
                       className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
                         isOpen
-                          ? 'bg-[#d8f801] text-[#081303]'
+                          ? 'bg-[#facc15] text-[#081303]'
                           : 'text-zinc-600 group-hover:text-black'
                       }`}
                     >

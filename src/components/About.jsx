@@ -107,14 +107,14 @@ export default function About({ playTrigger = 0 }) {
           >
             {/* Pill Tag: About Us */}
             <div className="mb-4">
-              <span className="font-sans-clean bg-[#d8f801] text-[#081303] text-xs font-extrabold px-5 py-1.5 rounded-full inline-block uppercase tracking-wider shadow-sm">
+              <span className="font-sans-clean bg-[#facc15] text-[#081303] text-xs font-extrabold px-5 py-1.5 rounded-full inline-block uppercase tracking-wider shadow-sm">
                 About Us
               </span>
             </div>
 
             {/* Headline: THE POWER BEHIND YOUR VISION */}
             <h2 className="font-headline font-black text-6xl sm:text-7xl lg:text-[76px] xl:text-[84px] leading-[0.92] text-[#0e2205] uppercase tracking-tight">
-              THE <span className="text-[#d8f801]">POWER</span>
+              THE <span className="text-[#eab308]">POWER</span>
               <br />
               BEHIND YOUR
               <br />
@@ -138,8 +138,8 @@ export default function About({ playTrigger = 0 }) {
             {/* Vision and Mission 2-Card Row */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               
-              {/* Card 1: OUR VISION (Solid Neon Lime Pill Card) */}
-              <div className="bg-[#d8f801] text-[#081303] p-6 rounded-2xl shadow-sm flex flex-col justify-between">
+              {/* Card 1: OUR VISION (Solid Yellow Pill Card) */}
+              <div className="bg-[#facc15] text-[#081303] p-6 rounded-2xl shadow-sm flex flex-col justify-between">
                 <div>
                   <h3 className="font-sans-clean font-black text-sm tracking-wider uppercase text-[#081303]">
                     OUR VISION
@@ -225,13 +225,13 @@ export default function About({ playTrigger = 0 }) {
                 <div className="absolute inset-0 flex items-center justify-center p-4">
                   <button
                     onClick={handleStartPlay}
-                    className="bg-[#d8f801]/95 hover:bg-[#d8f801] md:backdrop-blur-md text-[#081303] px-6 sm:px-8 py-3.5 rounded-full flex items-center gap-3.5 shadow-[0_10px_35px_rgba(0,0,0,0.4)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer group/btn"
+                    className="bg-[#facc15]/95 hover:bg-[#facc15] md:backdrop-blur-md text-[#081303] px-6 sm:px-8 py-3.5 rounded-full flex items-center gap-3.5 shadow-[0_10px_35px_rgba(0,0,0,0.4)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer group/btn"
                   >
                     <span className="font-sans-clean font-extrabold text-sm sm:text-base tracking-wide text-[#081303]">
                       Play Video
                     </span>
                     <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center shadow-inner group-hover/btn:scale-110 transition-transform">
-                      <Play className="w-3.5 h-3.5 fill-[#d8f801] text-[#d8f801] ml-0.5" />
+                      <Play className="w-3.5 h-3.5 fill-[#facc15] text-[#facc15] ml-0.5" />
                     </div>
                   </button>
                 </div>
@@ -297,7 +297,7 @@ export default function About({ playTrigger = 0 }) {
                   <span className="font-brand-serif text-lg font-bold text-white">
                     P Academy Gym
                   </span>
-                  <span className="text-[#d8f801] text-xs uppercase tracking-wider font-bold">
+                  <span className="text-[#facc15] text-xs uppercase tracking-wider font-bold">
                     • Heavy Strength & Vision
                   </span>
                 </div>
@@ -323,7 +323,7 @@ export default function About({ playTrigger = 0 }) {
               {/* Modal Footer Note */}
               <div className="p-4 sm:p-5 bg-zinc-950 flex items-center justify-between border-t border-zinc-800">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#d8f801] animate-pulse"></span>
+                  <span className="w-2 h-2 rounded-full bg-[#facc15] animate-pulse"></span>
                   <p className="text-zinc-300 text-xs font-sans-clean font-medium">
                     P Academy Gym Member Training Video • HD Playback
                   </p>
