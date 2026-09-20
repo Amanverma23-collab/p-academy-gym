@@ -56,9 +56,9 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
       
       {/* Dynamic Lime Backlight Glowing Halo behind athlete (Desktop only) */}
       <div 
-        className="hidden md:block absolute right-0 md:right-[6%] lg:right-[10%] top-[52%] -translate-y-1/2 w-[460px] sm:w-[560px] md:w-[660px] lg:w-[740px] h-[460px] sm:h-[560px] md:h-[660px] lg:h-[740px] rounded-full pointer-events-none -z-0"
+        className="hidden md:block absolute right-0 md:right-[4%] lg:right-[8%] top-[50%] -translate-y-1/2 w-[520px] sm:w-[620px] md:w-[720px] lg:w-[820px] h-[520px] sm:h-[620px] md:h-[720px] lg:h-[820px] rounded-full pointer-events-none -z-0"
         style={{
-          background: 'radial-gradient(circle, rgba(216, 248, 1, 0.42) 0%, rgba(142, 210, 10, 0.22) 42%, rgba(17, 39, 8, 0) 72%)',
+          background: 'radial-gradient(circle, rgba(216, 248, 1, 0.44) 0%, rgba(142, 210, 10, 0.22) 44%, rgba(17, 39, 8, 0) 72%)',
           filter: 'blur(35px)',
         }}
       />
@@ -357,15 +357,15 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
-            className="col-span-5 flex items-end justify-center md:justify-center lg:justify-start self-end z-10 -mb-[1px]"
+            className="col-span-5 flex items-end justify-center md:justify-center lg:justify-center self-end z-10 -mb-[1px]"
           >
-            <div className="relative w-full flex items-end justify-center md:justify-center lg:justify-start pt-12 md:pt-14 lg:pt-16">
+            <div className="relative w-full flex items-end justify-center pt-2 md:pt-4">
               <img
                 src="/hero-athlete.webp"
                 alt="P Academy Gym Professional Bodybuilder"
                 loading="lazy"
                 decoding="async"
-                className="w-full max-w-[380px] sm:max-w-[440px] md:max-w-[500px] lg:max-w-[580px] xl:max-w-[640px] max-h-[calc(100vh-180px)] sm:max-h-[calc(100vh-160px)] md:max-h-[calc(100vh-140px)] lg:max-h-[calc(100vh-130px)] h-auto object-contain object-bottom -translate-x-3 sm:-translate-x-6 md:-translate-x-10 lg:-translate-x-14 xl:-translate-x-16 select-none pointer-events-none drop-shadow-[0_20px_45px_rgba(0,0,0,0.75)]"
+                className="w-full max-w-[460px] sm:max-w-[540px] md:max-w-[620px] lg:max-w-[720px] xl:max-w-[800px] 2xl:max-w-[880px] max-h-[calc(100vh-100px)] md:max-h-[calc(100vh-85px)] lg:max-h-[calc(100vh-75px)] h-auto object-contain object-bottom select-none pointer-events-none drop-shadow-[0_20px_45px_rgba(0,0,0,0.85)] scale-[1.08] lg:scale-[1.15] xl:scale-[1.20] origin-bottom"
               />
             </div>
           </motion.div>
