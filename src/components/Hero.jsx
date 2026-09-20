@@ -115,16 +115,16 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
               <span className="w-5 xs:w-7 h-[2px] bg-[#d8f801] rounded-full flex-shrink-0 shadow-[0_0_8px_#d8f801]" />
             </div>
 
-            {/* Location Pill Link */}
+            {/* Compact Location Pill Link */}
             <a
               href="https://maps.app.goo.gl/e3T3Vqe8W6evK8jN8"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 hover:bg-black/80 border border-white/20 text-[11px] text-zinc-200 active:scale-95 transition-all mt-2.5 group shadow-sm cursor-pointer"
+              className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-black/60 hover:bg-black/80 border border-white/20 text-[10.5px] text-zinc-200 active:scale-95 transition-all mt-1.5 group shadow-sm cursor-pointer"
               title="View on Google Maps"
             >
-              <MapPin className="w-3 h-3 text-[#d8f801] flex-shrink-0" />
-              <span className="font-sans-clean font-medium">Om Vihar, Uttam Nagar, Delhi</span>
+              <MapPin className="w-2.5 h-2.5 text-[#d8f801] flex-shrink-0" />
+              <span className="font-sans-clean font-medium">Uttam Nagar</span>
               <ArrowUpRight className="w-2.5 h-2.5 text-zinc-400 group-hover:text-[#d8f801]" />
             </a>
           </motion.div>
