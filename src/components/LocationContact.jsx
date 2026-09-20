@@ -57,8 +57,17 @@ export default function LocationContact() {
                   <div>
                     <h3 className="font-heading font-bold text-black text-base">Gym Address</h3>
                     <p className="text-zinc-600 text-sm mt-1 leading-relaxed">
-                      Shiv Nagar, Gorana Ki Dhani, Near Allen Coaching Centre, Piprali Road, Sikar, Rajasthan 332001
+                      {GYM_INFO.address}
                     </p>
+                    <a
+                      href={GYM_INFO.googleMapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-emerald-700 hover:text-emerald-800 font-bold text-xs mt-2 transition-colors"
+                    >
+                      <span>Open on Google Maps</span>
+                      <span>↗</span>
+                    </a>
                   </div>
                 </div>
 
@@ -205,7 +214,7 @@ export default function LocationContact() {
                   <div className="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></div>
                   <span className="font-heading text-sm font-bold text-black">Live Map Location</span>
                 </div>
-                <span className="text-xs text-zinc-600 font-medium">Near Allen Coaching, Piprali Rd</span>
+                <span className="text-xs text-zinc-600 font-medium">Om Vihar, Uttam Nagar, Delhi</span>
               </div>
 
               <div
@@ -230,14 +239,14 @@ export default function LocationContact() {
           </h2>
 
           <p className="text-zinc-300 text-base sm:text-lg max-w-xl mx-auto mb-8">
-            Experience Sikar's premier fitness destination firsthand. Walk in during operational hours or schedule a personal facility tour.
+            Experience Delhi's premier fitness destination firsthand. Walk in during operational hours or schedule a personal facility tour.
           </p>
 
           <a
             href={`tel:${GYM_INFO.phone}`}
             className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-white text-black hover:bg-emerald-400 hover:text-black transition-all duration-300 font-heading font-extrabold text-sm uppercase tracking-wider shadow-2xl"
           >
-            Visit Oxygen Gym Today
+            Visit P Academy Gym Today
           </a>
         </div>
 

@@ -1,29 +1,33 @@
 export const GYM_INFO = {
   name: "P Academy Gym",
-  city: "Sikar",
-  state: "Rajasthan",
+  city: "Uttam Nagar",
+  state: "Delhi",
   tagline: "Achieve Your Fitness Dreams",
   heroHeading: "P Academy Gym",
   heroSubheading: "Premier Fitness & Bodybuilding Destination",
   heroParagraph: "Build strength. Improve endurance. Transform your lifestyle.",
-  address: "Shiv Nagar, Gorana Ki Dhani, Near Allen Coaching Centre, Piprali Road, Sikar, Rajasthan 332001",
+  address: "1st Floor, Om Vihar-II, Plot No. 135-136, near by Aryan Garden, Phase 1, Om Vihar, Uttam Nagar, Delhi - 110059",
   phone: "7014792446",
   phoneFormatted: "+91 70147 92446",
-  hours: "5:00 AM – 10:00 PM",
-  rating: 4.9,
-  totalReviews: "180+",
-  googleShareUrl: "https://share.google/2LhtgfKyafvxOcMWS",
+  altPhone: "9582887741",
+  altPhoneFormatted: "+91 95828 87741",
+  hours: "Mon – Sat: 6:00 AM – 11:00 AM & 4:00 PM – 10:00 PM",
+  timingDetails: "Monday – Saturday: 6–11 AM & 4–10 PM | Sunday: Closed",
+  rating: 4.7,
+  totalReviews: "40+",
+  googleShareUrl: "https://maps.app.goo.gl/e3T3Vqe8W6evK8jN8",
+  googleMapsUrl: "https://maps.app.goo.gl/e3T3Vqe8W6evK8jN8",
   instagramUrl: "https://www.instagram.com/oxygen_gym01/",
   facebookUrl: "https://www.facebook.com/people/Oxygen-gym-sikar/61551582437714/",
   whatsappNumber: "917014792446",
-  googleMapIframe: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3534.832372576098!2d75.1744369!3d27.629707799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396cbb473447a23f%3A0xfe4fb31578f626ad!2sOxygen%20Gym%2C%20Sikar!5e0!3m2!1sen!2sin!4v1785436716498!5m2!1sen!2sin" width="100%" height="450" style="border:0;border-radius:16px;" allowfullscreen="" loading="lazy"></iframe>`
+  googleMapIframe: `<iframe src="https://maps.google.com/maps?q=P+Academy+Gym,+Plot+No+135-136,+Om+Vihar+Phase+1,+Uttam+Nagar,+Delhi+110059&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0;border-radius:16px;" allowfullscreen="" loading="lazy"></iframe>`
 };
 
 export const HIGHLIGHTS = [
-  { title: "Location", desc: "Near Allen Coaching, Piprali Road" },
-  { title: "Timings", desc: "5:00 AM – 10:00 PM Daily" },
-  { title: "Google Rating", desc: "4.9 ★ (180+ Reviews)" },
-  { title: "Amenities", desc: "Steam & Sauna Included" },
+  { title: "Location", desc: "Om Vihar, Uttam Nagar, Delhi" },
+  { title: "Timings", desc: "Mon–Sat: 6–11 AM & 4–10 PM (Sun Closed)" },
+  { title: "Google Rating", desc: "4.7 ★ (40+ Reviews)" },
+  { title: "Amenities", desc: "Strength & Bodybuilding Floor" },
 ];
 
 export const SERVICES = [

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, MapPin, Mail, Phone, Star } from 'lucide-react';
+import { ChevronRight, MapPin, Mail, Phone, Star, Clock } from 'lucide-react';
 
 const FacebookIcon = () => (
   <svg className="w-4 h-4 fill-[#081303]" viewBox="0 0 24 24">
@@ -196,29 +196,35 @@ export default function Footer({ onOpenBooking }) {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#d8f801] flex-shrink-0 mt-0.5" />
                 <a
-                  href="https://share.google/jtFzTjcuAYyYf9cPV"
+                  href="https://maps.app.goo.gl/e3T3Vqe8W6evK8jN8"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#d8f801] transition-colors leading-relaxed"
                 >
-                  1st Floor, Om Vihar-II, Plot No. 135-136, Near Aryan Garden, Uttam Nagar, Delhi 110059
+                  1st Floor, Om Vihar-II, Plot No. 135-136, Near Aryan Garden, Uttam Nagar, Delhi 110059 ↗
                 </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Clock className="w-4 h-4 text-[#d8f801] flex-shrink-0" />
+                <span className="text-zinc-300">
+                  Mon–Sat: 6–11 AM & 4–10 PM (Sun Closed)
+                </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-[#d8f801] flex-shrink-0" />
                 <a href="tel:+919582887741" className="hover:text-[#d8f801] transition-colors">
-                  +91 95828 87741
+                  +91 95828 87741 / +91 70147 92446
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Star className="w-4 h-4 text-[#d8f801] flex-shrink-0" />
                 <a
-                  href="https://share.google/jtFzTjcuAYyYf9cPV"
+                  href="https://maps.app.goo.gl/e3T3Vqe8W6evK8jN8"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#d8f801] transition-colors font-medium"
+                  className="hover:text-[#d8f801] transition-colors font-medium text-[#d8f801]"
                 >
-                  4.7 ★ on Google (40+ Reviews) ↗
+                  4.7 ★ on Google Maps (40+ Reviews) ↗
                 </a>
               </li>
             </ul>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, Play, Star } from 'lucide-react';
+import { ChevronRight, Play, Star, MapPin, Clock, ArrowUpRight } from 'lucide-react';
 
 const SplashCursor = React.lazy(() => import('./SplashCursor'));
 
@@ -114,6 +114,19 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
               </span>
               <span className="w-5 xs:w-7 h-[2px] bg-[#d8f801] rounded-full flex-shrink-0 shadow-[0_0_8px_#d8f801]" />
             </div>
+
+            {/* Location Pill Link */}
+            <a
+              href="https://maps.app.goo.gl/e3T3Vqe8W6evK8jN8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 hover:bg-black/80 border border-white/20 text-[11px] text-zinc-200 active:scale-95 transition-all mt-2.5 group shadow-sm cursor-pointer"
+              title="View on Google Maps"
+            >
+              <MapPin className="w-3 h-3 text-[#d8f801] flex-shrink-0" />
+              <span className="font-sans-clean font-medium">Om Vihar, Uttam Nagar, Delhi</span>
+              <ArrowUpRight className="w-2.5 h-2.5 text-zinc-400 group-hover:text-[#d8f801]" />
+            </a>
           </motion.div>
         </div>
 
@@ -233,6 +246,27 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="col-span-7 flex flex-col justify-center text-left py-8 sm:py-12 z-20"
           >
+            {/* Location & Timings Badge Row */}
+            <div className="flex flex-wrap items-center gap-2.5 mb-5">
+              <a
+                href="https://maps.app.goo.gl/e3T3Vqe8W6evK8jN8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] border border-white/15 text-xs text-zinc-200 hover:text-[#d8f801] transition-all group cursor-pointer backdrop-blur-sm shadow-sm"
+                title="View Gym on Google Maps"
+              >
+                <MapPin className="w-3.5 h-3.5 text-[#d8f801] group-hover:scale-110 transition-transform flex-shrink-0" />
+                <span className="font-sans-clean font-medium">Om Vihar, Uttam Nagar, Delhi</span>
+                <ArrowUpRight className="w-3 h-3 text-zinc-400 group-hover:text-[#d8f801]" />
+              </a>
+
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-xs text-zinc-300 font-sans-clean">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#d8f801] animate-pulse"></span>
+                <Clock className="w-3 h-3 text-[#d8f801] flex-shrink-0" />
+                <span>Mon–Sat: 6–11 AM & 4–10 PM</span>
+              </div>
+            </div>
+
             {/* Main Punchy Condensed Typography Headline */}
             <h1 className="font-headline font-normal text-5xl sm:text-6xl md:text-6xl lg:text-[76px] xl:text-[88px] uppercase leading-[0.92] tracking-tight text-white mb-6">
               <span className="block whitespace-nowrap">
