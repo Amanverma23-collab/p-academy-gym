@@ -7,7 +7,7 @@ export default function BookVisitModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    membership: '3 Months Standard (₹4500)',
+    membership: 'Quarterly Plan (₹4,500 / 3 Months)',
     timeSlot: 'Morning (6 AM - 10 AM)',
   });
   const [submitted, setSubmitted] = useState(false);
@@ -17,7 +17,7 @@ export default function BookVisitModal({ isOpen, onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const text = encodeURIComponent(
-      `Hello Oxygen Gym Sikar!\n\nI would like to book a visit to the gym.\nName: ${formData.name}\nPhone: ${formData.phone}\nInterested Plan: ${formData.membership}\nPreferred Slot: ${formData.timeSlot}`
+      `Hello P Academy Gym!\n\nI would like to book a visit / free trial.\nName: ${formData.name}\nPhone: ${formData.phone}\nInterested Plan: ${formData.membership}\nPreferred Slot: ${formData.timeSlot}`
     );
     window.open(`https://wa.me/${GYM_INFO.whatsappNumber}?text=${text}`, '_blank');
     setSubmitted(true);
@@ -42,14 +42,14 @@ export default function BookVisitModal({ isOpen, onClose }) {
 
           {/* Header */}
           <div className="mb-6">
-            <span className="text-[10px] uppercase font-bold text-emerald-600 tracking-widest block mb-1">
-              Oxygen Gym Sikar
+            <span className="text-[10px] uppercase font-bold text-lime-600 tracking-widest block mb-1">
+              P Academy Gym
             </span>
             <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-black">
               Schedule Your Gym Visit
             </h2>
             <p className="text-zinc-600 text-xs mt-1">
-              Visit our facility near Allen Coaching, Piprali Road for a tour & free body workout consultation.
+              Visit our facility for a complete tour & free body workout consultation.
             </p>
           </div>
 
@@ -110,14 +110,12 @@ export default function BookVisitModal({ isOpen, onClose }) {
                     onChange={(e) => setFormData({ ...formData, membership: e.target.value })}
                     className="w-full px-3 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-black focus:outline-none focus:border-emerald-500 text-xs"
                   >
-                    <option value="1 Month Standard (₹1600)">1 Month (₹1,600)</option>
-                    <option value="3 Months Standard (₹4500)">3 Months (₹4,500)</option>
-                    <option value="6 Months Standard (₹7000)">6 Months Standard (₹7,000)</option>
-                    <option value="12 Months Standard (₹10000)">12 Months Standard (₹10,000)</option>
-                    <option value="1 Month Cardio (₹2100)">1 Month Cardio (₹2,100)</option>
-                    <option value="3 Months Cardio (₹5500)">3 Months Cardio (₹5,500)</option>
-                    <option value="6 Months Cardio (₹8500)">6 Months Cardio (₹8,500)</option>
-                    <option value="12 Months Cardio (₹13000)">12 Months Cardio (₹13,000)</option>
+                    <option value="Monthly Plan (₹1,600 / 1 Month)">Monthly Plan (₹1,600 / 1 Month)</option>
+                    <option value="Quarterly Plan (₹4,500 / 3 Months)">Quarterly Plan (₹4,500 / 3 Months) - Most Popular</option>
+                    <option value="Yearly Plan (₹10,000 / 12 Months)">Yearly Plan (₹10,000 / 12 Months) - Best Value</option>
+                    <option value="6 Months Standard (₹7,000)">6 Months Standard (₹7,000)</option>
+                    <option value="Quarterly Cardio Plan (₹5,500)">Quarterly Cardio Plan (₹5,500)</option>
+                    <option value="Yearly Cardio Plan (₹13,000)">Yearly Cardio Plan (₹13,000)</option>
                   </select>
                 </div>
 

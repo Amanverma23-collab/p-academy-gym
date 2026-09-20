@@ -1,66 +1,172 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { WHY_CHOOSE_US } from '../data/gymData';
+import { Award, Dumbbell, ClipboardCheck, Sparkles, Utensils, Clock, ChevronRight } from 'lucide-react';
 
-export default function WhyChooseUs() {
+export default function WhyChooseUs({ onOpenBooking }) {
+  const leftFeatures = [
+    {
+      title: 'Certified Expert Coaches',
+      description: 'Train with certified professionals who guide you effectively.',
+      icon: Award,
+    },
+    {
+      title: 'State-Of-The-Art Equipment',
+      description: 'Train with the latest machines for better results.',
+      icon: Dumbbell,
+    },
+    {
+      title: 'Personalized Fitness Plans',
+      description: 'Get a plan tailored to your body, lifestyle, and goals.',
+      icon: ClipboardCheck,
+    },
+  ];
+
+  const rightFeatures = [
+    {
+      title: 'Proven Transformations',
+      description: "Join hundreds who've achieved real and lasting results here.",
+      icon: Sparkles,
+    },
+    {
+      title: 'Nutrition & Wellness Guidance',
+      description: 'Receive expert tips on meals, recovery, and overall wellness.',
+      icon: Utensils,
+    },
+    {
+      title: 'Convenient Location & Hours',
+      description: 'Train anytime with easy access and extended opening hours.',
+      icon: Clock,
+    },
+  ];
+
   return (
-    <section id="why-us" className="py-24 bg-white border-t border-zinc-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="why-us" className="relative bg-white text-black py-20 sm:py-24 lg:py-28 overflow-hidden select-none">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
         
-        {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-emerald-600 mb-2 block">
-            Why Choose Us
-          </span>
-          <h2 className="font-heading font-extrabold text-4xl sm:text-5xl text-black tracking-tight leading-none mb-4">
-            Built for Real Fitness Progress.
+        {/* Top Header Badge & Headline */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto mb-14 sm:mb-18"
+        >
+          {/* Pill Badge: Why Choose Us */}
+          <div className="mb-4">
+            <span className="font-sans-clean bg-[#d8f801] text-[#081303] text-xs font-extrabold px-5 py-1.5 rounded-full inline-block uppercase tracking-wider shadow-sm">
+              Why Choose Us
+            </span>
+          </div>
+
+          {/* Headline: WHY WE'RE THE RIGHT FIT FOR YOU */}
+          <h2 className="font-headline font-black text-5xl sm:text-6xl lg:text-[76px] xl:text-[84px] leading-[0.92] text-[#0e2205] uppercase tracking-tight">
+            WHY WE'RE THE
+            <br />
+            <span className="text-[#d8f801]">RIGHT FIT</span> FOR YOU
           </h2>
-          <p className="text-zinc-600 text-base sm:text-lg">
-            High quality equipment, clean atmosphere, certified trainers, and full steam recovery.
-          </p>
+        </motion.div>
+
+        {/* 3-Column Layout: Left Features + Center Athlete Visual + Right Features */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto mb-12">
+          
+          {/* Left 3 Features (Desktop: Aligned to the Right towards Athlete) */}
+          <div className="lg:col-span-4 flex flex-col gap-8 sm:gap-10 order-2 lg:order-1">
+            {leftFeatures.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="flex items-center gap-4 lg:flex-row flex-row-reverse text-left lg:text-right justify-start lg:justify-end"
+                >
+                  <div className="flex-1">
+                    <h3 className="font-sans-clean font-extrabold text-base sm:text-[17px] text-[#0e2205] leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="font-sans-clean text-zinc-500 text-xs sm:text-[13px] font-normal leading-relaxed mt-1">
+                      {item.description}
+                    </p>
+                  </div>
+                  {/* Neon Lime Circle Icon */}
+                  <div className="w-12 h-12 rounded-full bg-[#d8f801] flex items-center justify-center flex-shrink-0 shadow-md">
+                    <Icon className="w-5 h-5 text-[#081303] stroke-[2.2]" />
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Center Athlete Photo with Glowing Lime Aura */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="lg:col-span-4 relative flex items-center justify-center order-1 lg:order-2"
+          >
+            {/* Ambient Radial Backlight Glow */}
+            <div 
+              className="absolute w-[320px] sm:w-[380px] h-[320px] sm:h-[380px] rounded-full pointer-events-none -z-0"
+              style={{
+                background: 'radial-gradient(circle, rgba(216, 248, 1, 0.6) 0%, rgba(132, 204, 22, 0.35) 45%, transparent 70%)',
+                filter: 'blur(50px)',
+              }}
+            />
+
+            {/* Athlete Image */}
+            <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-square rounded-full overflow-hidden flex items-center justify-center">
+              <img
+                src="/images/why-choose-athlete.jpg"
+                alt="P Academy Gym Peak Physical Fitness"
+                className="w-full h-full object-cover select-none"
+              />
+            </div>
+          </motion.div>
+
+          {/* Right 3 Features (Desktop: Aligned to the Left) */}
+          <div className="lg:col-span-4 flex flex-col gap-8 sm:gap-10 order-3">
+            {rightFeatures.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="flex items-center gap-4 text-left justify-start"
+                >
+                  {/* Neon Lime Circle Icon */}
+                  <div className="w-12 h-12 rounded-full bg-[#d8f801] flex items-center justify-center flex-shrink-0 shadow-md">
+                    <Icon className="w-5 h-5 text-[#081303] stroke-[2.2]" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-sans-clean font-extrabold text-base sm:text-[17px] text-[#0e2205] leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="font-sans-clean text-zinc-500 text-xs sm:text-[13px] font-normal leading-relaxed mt-1">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
         </div>
 
-        {/* 6 Editorial Photo Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {WHY_CHOOSE_US.map((item, index) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="group rounded-3xl overflow-hidden bg-zinc-50 border border-zinc-200 flex flex-col h-[400px] shadow-sm hover:shadow-xl transition-all duration-300"
-            >
-              {/* Card Photo */}
-              <div className="relative h-56 overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-4 right-4 text-xs font-heading font-black px-3 py-1 rounded-full bg-black text-white shadow-sm">
-                  {item.id}
-                </div>
-              </div>
-
-              {/* Text */}
-              <div className="p-6 flex-1 flex flex-col justify-between bg-zinc-50">
-                <div>
-                  <h3 className="font-heading text-xl font-bold text-black mb-2 group-hover:text-emerald-600 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-zinc-200 flex items-center justify-between text-[11px] font-bold uppercase tracking-wider text-zinc-500">
-                  <span>Oxygen Gym Sikar</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+        {/* Bottom Centered Free Trial Button */}
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={onOpenBooking}
+            className="bg-[#d8f801] hover:bg-[#c6e600] text-[#081303] font-sans-clean font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-full inline-flex items-center gap-2 shadow-[0_4px_25px_rgba(216,248,1,0.5)] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+          >
+            <span>Start Your Free Trial</span>
+            <ChevronRight className="w-4 h-4 stroke-[3]" />
+          </button>
         </div>
 
       </div>

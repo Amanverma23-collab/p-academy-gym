@@ -18,9 +18,43 @@
   }
 }
 
-/* Custom Editorial Utilities */
-.text-heading {
-  font-family: 'Satoshi', 'Clash Display', sans-serif;
+/* Custom Typography Utilities */
+.font-brand-serif {
+  font-family: 'Playfair Display', 'DM Serif Display', Georgia, serif;
+}
+
+.font-headline {
+  font-family: 'Anton', 'Bebas Neue', 'Impact', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-sans-clean {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+}
+
+.font-script {
+  font-family: 'Caveat', cursive;
+}
+
+.font-luxury {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.08em;
+}
+
+/* Infinite Marquee Ticker */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
 
 .text-gradient {

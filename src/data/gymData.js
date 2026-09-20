@@ -1,10 +1,10 @@
 export const GYM_INFO = {
-  name: "Oxygen Gym",
+  name: "P Academy Gym",
   city: "Sikar",
   state: "Rajasthan",
-  tagline: "Train Strong. Stay Consistent.",
-  heroHeading: "Oxygen Gym",
-  heroSubheading: "Sikar's Premium Fitness Destination",
+  tagline: "Achieve Your Fitness Dreams",
+  heroHeading: "P Academy Gym",
+  heroSubheading: "Premier Fitness & Bodybuilding Destination",
   heroParagraph: "Build strength. Improve endurance. Transform your lifestyle.",
   address: "Shiv Nagar, Gorana Ki Dhani, Near Allen Coaching Centre, Piprali Road, Sikar, Rajasthan 332001",
   phone: "7014792446",
@@ -12,7 +12,7 @@ export const GYM_INFO = {
   hours: "5:00 AM – 10:00 PM",
   rating: 4.9,
   totalReviews: "180+",
-  googleShareUrl: "https://share.google/wyIq0eBBBUgMZLMTn",
+  googleShareUrl: "https://share.google/2LhtgfKyafvxOcMWS",
   instagramUrl: "https://www.instagram.com/oxygen_gym01/",
   facebookUrl: "https://www.facebook.com/people/Oxygen-gym-sikar/61551582437714/",
   whatsappNumber: "917014792446",
@@ -127,11 +127,76 @@ export const FACILITIES = [
 ];
 
 export const GALLERY_ITEMS = [
-  { id: 1, title: "Pro Bodyline Machine Floor", category: "Strength", image: "/images/gym-machines-white.jpg" },
-  { id: 2, title: "Cable & Strength Zone", category: "Strength", image: "/images/gym-floor-dark.jpg" },
-  { id: 3, title: "Dumbbell & Free Weight Rack", category: "Strength", image: "/images/dumbbell-rack.png" },
-  { id: 4, title: "Equipment & Functional Area", category: "Equipment", image: "/images/equipment-floor.png" },
-  { id: 5, title: "Front Desk & Reception", category: "Ambience", image: "/images/reception-desk.png" }
+  {
+    id: 1,
+    title: "Main Workout Floor",
+    category: "Machines",
+    image: "/images/pacademy/floor-workout-hall.jpg",
+    span: "col-span-2 row-span-2 h-[330px] sm:h-[370px] lg:h-[386px]",
+  },
+  {
+    id: 2,
+    title: "Strength Stations",
+    category: "Machines",
+    image: "/images/pacademy/machines-and-branding.jpg",
+    span: "col-span-2 row-span-1 h-[160px] sm:h-[180px] lg:h-[185px]",
+  },
+  {
+    id: 3,
+    title: "Free Weights Zone",
+    category: "Free Weights",
+    image: "/images/pacademy/dumbbell-weights-zone.jpg",
+    span: "col-span-1 row-span-1 h-[160px] sm:h-[180px] lg:h-[185px]",
+  },
+  {
+    id: 4,
+    title: "Dumbbell Rack",
+    category: "Free Weights",
+    image: "/images/dumbbell-rack.png",
+    span: "col-span-1 row-span-1 h-[160px] sm:h-[180px] lg:h-[185px]",
+  },
+  {
+    id: 5,
+    title: "Athletes & Champions",
+    category: "Athletes",
+    image: "/images/pacademy/community-champions.jpg",
+    span: "col-span-2 row-span-2 h-[330px] sm:h-[370px] lg:h-[386px]",
+  },
+  {
+    id: 6,
+    title: "Conditioning & Results",
+    category: "Athletes",
+    image: "/images/pacademy/physique-transformation.jpg",
+    span: "col-span-2 row-span-1 h-[160px] sm:h-[180px] lg:h-[185px]",
+  },
+  {
+    id: 7,
+    title: "Gym Entrance",
+    category: "Facility",
+    image: "/images/pacademy/exterior-front-entrance.jpg",
+    span: "col-span-1 row-span-1 h-[160px] sm:h-[180px] lg:h-[185px]",
+  },
+  {
+    id: 8,
+    title: "Power Deadlift",
+    category: "Free Weights",
+    image: "/images/about-deadlift.jpg",
+    span: "col-span-1 row-span-1 h-[160px] sm:h-[180px] lg:h-[185px]",
+  },
+  {
+    id: 9,
+    title: "Cable Stations",
+    category: "Machines",
+    image: "/images/gym-machines-white.jpg",
+    span: "col-span-1 row-span-1 h-[160px] sm:h-[180px] lg:h-[185px]",
+  },
+  {
+    id: 10,
+    title: "Coach Guidance",
+    category: "Athletes",
+    image: "/images/coaching-man.jpg",
+    span: "col-span-1 row-span-1 h-[160px] sm:h-[180px] lg:h-[185px]",
+  },
 ];
 
 export const GOOGLE_REVIEWS = [
