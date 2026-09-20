@@ -109,13 +109,13 @@ export default function Gallery({ onOpenBooking }) {
         </div>
 
         {/* MOBILE VIEW ONLY: 3D DepthCarousel */}
-        <div className="block md:hidden relative w-full h-[470px] xs:h-[510px] my-3">
+        <div className="block md:hidden relative w-full h-[470px] xs:h-[500px] my-2">
           <DepthCarousel
             key={selectedFilter}
             items={carouselItems}
-            depth={200}
-            spread={75}
-            tilt={20}
+            depth={190}
+            spread={55}
+            tilt={18}
             tiltDirection="right"
             perspective={1200}
             visibleCards={3}
@@ -123,15 +123,15 @@ export default function Gallery({ onOpenBooking }) {
             blur={4}
             autoplay={false}
             loop={true}
-            cardWidth={260}
-            cardHeight={350}
-            radius={20}
+            cardWidth={300}
+            cardHeight={420}
+            radius={22}
             tint="#071403"
             duration={650}
             ease="power3.out"
             autoplayDelay={3200}
-            showControls={true}
-            showIndicators={true}
+            showControls={false}
+            showIndicators={false}
             onItemClick={(idx) => setLightboxIndex(idx)}
           />
         </div>

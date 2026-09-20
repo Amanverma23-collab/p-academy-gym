@@ -198,8 +198,11 @@ const DepthCarousel = ({
     const ro = new ResizeObserver(entries => {
       const w = entries[0].contentRect.width;
       const cfg = cfgRef.current;
-      const needed = cfg.cardWidth + Math.abs(cfg.spread) * 2 + 80;
-      scaleRef.current = clamp(w / needed, 0.45, 1);
+      const isMobile = isMobileRef.current;
+      const needed = isMobile
+        ? cfg.cardWidth + Math.abs(cfg.spread) * 0.8
+        : cfg.cardWidth + Math.abs(cfg.spread) * 2 + 80;
+      scaleRef.current = clamp(w / needed, 0.7, 1);
       layout(posRef.current);
     });
     ro.observe(root);
