@@ -9,7 +9,7 @@ export default function MobileBar({ onOpenBooking }) {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden p-3 bg-white/95 backdrop-blur-xl border-t border-zinc-200 shadow-2xl">
+    <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden p-3 bg-white/95 border-t border-zinc-200 shadow-2xl">
       <div className="grid grid-cols-3 gap-2">
         <a
           href={`tel:${GYM_INFO.phone}`}

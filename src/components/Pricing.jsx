@@ -92,7 +92,6 @@ export default function Pricing({ onOpenBooking }) {
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none -z-0"
         style={{
           background: 'radial-gradient(circle, rgba(216, 248, 1, 0.18) 0%, rgba(132, 204, 22, 0.08) 45%, transparent 70%)',
-          filter: 'blur(100px)',
         }}
       />
 

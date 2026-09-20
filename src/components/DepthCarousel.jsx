@@ -78,12 +78,25 @@ const DepthCarousel = ({
     autoplayDelay
   };
 
+  const isMobileRef = useRef(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      isMobileRef.current = window.matchMedia('(max-width: 1023px), (pointer: coarse)').matches;
+    };
+    checkMobile();
+    const mql = window.matchMedia('(max-width: 1023px)');
+    mql.addEventListener('change', checkMobile);
+    return () => mql.removeEventListener('change', checkMobile);
+  }, []);
+
   const layout = useCallback(pos => {
     const cfg = cfgRef.current;
     const n = cfg.count;
     if (!n) return;
     const dir = cfg.tiltDirection === 'left' ? -1 : 1;
     const sc = scaleRef.current;
+    const isMobile = isMobileRef.current;
 
     for (let i = 0; i < n; i++) {
       const el = cardRefs.current[i];
@@ -112,7 +125,11 @@ const DepthCarousel = ({
 
       el.style.transform = `translate(-50%, -50%) scale(${sc}) translateX(${tx.toFixed(2)}px) translateZ(${tz.toFixed(2)}px) rotateY(${ry.toFixed(3)}deg)`;
       el.style.opacity = opacity.toFixed(3);
-      el.style.filter = `brightness(${brightness.toFixed(3)}) blur(${blurPx.toFixed(2)}px)`;
+      if (isMobile) {
+        el.style.filter = 'none';
+      } else {
+        el.style.filter = `brightness(${brightness.toFixed(3)}) blur(${blurPx.toFixed(2)}px)`;
+      }
       el.style.zIndex = String(zi);
       el.style.pointerEvents = shown && opacity > 0.05 ? 'auto' : 'none';
 
@@ -371,7 +388,7 @@ const DepthCarousel = ({
             aria-hidden={active !== i}
             onClick={() => onCardClick(i)}
           >
-            <img className="depth-carousel__img" src={item.image} alt={item.alt || ''} draggable={false} />
+            <img className="depth-carousel__img" src={item.image} alt={item.alt || ''} loading="lazy" decoding="async" draggable={false} />
             <span
               className="depth-carousel__tint"
               ref={el => (overlayRefs.current[i] = el)}

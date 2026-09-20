@@ -138,6 +138,9 @@ const ElectricBorder = ({
   );
 
   useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 1023px), (pointer: coarse)').matches;
+    if (isMobile) return;
+
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas || !container) return;
@@ -154,6 +157,7 @@ const ElectricBorder = ({
     const baseFlatness = 0;
     const displacement = 60;
     const borderOffset = 60;
+    let isVisible = false;
 
     const updateSize = () => {
       const rect = container.getBoundingClientRect();
@@ -175,7 +179,7 @@ const ElectricBorder = ({
     let lastDpr = Math.min(window.devicePixelRatio || 1, 2);
 
     const drawElectricBorder = currentTime => {
-      if (!canvas || !ctx) return;
+      if (!canvas || !ctx || !isVisible) return;
 
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       if (dpr !== lastDpr) {
@@ -255,7 +259,9 @@ const ElectricBorder = ({
       ctx.closePath();
       ctx.stroke();
 
-      animationRef.current = requestAnimationFrame(drawElectricBorder);
+      if (isVisible) {
+        animationRef.current = requestAnimationFrame(drawElectricBorder);
+      }
     };
 
     // Handle resize
@@ -266,14 +272,33 @@ const ElectricBorder = ({
     });
     resizeObserver.observe(container);
 
-    // Start animation
-    animationRef.current = requestAnimationFrame(drawElectricBorder);
+    // Only animate when visible in viewport
+    const intersectionObserver = new IntersectionObserver(
+      ([entry]) => {
+        const nowVisible = entry.isIntersecting;
+        if (nowVisible && !isVisible) {
+          isVisible = true;
+          lastFrameTimeRef.current = performance.now();
+          animationRef.current = requestAnimationFrame(drawElectricBorder);
+        } else if (!nowVisible && isVisible) {
+          isVisible = false;
+          if (animationRef.current) {
+            cancelAnimationFrame(animationRef.current);
+            animationRef.current = null;
+          }
+        }
+      },
+      { threshold: 0.05 }
+    );
+    intersectionObserver.observe(container);
 
     return () => {
+      isVisible = false;
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
       resizeObserver.disconnect();
+      intersectionObserver.disconnect();
     };
   }, [color, speed, chaos, borderRadius, thickness, octavedNoise, getRoundedRectPoint]);
 

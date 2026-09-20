@@ -191,7 +191,7 @@ export default function About({ playTrigger = 0 }) {
                 <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
                   <button
                     onClick={() => setIsVideoModalOpen(true)}
-                    className="p-2.5 rounded-full bg-black/70 hover:bg-black text-white backdrop-blur-md transition-all shadow-md cursor-pointer border border-white/15"
+                    className="p-2.5 rounded-full bg-black/70 hover:bg-black text-white md:backdrop-blur-md transition-all shadow-md cursor-pointer border border-white/15"
                     title="Open in Theater Modal"
                     aria-label="Theater Mode"
                   >
@@ -199,7 +199,7 @@ export default function About({ playTrigger = 0 }) {
                   </button>
                   <button
                     onClick={handleStopPlay}
-                    className="p-2.5 rounded-full bg-black/70 hover:bg-black text-white backdrop-blur-md transition-all shadow-md cursor-pointer border border-white/15"
+                    className="p-2.5 rounded-full bg-black/70 hover:bg-black text-white md:backdrop-blur-md transition-all shadow-md cursor-pointer border border-white/15"
                     title="Close Video"
                     aria-label="Close Video"
                   >
@@ -211,8 +211,10 @@ export default function About({ playTrigger = 0 }) {
               <>
                 {/* Background Poster Image */}
                 <img
-                  src="/images/about-deadlift.jpg"
+                  src="/images/about-deadlift.webp"
                   alt="P Academy Gym Heavy Deadlift Athletic Strength"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none"
                 />
 
@@ -223,7 +225,7 @@ export default function About({ playTrigger = 0 }) {
                 <div className="absolute inset-0 flex items-center justify-center p-4">
                   <button
                     onClick={handleStartPlay}
-                    className="bg-[#d8f801]/95 hover:bg-[#d8f801] backdrop-blur-md text-[#081303] px-6 sm:px-8 py-3.5 rounded-full flex items-center gap-3.5 shadow-[0_10px_35px_rgba(0,0,0,0.4)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer group/btn"
+                    className="bg-[#d8f801]/95 hover:bg-[#d8f801] md:backdrop-blur-md text-[#081303] px-6 sm:px-8 py-3.5 rounded-full flex items-center gap-3.5 shadow-[0_10px_35px_rgba(0,0,0,0.4)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer group/btn"
                   >
                     <span className="font-sans-clean font-extrabold text-sm sm:text-base tracking-wide text-[#081303]">
                       Play Video
@@ -279,7 +281,7 @@ export default function About({ playTrigger = 0 }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/90 md:backdrop-blur-md"
             onClick={() => setIsVideoModalOpen(false)}
           >
             <motion.div

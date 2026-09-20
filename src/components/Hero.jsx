@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight, Play, Star } from 'lucide-react';
-import SplashCursor from './SplashCursor';
+
+const SplashCursor = React.lazy(() => import('./SplashCursor'));
 
 export default function Hero({ onOpenBooking, onWatchVideo }) {
+  const [enableSplash, setEnableSplash] = useState(false);
+
+  useEffect(() => {
+    const checkSupport = () => {
+      const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 1024px)').matches;
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      setEnableSplash(hasFinePointer && !prefersReduced);
+    };
+
+    checkSupport();
+    const mql = window.matchMedia('(min-width: 1024px)');
+    mql.addEventListener('change', checkSupport);
+    return () => mql.removeEventListener('change', checkSupport);
+  }, []);
+
   // Bottom ribbon ticker items
   const marqueeItems = [
     'Certified Trainers',
@@ -17,28 +33,33 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
   ];
 
   return (
-    <section className="relative w-full min-h-screen bg-[#112708] flex flex-col justify-between overflow-hidden select-none">
-      {/* Interactive WebGL Fluid Splash Cursor Effect - Layers OVER athlete body */}
-      <SplashCursor
-        DENSITY_DISSIPATION={3.2}
-        VELOCITY_DISSIPATION={2}
-        PRESSURE={0.1}
-        CURL={3}
-        SPLAT_RADIUS={0.28}
-        SPLAT_FORCE={6000}
-        COLOR_UPDATE_SPEED={10}
-        SHADING
-        RAINBOW_MODE={false}
-        COLOR="#d8f801"
-        zIndex={35}
-      />
+    <section className="relative w-full min-h-svh bg-[#112708] flex flex-col justify-between overflow-hidden select-none">
+      {/* Interactive WebGL Fluid Splash Cursor Effect - Desktop Fine Pointer Only */}
+      {enableSplash && (
+        <Suspense fallback={null}>
+          <SplashCursor
+            DENSITY_DISSIPATION={3.2}
+            VELOCITY_DISSIPATION={2}
+            PRESSURE={0.1}
+            CURL={3}
+            SPLAT_RADIUS={0.28}
+            SPLAT_FORCE={6000}
+            COLOR_UPDATE_SPEED={10}
+            SHADING={true}
+            RAINBOW_MODE={false}
+            COLOR="#d8f801"
+            DYE_RESOLUTION={768}
+            PRESSURE_ITERATIONS={10}
+            zIndex={35}
+          />
+        </Suspense>
+      )}
       
       {/* Dynamic Lime Backlight Glowing Halo behind athlete (Desktop only) */}
       <div 
         className="hidden md:block absolute right-0 md:right-[6%] lg:right-[10%] top-[52%] -translate-y-1/2 w-[460px] sm:w-[560px] md:w-[660px] lg:w-[740px] h-[460px] sm:h-[560px] md:h-[660px] lg:h-[740px] rounded-full pointer-events-none -z-0"
         style={{
           background: 'radial-gradient(circle, rgba(216, 248, 1, 0.42) 0%, rgba(142, 210, 10, 0.22) 42%, rgba(17, 39, 8, 0) 72%)',
-          filter: 'blur(35px)',
         }}
       />
 
@@ -47,7 +68,6 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
         className="absolute -top-32 -left-32 w-96 h-96 rounded-full pointer-events-none -z-0"
         style={{
           background: 'radial-gradient(circle, rgba(216, 248, 1, 0.12) 0%, rgba(17, 39, 8, 0) 70%)',
-          filter: 'blur(40px)',
         }}
       />
 
@@ -104,7 +124,6 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
             className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] xs:w-[420px] h-[360px] xs:h-[420px] rounded-full pointer-events-none z-0"
             style={{
               background: 'radial-gradient(circle, rgba(216, 248, 1, 0.52) 0%, rgba(142, 210, 10, 0.28) 45%, rgba(17, 39, 8, 0) 75%)',
-              filter: 'blur(32px)',
             }}
           />
 
@@ -160,7 +179,7 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
             className="relative z-10 w-full flex items-end justify-center pointer-events-none -mb-[1px]"
           >
             <img
-              src="/hero-athlete-mobile.png"
+              src="/hero-athlete-mobile.webp"
               alt="P Academy Gym Professional Athlete"
               className="w-[450px] xs:w-[490px] max-w-none h-auto max-h-[82vh] object-contain object-bottom -mb-[1px] select-none pointer-events-none drop-shadow-[0_20px_45px_rgba(0,0,0,0.92)]"
             />
@@ -186,7 +205,7 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               onClick={onWatchVideo}
-              className="flex items-center gap-1.5 xs:gap-2 py-2.5 xs:py-3 px-3 xs:px-3.5 rounded-full bg-black/60 hover:bg-black/80 active:scale-95 border border-white/25 backdrop-blur-md text-white font-sans-clean font-semibold text-xs xs:text-[12.5px] shadow-[0_4px_20px_rgba(0,0,0,0.6)] transition-all duration-200 cursor-pointer whitespace-nowrap"
+              className="flex items-center gap-1.5 xs:gap-2 py-2.5 xs:py-3 px-3 xs:px-3.5 rounded-full bg-black/60 hover:bg-black/80 active:scale-95 border border-white/25 md:backdrop-blur-md text-white font-sans-clean font-semibold text-xs xs:text-[12.5px] shadow-[0_4px_20px_rgba(0,0,0,0.6)] transition-all duration-200 cursor-pointer whitespace-nowrap"
               aria-label="Watch gym video"
             >
               <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center shadow">
@@ -281,18 +300,30 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
               {/* 3 Overlapping Avatars */}
               <div className="flex items-center">
                 <img
-                  src="/avatars/vikrant.jpg"
+                  src="/avatars/vikrant.webp"
                   alt="Vikrant Sharma - Google Reviewer"
+                  loading="lazy"
+                  decoding="async"
+                  width="44"
+                  height="44"
                   className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-white object-cover shadow-md"
                 />
                 <img
-                  src="/avatars/prateek.jpg"
+                  src="/avatars/prateek.webp"
                   alt="Prateek Verma - Google Reviewer"
+                  loading="lazy"
+                  decoding="async"
+                  width="44"
+                  height="44"
                   className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-white object-cover -ml-3 shadow-md"
                 />
                 <img
-                  src="/avatars/aditya.jpg"
+                  src="/avatars/aditya.webp"
                   alt="Aditya Chaudhary - Google Reviewer"
+                  loading="lazy"
+                  decoding="async"
+                  width="44"
+                  height="44"
                   className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-white object-cover -ml-3 shadow-md"
                 />
               </div>
@@ -329,8 +360,10 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
           >
             <div className="relative w-full flex items-end justify-center md:justify-center lg:justify-start pt-12 md:pt-14 lg:pt-16">
               <img
-                src="/hero-athlete.png"
+                src="/hero-athlete.webp"
                 alt="P Academy Gym Professional Bodybuilder"
+                loading="lazy"
+                decoding="async"
                 className="w-full max-w-[380px] sm:max-w-[440px] md:max-w-[500px] lg:max-w-[580px] xl:max-w-[640px] max-h-[calc(100vh-180px)] sm:max-h-[calc(100vh-160px)] md:max-h-[calc(100vh-140px)] lg:max-h-[calc(100vh-130px)] h-auto object-contain object-bottom -translate-x-3 sm:-translate-x-6 md:-translate-x-10 lg:-translate-x-14 xl:-translate-x-16 select-none pointer-events-none drop-shadow-[0_20px_45px_rgba(0,0,0,0.75)]"
               />
             </div>

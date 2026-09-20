@@ -64,3 +64,15 @@
   opacity: 0.45;
   background: radial-gradient(circle, var(--electric-border-color) 0%, transparent 70%);
 }
+
+@media (max-width: 1023px), (pointer: coarse) {
+  .eb-canvas-container {
+    display: none !important;
+  }
+  .eb-glow-1,
+  .eb-glow-2,
+  .eb-background-glow {
+    display: none !important;
+    filter: none !important;
+  }
+}

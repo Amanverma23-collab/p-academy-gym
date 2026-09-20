@@ -69,7 +69,6 @@ export default function Gallery({ onOpenBooking }) {
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] rounded-full pointer-events-none -z-0 opacity-30"
         style={{
           background: 'radial-gradient(circle, rgba(216, 248, 1, 0.16) 0%, transparent 70%)',
-          filter: 'blur(100px)',
         }}
       />
 
@@ -156,13 +155,14 @@ export default function Gallery({ onOpenBooking }) {
                     src={item.image}
                     alt={item.title}
                     loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500 ease-out"
                   />
 
                   {/* Clean Hover Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-4 flex flex-col justify-between">
                     <div className="flex justify-end">
-                      <span className="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md text-[#d8f801] border border-white/20 flex items-center justify-center shadow">
+                      <span className="w-7 h-7 rounded-full bg-white/20 md:backdrop-blur-md text-[#d8f801] border border-white/20 flex items-center justify-center shadow">
                         <Maximize2 className="w-3 h-3" />
                       </span>
                     </div>
@@ -197,12 +197,13 @@ export default function Gallery({ onOpenBooking }) {
                       src={item.image}
                       alt={item.title}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500 ease-out"
                     />
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-4 flex flex-col justify-between">
                       <div className="flex justify-end">
-                        <span className="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md text-[#d8f801] border border-white/20 flex items-center justify-center shadow">
+                        <span className="w-7 h-7 rounded-full bg-white/20 md:backdrop-blur-md text-[#d8f801] border border-white/20 flex items-center justify-center shadow">
                           <Maximize2 className="w-3 h-3" />
                         </span>
                       </div>
@@ -262,7 +263,7 @@ export default function Gallery({ onOpenBooking }) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setLightboxIndex(null)}
-              className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6"
+              className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 sm:p-6"
             >
               {/* Close Button */}
               <button
@@ -300,9 +301,11 @@ export default function Gallery({ onOpenBooking }) {
                   <img
                     src={currentItem.image}
                     alt={currentItem.title}
+                    loading="lazy"
+                    decoding="async"
                     className="max-h-[76vh] w-auto max-w-full object-contain rounded-2xl"
                   />
-                  <span className="absolute top-3 left-3 bg-black/75 backdrop-blur-md text-[#d8f801] font-sans-clean text-xs font-bold px-3 py-1 rounded-full border border-white/10">
+                  <span className="absolute top-3 left-3 bg-black/85 text-[#d8f801] font-sans-clean text-xs font-bold px-3 py-1 rounded-full border border-white/10">
                     {lightboxIndex + 1} / {filteredItems.length}
                   </span>
                 </div>

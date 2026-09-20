@@ -10,7 +10,7 @@ export default function Navbar({ onOpenBooking }) {
     const handleScroll = () => {
       setScrolled(window.scrollY > 30);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -29,7 +29,7 @@ export default function Navbar({ onOpenBooking }) {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-[#0e1f07]/95 backdrop-blur-md py-3 md:py-4 border-b border-[#234212]/60 shadow-xl'
+            ? 'bg-[#0e1f07]/95 py-3 md:py-4 border-b border-[#234212]/60 shadow-xl'
             : 'bg-transparent py-3.5 md:py-7'
         }`}
       >
@@ -37,7 +37,7 @@ export default function Navbar({ onOpenBooking }) {
           {/* Logo: P Academy Gym */}
           <a href="#" className="flex items-center group py-1">
             <img
-              src="/logo.png"
+              src="/logo.webp"
               alt="P Academy Gym"
               className="h-10 sm:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
             />
@@ -87,7 +87,7 @@ export default function Navbar({ onOpenBooking }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-[#0e1f07]/98 backdrop-blur-2xl md:hidden pt-28 px-8 pb-10 flex flex-col justify-between"
+            className="fixed inset-0 z-40 bg-[#0e1f07]/98 md:hidden pt-28 px-8 pb-10 flex flex-col justify-between"
           >
             <div className="flex flex-col gap-5">
               {navLinks.map((link) => (

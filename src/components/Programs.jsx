@@ -11,7 +11,7 @@ export default function Programs({ onOpenBooking }) {
       title: 'One-On-One Coaching',
       badge: 'Personal Training',
       icon: User,
-      image: '/images/coaching-man.jpg',
+      image: '/images/coaching-man.webp',
       description:
         'Experience the power of personalized attention. Our one-on-one coaching sessions are crafted to your specific needs, ensuring rapid progress and lasting results',
       features: [
@@ -26,7 +26,7 @@ export default function Programs({ onOpenBooking }) {
       title: 'Strength & Hypertrophy',
       badge: 'Muscle Building',
       icon: Dumbbell,
-      image: '/images/about-deadlift.jpg',
+      image: '/images/about-deadlift.webp',
       description:
         'Supercharge your muscular power and raw strength with progressive overload protocols tailored by expert strength coaches.',
       features: [
@@ -41,7 +41,7 @@ export default function Programs({ onOpenBooking }) {
       title: 'Fat Loss & HIIT Conditioning',
       badge: 'Metabolic Conditioning',
       icon: Flame,
-      image: '/hero-athlete.jpg',
+      image: '/hero-athlete.webp',
       description:
         'Torch calories, boost functional cardiovascular stamina, and transform body composition with intense metabolic resistance workouts.',
       features: [
@@ -71,14 +71,12 @@ export default function Programs({ onOpenBooking }) {
         className="absolute right-[-150px] top-[20%] w-[550px] h-[550px] rounded-full pointer-events-none -z-0"
         style={{
           background: 'radial-gradient(circle, rgba(216, 248, 1, 0.25) 0%, rgba(132, 204, 22, 0.12) 40%, transparent 70%)',
-          filter: 'blur(90px)',
         }}
       />
       <div 
         className="absolute left-[-150px] bottom-[10%] w-[500px] h-[500px] rounded-full pointer-events-none -z-0"
         style={{
           background: 'radial-gradient(circle, rgba(74, 130, 20, 0.2) 0%, transparent 70%)',
-          filter: 'blur(100px)',
         }}
       />
 
@@ -142,10 +140,12 @@ export default function Programs({ onOpenBooking }) {
                 <img
                   src={current.image}
                   alt={current.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
-                <span className="absolute bottom-5 left-5 bg-black/70 backdrop-blur-md text-[#d8f801] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                <span className="absolute bottom-5 left-5 bg-black/70 md:backdrop-blur-md text-[#d8f801] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
                   {current.badge}
                 </span>
               </div>

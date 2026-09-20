@@ -69,8 +69,12 @@ export default function Footer({ onOpenBooking }) {
             {/* Brand Logo */}
             <a href="#" className="inline-block mb-4 group">
               <img
-                src="/logo.png"
+                src="/logo.webp"
                 alt="P Academy Gym"
+                loading="lazy"
+                decoding="async"
+                width="160"
+                height="64"
                 className="h-14 sm:h-16 w-auto object-contain drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform duration-200"
               />
             </a>

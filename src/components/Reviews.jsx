@@ -12,7 +12,7 @@ export default function Reviews() {
       id: 1,
       name: 'Prateek Verma',
       role: 'Google Local Reviewer',
-      avatar: '/avatars/prateek.jpg',
+      avatar: '/avatars/prateek.webp',
       rating: 5,
       date: 'Google Maps Review',
       quote:
@@ -22,7 +22,7 @@ export default function Reviews() {
       id: 2,
       name: 'Vikrant Sharma',
       role: 'Google Local Reviewer',
-      avatar: '/avatars/vikrant.jpg',
+      avatar: '/avatars/vikrant.webp',
       rating: 5,
       date: 'Google Maps Review',
       quote:
@@ -32,7 +32,7 @@ export default function Reviews() {
       id: 3,
       name: 'Akash Kaushik',
       role: 'Google Verified Reviewer',
-      avatar: '/avatars/akash.jpg',
+      avatar: '/avatars/akash.webp',
       rating: 5,
       date: 'Google Maps Review',
       quote:
@@ -42,7 +42,7 @@ export default function Reviews() {
       id: 4,
       name: 'Aditya Chaudhary',
       role: 'Google Local Reviewer',
-      avatar: '/avatars/aditya.jpg',
+      avatar: '/avatars/aditya.webp',
       rating: 5,
       date: 'Google Maps Review',
       quote:
@@ -52,7 +52,7 @@ export default function Reviews() {
       id: 5,
       name: 'Kaajjal Pherwani',
       role: 'Google Verified Reviewer',
-      avatar: '/avatars/kaajjal.jpg',
+      avatar: '/avatars/kaajjal.webp',
       rating: 5,
       date: 'Google Maps Review',
       quote:
@@ -62,7 +62,7 @@ export default function Reviews() {
       id: 6,
       name: 'Jennifer (Jenna)',
       role: 'Google Verified Reviewer',
-      avatar: '/avatars/jennifer.jpg',
+      avatar: '/avatars/jennifer.webp',
       rating: 5,
       date: 'Google Maps Review',
       quote:
@@ -219,6 +219,10 @@ export default function Reviews() {
                     <img
                       src={current.avatar}
                       alt={current.name}
+                      loading="lazy"
+                      decoding="async"
+                      width="56"
+                      height="56"
                       className="w-full h-full rounded-full object-cover select-none"
                     />
                   </div>

@@ -7,22 +7,22 @@ export default function Team() {
     {
       name: 'Trainer Devender Dahiya',
       role: 'Head Coach & Transformation Specialist',
-      image: '/trainers/trainer-rayhan.jpg',
+      image: '/trainers/trainer-rayhan.webp',
     },
     {
       name: 'Trainer Aman Sharma',
       role: 'Bodybuilding & Strength Coach',
-      image: '/trainers/trainer-rabbi.jpg',
+      image: '/trainers/trainer-rabbi.webp',
     },
     {
       name: 'Trainer Pooja Malik',
       role: 'Strength & Conditioning Coach',
-      image: '/trainers/trainer-maryam.jpg',
+      image: '/trainers/trainer-maryam.webp',
     },
     {
       name: 'Trainer Neha Sharma',
       role: 'Functional Trainer & Mobility Specialist',
-      image: '/trainers/trainer-brock.jpg',
+      image: '/trainers/trainer-brock.webp',
     },
   ];
 
@@ -40,14 +40,12 @@ export default function Team() {
         className="absolute left-[-100px] top-[30%] w-[500px] h-[500px] rounded-full pointer-events-none -z-0"
         style={{
           background: 'radial-gradient(circle, rgba(216, 248, 1, 0.2) 0%, rgba(132, 204, 22, 0.1) 40%, transparent 70%)',
-          filter: 'blur(90px)',
         }}
       />
       <div 
         className="absolute right-[-100px] bottom-[10%] w-[500px] h-[500px] rounded-full pointer-events-none -z-0"
         style={{
           background: 'radial-gradient(circle, rgba(74, 130, 20, 0.22) 0%, transparent 70%)',
-          filter: 'blur(100px)',
         }}
       />
 
@@ -128,6 +126,8 @@ export default function Team() {
                   <img
                     src={coach.image}
                     alt={coach.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />

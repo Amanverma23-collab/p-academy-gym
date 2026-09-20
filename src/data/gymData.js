@@ -42,37 +42,37 @@ export const WHY_CHOOSE_US = [
     id: "01",
     title: "Modern Equipment",
     description: "Pro Bodyline strength machines, multi-pulley cable stations, and heavy plate-loaded equipment across the floor.",
-    image: "/images/gym-machines-white.jpg",
+    image: "/images/gym-machines-white.webp",
   },
   {
     id: "02",
     title: "Certified Trainers",
     description: "Experienced trainers present on the floor to correct posture, structure your workout split, and track progress.",
-    image: "/images/reception-desk.png",
+    image: "/images/reception-desk.webp",
   },
   {
     id: "03",
     title: "Steam & Sauna",
     description: "Hygienic steam bath and traditional sauna suite for post-workout muscle recovery and relaxation.",
-    image: "/images/gym-floor-dark.jpg",
+    image: "/images/gym-floor-dark.webp",
   },
   {
     id: "04",
     title: "Spacious Workout Area",
     description: "Well-ventilated layout with rubber flooring, large mirrors, and enough space so you never feel cramped during peak hours.",
-    image: "/images/equipment-floor.png",
+    image: "/images/equipment-floor.webp",
   },
   {
     id: "05",
     title: "Free Weight Section",
     description: "Full dumbbell rack, benches, and dedicated free weight area for compound and isolation movements.",
-    image: "/images/dumbbell-rack.png",
+    image: "/images/dumbbell-rack.webp",
   },
   {
     id: "06",
     title: "Affordable Membership",
     description: "Straightforward, honest pricing starting from ₹1,600/month with zero hidden maintenance fees.",
-    image: "/images/gym-machines-white.jpg",
+    image: "/images/gym-machines-white.webp",
   }
 ];
 
@@ -97,32 +97,32 @@ export const FACILITIES = [
   {
     title: "Strength Area",
     desc: "Pro Bodyline multi-pulley stations, heavy plate-loaded machines, and dedicated strength floor.",
-    image: "/images/gym-machines-white.jpg"
+    image: "/images/gym-machines-white.webp"
   },
   {
     title: "Free Weights & Dumbbells",
     desc: "Full dumbbell rack with adjustable benches for compound presses, rows, and isolation work.",
-    image: "/images/dumbbell-rack.png"
+    image: "/images/dumbbell-rack.webp"
   },
   {
     title: "Cable & Machine Floor",
     desc: "Pro Bodyline cable crossovers, lat pulldowns, leg press, and plate-loaded functional machines.",
-    image: "/images/gym-floor-dark.jpg"
+    image: "/images/gym-floor-dark.webp"
   },
   {
     title: "Equipment Zone",
     desc: "Spacious workout area with rubber flooring, large mirrors, and heavy-duty commercial machines.",
-    image: "/images/equipment-floor.png"
+    image: "/images/equipment-floor.webp"
   },
   {
     title: "Steam & Sauna",
     desc: "Dedicated steam bath and sauna suite for post-workout recovery, maintained with daily hygiene standard.",
-    image: "/images/gym-machines-white.jpg"
+    image: "/images/gym-machines-white.webp"
   },
   {
     title: "Reception & Front Desk",
     desc: "Friendly front desk for membership queries, guest passes, and scheduling trainer sessions.",
-    image: "/images/reception-desk.png"
+    image: "/images/reception-desk.webp"
   }
 ];
 
@@ -131,70 +131,70 @@ export const GALLERY_ITEMS = [
     id: 1,
     title: "Main Workout Floor",
     category: "Machines",
-    image: "/images/pacademy/floor-workout-hall.jpg",
+    image: "/images/pacademy/floor-workout-hall.webp",
     span: "col-span-2 row-span-2 h-[330px] sm:h-[370px] lg:h-[386px]",
   },
   {
     id: 2,
     title: "Strength Stations",
     category: "Machines",
-    image: "/images/pacademy/machines-and-branding.jpg",
+    image: "/images/pacademy/machines-and-branding.webp",
     span: "col-span-2 row-span-1 h-[160px] sm:h-[180px] lg:h-[185px]",
   },
   {
     id: 3,
     title: "Free Weights Zone",
     category: "Free Weights",
-    image: "/images/pacademy/dumbbell-weights-zone.jpg",
+    image: "/images/pacademy/dumbbell-weights-zone.webp",
     span: "col-span-1 row-span-1 h-[160px] sm:h-[180px] lg:h-[185px]",
   },
   {
     id: 4,
     title: "Dumbbell Rack",
     category: "Free Weights",
-    image: "/images/dumbbell-rack.png",
+    image: "/images/dumbbell-rack.webp",
     span: "col-span-1 row-span-1 h-[160px] sm:h-[180px] lg:h-[185px]",
   },
   {
     id: 5,
     title: "Athletes & Champions",
     category: "Athletes",
-    image: "/images/pacademy/community-champions.jpg",
+    image: "/images/pacademy/community-champions.webp",
     span: "col-span-2 row-span-2 h-[330px] sm:h-[370px] lg:h-[386px]",
   },
   {
     id: 6,
     title: "Conditioning & Results",
     category: "Athletes",
-    image: "/images/pacademy/physique-transformation.jpg",
+    image: "/images/pacademy/physique-transformation.webp",
     span: "col-span-2 row-span-1 h-[160px] sm:h-[180px] lg:h-[185px]",
   },
   {
     id: 7,
     title: "Gym Entrance",
     category: "Facility",
-    image: "/images/pacademy/exterior-front-entrance.jpg",
+    image: "/images/pacademy/exterior-front-entrance.webp",
     span: "col-span-1 row-span-1 h-[160px] sm:h-[180px] lg:h-[185px]",
   },
   {
     id: 8,
     title: "Power Deadlift",
     category: "Free Weights",
-    image: "/images/about-deadlift.jpg",
+    image: "/images/about-deadlift.webp",
     span: "col-span-1 row-span-1 h-[160px] sm:h-[180px] lg:h-[185px]",
   },
   {
     id: 9,
     title: "Cable Stations",
     category: "Machines",
-    image: "/images/gym-machines-white.jpg",
+    image: "/images/gym-machines-white.webp",
     span: "col-span-1 row-span-1 h-[160px] sm:h-[180px] lg:h-[185px]",
   },
   {
     id: 10,
     title: "Coach Guidance",
     category: "Athletes",
-    image: "/images/coaching-man.jpg",
+    image: "/images/coaching-man.webp",
     span: "col-span-1 row-span-1 h-[160px] sm:h-[180px] lg:h-[185px]",
   },
 ];
@@ -240,7 +240,7 @@ export const INSTAGRAM_POSTS = [
     likes: "248",
     comments: "19",
     caption: "Pro Bodyline machines ready for your next heavy session. Train at Oxygen Gym Sikar.",
-    image: "/images/gym-machines-white.jpg",
+    image: "/images/gym-machines-white.webp",
     url: "https://www.instagram.com/oxygen_gym01/"
   },
   {
@@ -248,7 +248,7 @@ export const INSTAGRAM_POSTS = [
     likes: "312",
     comments: "27",
     caption: "Evening sessions on the cable and strength floor. Near Allen Coaching, Piprali Road.",
-    image: "/images/gym-floor-dark.jpg",
+    image: "/images/gym-floor-dark.webp",
     url: "https://www.instagram.com/oxygen_gym01/"
   },
   {
@@ -256,7 +256,7 @@ export const INSTAGRAM_POSTS = [
     likes: "405",
     comments: "34",
     caption: "Full dumbbell rack for isolation and compound lifts. Open 5 AM – 10 PM daily.",
-    image: "/images/dumbbell-rack.png",
+    image: "/images/dumbbell-rack.webp",
     url: "https://www.instagram.com/oxygen_gym01/"
   },
   {
@@ -264,7 +264,7 @@ export const INSTAGRAM_POSTS = [
     likes: "189",
     comments: "14",
     caption: "Spacious equipment floor with heavy-duty plate-loaded machines.",
-    image: "/images/equipment-floor.png",
+    image: "/images/equipment-floor.webp",
     url: "https://www.instagram.com/oxygen_gym01/"
   }
 ];

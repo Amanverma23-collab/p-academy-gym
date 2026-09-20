@@ -112,15 +112,16 @@ export default function WhyChooseUs({ onOpenBooking }) {
               className="absolute w-[320px] sm:w-[380px] h-[320px] sm:h-[380px] rounded-full pointer-events-none -z-0"
               style={{
                 background: 'radial-gradient(circle, rgba(216, 248, 1, 0.6) 0%, rgba(132, 204, 22, 0.35) 45%, transparent 70%)',
-                filter: 'blur(50px)',
               }}
             />
 
             {/* Athlete Image */}
             <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-square rounded-full overflow-hidden flex items-center justify-center">
               <img
-                src="/images/why-choose-athlete.jpg"
+                src="/images/why-choose-athlete.webp"
                 alt="P Academy Gym Peak Physical Fitness"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover select-none"
               />
             </div>
