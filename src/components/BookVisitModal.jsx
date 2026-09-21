@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Phone, MapPin, Sparkles, CheckCircle2 } from 'lucide-react';
 import { GYM_INFO } from '../data/gymData';
@@ -11,26 +11,46 @@ export default function BookVisitModal({ isOpen, onClose }) {
     timeSlot: 'Morning (6 AM - 10 AM)',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      window.__lenis?.stop();
+    } else {
+      window.__lenis?.start();
+    }
+    return () => {
+      window.__lenis?.start();
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
     const text = encodeURIComponent(
       `Hello P Academy Gym!\n\nI would like to book a visit / free trial.\nName: ${formData.name}\nPhone: ${formData.phone}\nInterested Plan: ${formData.membership}\nPreferred Slot: ${formData.timeSlot}`
     );
-    window.open(`https://wa.me/${GYM_INFO.whatsappNumber}?text=${text}`, '_blank');
-    setSubmitted(true);
+    setTimeout(() => {
+      window.open(`https://wa.me/${GYM_INFO.whatsappNumber}?text=${text}`, '_blank');
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }, 500);
   };
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 md:backdrop-blur-md">
+      <div 
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 md:backdrop-blur-md"
+        data-lenis-prevent
+      >
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
-          className="relative w-full max-w-lg bg-white border border-zinc-200 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden text-black"
+          data-lenis-prevent
+          className="relative w-full max-w-lg bg-white border border-zinc-200 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-y-auto max-h-[90vh] text-black"
         >
           {/* Close button */}
           <button
@@ -137,10 +157,20 @@ export default function BookVisitModal({ isOpen, onClose }) {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-xl bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-heading font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-colors"
+                  disabled={isSubmitting}
+                  className="w-full py-3.5 rounded-xl bg-[#facc15] hover:bg-[#eab308] disabled:opacity-75 disabled:cursor-not-allowed text-[#081303] font-sans-clean font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer"
                 >
-                  <Send className="w-4 h-4" />
-                  Confirm Visit on WhatsApp
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-[#081303] border-t-transparent rounded-full animate-spin" />
+                      <span>Confirming Request...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      <span>Confirm Visit on WhatsApp</span>
+                    </>
+                  )}
                 </button>
               </div>
 

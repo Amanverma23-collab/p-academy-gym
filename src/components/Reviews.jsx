@@ -1,27 +1,25 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Star, ExternalLink, CheckCircle2, Quote, Sparkles } from 'lucide-react';
+import { Star, ExternalLink, CheckCircle2, Quote } from 'lucide-react';
 
 export default function Reviews() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
   // 100% Real Google Reviews extracted directly from Google Business Profile
   // https://share.google/jtFzTjcuAYyYf9cPV (P Academy Gym, Uttam Nagar)
   const testimonials = [
     {
       id: 1,
       name: 'Prateek Verma',
-      role: 'Google Local Reviewer',
+      role: 'Local Reviewer',
       avatar: '/avatars/prateek.webp',
       rating: 5,
       tag: 'Weight Loss & Training',
       quote:
-        'Devender Dhaiya (Trainer) has been excellent with his work and the gym having good machinery. They give us great workout training and full support to new people, especially for weight loss. If anyone wants to lose weight, go & join..!',
+        'Devender Dhaiya (Trainer) has been excellent with his work and the gym having good machinery. They give us great workout training and full support to new people, especially for weight loss.',
     },
     {
       id: 2,
       name: 'Vikrant Sharma',
-      role: 'Google Local Reviewer',
+      role: 'Local Reviewer',
       avatar: '/avatars/vikrant.webp',
       rating: 5,
       tag: 'Equipment & Cleanliness',
@@ -31,7 +29,7 @@ export default function Reviews() {
     {
       id: 3,
       name: 'Akash Kaushik',
-      role: 'Google Verified Reviewer',
+      role: 'Verified Reviewer',
       avatar: '/avatars/akash.webp',
       rating: 5,
       tag: 'Personal Mentorship',
@@ -41,7 +39,7 @@ export default function Reviews() {
     {
       id: 4,
       name: 'Aditya Chaudhary',
-      role: 'Google Local Reviewer',
+      role: 'Local Reviewer',
       avatar: '/avatars/aditya.webp',
       rating: 5,
       tag: 'Spacious & Cost Effective',
@@ -51,7 +49,7 @@ export default function Reviews() {
     {
       id: 5,
       name: 'Kaajjal Pherwani',
-      role: 'Google Verified Reviewer',
+      role: 'Verified Reviewer',
       avatar: '/avatars/kaajjal.webp',
       rating: 5,
       tag: 'Technique & Guidance',
@@ -61,7 +59,7 @@ export default function Reviews() {
     {
       id: 6,
       name: 'Jennifer (Jenna)',
-      role: 'Google Verified Reviewer',
+      role: 'Verified Reviewer',
       avatar: '/avatars/jennifer.webp',
       rating: 5,
       tag: 'Goal Achievement',
@@ -70,236 +68,130 @@ export default function Reviews() {
     },
   ];
 
-  const nextReview = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevReview = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  const current = testimonials[currentIndex];
-
   return (
     <section 
       id="testimonials" 
-      className="relative bg-white text-zinc-900 py-20 sm:py-24 lg:py-28 overflow-hidden select-none border-t border-zinc-100"
+      className="relative bg-white text-zinc-900 py-12 sm:py-16 overflow-hidden select-none border-t border-zinc-100 scroll-mt-20"
     >
-      {/* Subtle soft warm background glows for premium depth */}
-      <div 
-        className="absolute left-[-100px] top-[20%] w-[450px] h-[450px] rounded-full pointer-events-none -z-0"
-        style={{
-          background: 'radial-gradient(circle, rgba(250, 204, 21, 0.08) 0%, transparent 70%)',
-        }}
-      />
-      <div 
-        className="absolute right-[-100px] bottom-[15%] w-[500px] h-[500px] rounded-full pointer-events-none -z-0"
-        style={{
-          background: 'radial-gradient(circle, rgba(240, 245, 238, 0.9) 0%, transparent 70%)',
-        }}
-      />
-
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Split Grid: Left Headline & Controls + Right Elevated Testimonial Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          
-          {/* Left Column: Pill Badge, Headline, Subtitle, Google Rating Chip, Arrows */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5 flex flex-col justify-center text-left"
-          >
-            {/* Pill Tag: Reviews */}
-            <div className="mb-4">
-              <span className="font-sans-clean bg-[#facc15] text-[#081303] text-xs font-black px-4 py-1.5 rounded-full inline-flex items-center gap-1.5 uppercase tracking-wider shadow-sm">
-                <Sparkles className="w-3.5 h-3.5 fill-[#081303]" />
-                <span>Reviews</span>
-              </span>
+        {/* Compact Header: Title, Subtitle, Google Rating Chip */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-8 gap-4">
+          <div className="max-w-xl text-left">
+            <div className="inline-flex items-center bg-[#facc15] text-[#081303] text-[10.5px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-xs mb-2">
+              Google Reviews
             </div>
 
-            {/* Headline: HEAR FROM HAPPY CLIENTS */}
-            <h2 className="font-headline font-black text-5xl sm:text-6xl lg:text-[72px] leading-[0.93] text-[#081404] uppercase tracking-tight mb-4">
-              HEAR FROM
-              <br />
-              <span className="text-[#eab308]">HAPPY</span> CLIENTS
+            <h2 className="font-headline font-black text-3xl sm:text-4xl lg:text-[42px] leading-[0.95] text-[#081404] uppercase tracking-tight mb-1.5">
+              HEAR FROM <span className="text-[#ca8a04]">HAPPY CLIENTS</span>
             </h2>
 
-            {/* Subtitle Description */}
-            <p className="font-sans-clean text-zinc-600 text-xs sm:text-[13.5px] font-normal leading-relaxed max-w-sm mb-6">
-              Authentic reviews directly from our members at P Academy Gym, Uttam Nagar. Verified on Google Maps with an outstanding community score.
+            <p className="font-sans-clean text-zinc-600 text-xs sm:text-[13px] font-normal leading-snug">
+              Authentic reviews directly from members training at P Academy Gym, Uttam Nagar.
             </p>
-
-            {/* Official Google Reviews Badge (Clickable Clean Light Pill) */}
-            <a
-              href="https://share.google/jtFzTjcuAYyYf9cPV"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white border border-zinc-200 hover:border-zinc-300 hover:shadow-md transition-all shadow-sm w-fit mb-8 group cursor-pointer"
-            >
-              {/* Google 4-color 'G' icon */}
-              <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24">
-                <path
-                  fill="#4285F4"
-                  d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"
-                />
-                <path
-                  fill="#34A853"
-                  d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"
-                />
-                <path
-                  fill="#FBBC05"
-                  d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"
-                />
-                <path
-                  fill="#EA4335"
-                  d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"
-                />
-              </svg>
-              <div className="flex items-center gap-2 text-xs font-sans-clean">
-                <span className="font-extrabold text-zinc-900 text-sm">4.7</span>
-                <div className="flex text-amber-500">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <span className="text-zinc-500 font-medium">(40+ Google Reviews)</span>
-                <ExternalLink className="w-3.5 h-3.5 text-zinc-400 group-hover:text-zinc-700 transition-colors ml-0.5" />
-              </div>
-            </a>
-
-            {/* Carousel Arrow Controls & Member Thumbnails */}
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-4">
-                <button
-                  onClick={prevReview}
-                  aria-label="Previous Review"
-                  className="w-11 h-11 rounded-full bg-[#facc15] hover:bg-[#eab308] text-[#081303] flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
-                >
-                  <ArrowLeft className="w-5 h-5 stroke-[2.5]" />
-                </button>
-                <button
-                  onClick={nextReview}
-                  aria-label="Next Review"
-                  className="w-11 h-11 rounded-full bg-[#facc15] hover:bg-[#eab308] text-[#081303] flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
-                >
-                  <ArrowRight className="w-5 h-5 stroke-[2.5]" />
-                </button>
-                <span className="font-sans-clean text-xs font-bold text-zinc-500">
-                  0{currentIndex + 1} <span className="text-zinc-400">/ 0{testimonials.length}</span>
-                </span>
-              </div>
-
-              {/* Quick Member Avatar Jump Chips */}
-              <div className="flex items-center gap-2 pt-1 overflow-x-auto pb-1 scrollbar-none">
-                {testimonials.map((t, idx) => (
-                  <button
-                    key={t.id}
-                    onClick={() => setCurrentIndex(idx)}
-                    title={t.name}
-                    className={`w-9 h-9 rounded-full overflow-hidden transition-all duration-200 flex-shrink-0 cursor-pointer ${
-                      currentIndex === idx
-                        ? 'ring-2 ring-[#eab308] ring-offset-2 scale-110 shadow-sm'
-                        : 'opacity-60 hover:opacity-100 ring-1 ring-zinc-200'
-                    }`}
-                  >
-                    <img
-                      src={t.avatar}
-                      alt={t.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </button>
-                ))}
-              </div>
-            </div>
-
-          </motion.div>
-
-          {/* Right Column: Sculpted Elevated White Testimonial Card */}
-          <div className="lg:col-span-7 relative flex items-center justify-center">
-            
-            {/* Background layered card for 3D stacked depth */}
-            <div className="absolute inset-0 bg-zinc-100/90 rounded-3xl translate-y-3 sm:translate-y-4 scale-[0.96] opacity-75 border border-zinc-200 pointer-events-none" />
-
-            {/* Foreground Active Review Card */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={current.id}
-                initial={{ opacity: 0, scale: 0.97, y: 10 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.97, y: -10 }}
-                transition={{ duration: 0.3 }}
-                className="relative w-full bg-white rounded-3xl p-8 sm:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-zinc-100 flex flex-col items-center text-center z-10 overflow-hidden"
-              >
-                {/* Decorative Giant Quote Icon in background */}
-                <Quote className="absolute right-6 top-6 w-20 h-20 text-zinc-100 pointer-events-none rotate-180" />
-
-                {/* Google Verified Review Top Badge */}
-                <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-sans-clean font-bold mb-5 shadow-sm">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Google Verified Review</span>
-                  <span className="text-zinc-400">•</span>
-                  <span className="text-emerald-700 font-extrabold">5.0 ★</span>
-                </div>
-
-                {/* 5 Stars */}
-                <div className="flex items-center gap-1 mb-6 text-amber-400">
-                  {[...Array(current.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 fill-amber-400 text-amber-400 drop-shadow-sm"
-                    />
-                  ))}
-                </div>
-
-                {/* Review Quote Text */}
-                <p className="font-sans-clean italic text-zinc-800 text-base sm:text-lg lg:text-xl leading-relaxed max-w-lg mb-8 font-medium relative z-10">
-                  "{current.quote}"
-                </p>
-
-                {/* Member Profile Avatar & Name */}
-                <div className="flex flex-col items-center relative z-10">
-                  <div className="w-14 h-14 rounded-full p-0.5 border-2 border-[#eab308] shadow-md mb-2 overflow-hidden bg-zinc-50">
-                    <img
-                      src={current.avatar}
-                      alt={current.name}
-                      loading="lazy"
-                      decoding="async"
-                      width="56"
-                      height="56"
-                      className="w-full h-full rounded-full object-cover select-none"
-                    />
-                  </div>
-                  <h4 className="font-headline font-black text-lg text-zinc-900 tracking-wide uppercase">
-                    {current.name}
-                  </h4>
-                  <span className="font-sans-clean text-zinc-500 text-xs font-semibold mt-0.5">
-                    {current.role} • <span className="text-amber-600 font-bold">{current.tag}</span>
-                  </span>
-                </div>
-
-                {/* Pagination indicator dots */}
-                <div className="flex items-center gap-1.5 mt-7">
-                  {testimonials.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentIndex(idx)}
-                      className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                        currentIndex === idx
-                          ? 'w-6 bg-[#081404]'
-                          : 'w-1.5 bg-zinc-200 hover:bg-zinc-300'
-                      }`}
-                      aria-label={`Go to review ${idx + 1}`}
-                    />
-                  ))}
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
           </div>
 
+          {/* Compact Google Rating Pill Button */}
+          <a
+            href="https://share.google/jtFzTjcuAYyYf9cPV"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-zinc-50 hover:bg-white border border-zinc-200 hover:border-zinc-300 hover:shadow-sm transition-all w-fit flex-shrink-0 group cursor-pointer"
+          >
+            {/* Google 'G' icon */}
+            <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24">
+              <path
+                fill="#4285F4"
+                d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"
+              />
+              <path
+                fill="#34A853"
+                d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"
+              />
+              <path
+                fill="#FBBC05"
+                d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"
+              />
+              <path
+                fill="#EA4335"
+                d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"
+              />
+            </svg>
+            <div className="flex items-center gap-1.5 text-xs font-sans-clean">
+              <span className="font-black text-zinc-900 text-xs">4.7</span>
+              <div className="flex text-amber-500">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
+                ))}
+              </div>
+              <span className="text-zinc-500 text-[11px] font-medium">(40+ Reviews)</span>
+              <ExternalLink className="w-3 h-3 text-zinc-400 group-hover:text-zinc-700 transition-colors" />
+            </div>
+          </a>
+        </div>
+
+        {/* Compact 6-Card Review Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
+          {testimonials.map((t, idx) => (
+            <motion.div
+              key={t.id}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: idx * 0.05 }}
+              className="bg-white rounded-2xl p-4 sm:p-5 border border-zinc-200/80 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.07)] hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between relative group overflow-hidden text-left"
+            >
+              {/* Subtle small quote watermark */}
+              <Quote className="absolute right-3 top-3 w-10 h-10 text-zinc-100 group-hover:text-amber-50 transition-colors pointer-events-none rotate-180" />
+
+              <div>
+                {/* Top Row: Stars + Verified Pill */}
+                <div className="flex items-center justify-between gap-2 mb-2.5 relative z-10">
+                  <div className="flex items-center gap-0.5 text-amber-400">
+                    {[...Array(t.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-3.5 h-3.5 fill-amber-400 text-amber-400"
+                      />
+                    ))}
+                  </div>
+
+                  <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/70 text-emerald-800 text-[10px] font-sans-clean font-bold">
+                    <CheckCircle2 className="w-2.5 h-2.5 text-emerald-600" />
+                    <span>5.0 ★</span>
+                  </div>
+                </div>
+
+                {/* Review Quote Text: Compact & crisp */}
+                <p className="font-sans-clean italic text-zinc-700 text-[12.5px] sm:text-[13px] leading-relaxed font-normal mb-3.5 relative z-10">
+                  "{t.quote}"
+                </p>
+              </div>
+
+              {/* Bottom Member Profile Info */}
+              <div className="flex items-center gap-2.5 pt-3 border-t border-zinc-100 relative z-10">
+                <div className="w-8 h-8 rounded-full p-0.5 border border-[#eab308] shadow-xs overflow-hidden bg-zinc-50 flex-shrink-0">
+                  <img
+                    src={t.avatar}
+                    alt={t.name}
+                    loading="lazy"
+                    decoding="async"
+                    width="32"
+                    height="32"
+                    className="w-full h-full rounded-full object-cover select-none"
+                  />
+                </div>
+                <div className="min-w-0">
+                  <h4 className="font-headline font-black text-[13px] sm:text-[13.5px] text-zinc-900 tracking-wide uppercase truncate leading-tight">
+                    {t.name}
+                  </h4>
+                  <p className="font-sans-clean text-zinc-500 text-[10px] sm:text-[10.5px] font-medium truncate leading-tight mt-0.5">
+                    {t.role} • <span className="text-amber-600 font-bold">{t.tag}</span>
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
       </div>

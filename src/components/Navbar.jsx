@@ -44,10 +44,8 @@ export default function Navbar({ onOpenBooking }) {
     <>
       {/* Desktop Navigation (>= md) */}
       <header
-        className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? 'bg-[#0e1f07]/95 py-3 md:py-4 border-b border-[#234212]/60 shadow-xl'
-            : 'bg-transparent py-3.5 md:py-7'
+        className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent ${
+          scrolled ? 'py-3 md:py-4' : 'py-3.5 md:py-7'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
@@ -84,7 +82,7 @@ export default function Navbar({ onOpenBooking }) {
           <div className="flex items-center">
             <button
               onClick={onOpenBooking}
-              className="bg-[#facc15] hover:bg-[#eab308] text-[#091204] font-sans-clean font-bold text-[13.5px] px-6 py-2.5 rounded-full flex items-center gap-1.5 shadow-md hover:shadow-lg hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+              className="bg-[#facc15] hover:bg-[#eab308] text-[#091204] font-sans-clean font-bold text-[13.5px] px-6 py-2.5 rounded-full flex items-center gap-1.5 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
             >
               <span>Start Free Trial</span>
               <ChevronRight className="w-4 h-4 stroke-[2.5]" />

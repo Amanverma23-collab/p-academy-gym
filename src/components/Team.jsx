@@ -201,7 +201,7 @@ export default function Team({ onOpenBooking }) {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-4">
               <button
                 onClick={onOpenBooking}
-                className="flex-1 bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-extrabold text-sm py-3.5 px-6 rounded-xl transition-all shadow-lg hover:shadow-[#facc15]/20 flex items-center justify-center gap-2 group cursor-pointer"
+                className="flex-1 bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-extrabold text-sm py-3.5 px-6 rounded-xl hover:-translate-y-0.5 active:translate-y-0 transition-all shadow-md flex items-center justify-center gap-2 group cursor-pointer"
               >
                 <span>Book Free Consultation with Coach</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -211,7 +211,7 @@ export default function Team({ onOpenBooking }) {
                 href={whatsappConsultUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#142e09] hover:bg-[#1a3b0d] border border-[#2d5c14] hover:border-[#facc15]/50 text-white font-sans-clean font-bold text-sm py-3.5 px-6 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                className="bg-[#142e09] hover:bg-[#1a3b0d] border border-[#2d5c14] hover:border-[#facc15]/50 text-white font-sans-clean font-bold text-sm py-3.5 px-6 rounded-xl hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
               >
                 <MessageCircle className="w-4 h-4 text-[#25D366]" />
                 <span>WhatsApp Coach</span>
@@ -266,7 +266,7 @@ export default function Team({ onOpenBooking }) {
                   </div>
                   <div className="text-right mt-1.5">
                     <span className="text-[11px] font-bold text-[#facc15] uppercase tracking-wider font-sans-clean">
-                      — Coach Devender Dahiya
+                      Coach Devender Dahiya, Head Trainer
                     </span>
                   </div>
                 </div>

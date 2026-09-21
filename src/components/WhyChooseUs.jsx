@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Dumbbell, ClipboardCheck, Sparkles, Utensils, Clock, ChevronRight } from 'lucide-react';
+import { Award, Dumbbell, ClipboardCheck, TrendingUp, Utensils, Clock, ChevronRight } from 'lucide-react';
 
 export default function WhyChooseUs({ onOpenBooking }) {
   const leftFeatures = [
@@ -25,7 +25,7 @@ export default function WhyChooseUs({ onOpenBooking }) {
     {
       title: 'Proven Transformations',
       description: "Join hundreds who've achieved real and lasting results here.",
-      icon: Sparkles,
+      icon: TrendingUp,
     },
     {
       title: 'Nutrition & Wellness Guidance',
@@ -163,7 +163,7 @@ export default function WhyChooseUs({ onOpenBooking }) {
         <div className="flex justify-center mt-6">
           <button
             onClick={onOpenBooking}
-            className="bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-full inline-flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer"
+            className="bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-full inline-flex items-center gap-2 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer"
           >
             <span>Start Your Free Trial</span>
             <ChevronRight className="w-4 h-4 stroke-[3]" />

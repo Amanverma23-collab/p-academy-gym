@@ -150,7 +150,11 @@ const CardNav = ({
 
   return (
     <div className={`card-nav-container ${className}`}>
-      <nav ref={navRef} className={`card-nav ${isExpanded ? 'open' : ''}`} style={{ backgroundColor: baseColor }}>
+      <nav
+        ref={navRef}
+        className={`card-nav ${isExpanded ? 'open' : ''}`}
+        style={{ backgroundColor: baseColor }}
+      >
         <div className="card-nav-top">
           <div
             className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''}`}
@@ -196,7 +200,7 @@ const CardNav = ({
           </a>
         </div>
 
-        <div className="card-nav-content" aria-hidden={!isExpanded}>
+        <div className="card-nav-content" aria-hidden={!isExpanded} data-lenis-prevent>
           {(items || []).map((item, idx) => {
             const hasLinks = item.links && item.links.length > 0;
             if (hasLinks) {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useSmoothScroll from './hooks/useSmoothScroll';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,8 +12,12 @@ import Gallery from './components/Gallery';
 import ReadyCta from './components/ReadyCta';
 import Footer from './components/Footer';
 import BookVisitModal from './components/BookVisitModal';
+import Preloader from './components/Preloader';
 
 export default function App() {
+  useSmoothScroll();
+
+  const [isLoading, setIsLoading] = useState(true);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [videoPlayTrigger, setVideoPlayTrigger] = useState(0);
 
@@ -23,7 +28,11 @@ export default function App() {
     // 1. Smooth scroll to the video banner in About section
     const videoBanner = document.getElementById('about-video-banner');
     if (videoBanner) {
-      videoBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (window.__lenis) {
+        window.__lenis.scrollTo(videoBanner, { offset: -80 });
+      } else {
+        videoBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }
     // 2. Trigger video start
     setVideoPlayTrigger((prev) => prev + 1);
@@ -32,6 +41,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0d2106] text-white selection:bg-[#facc15] selection:text-black font-sans antialiased overflow-x-hidden">
+      {/* 0. Initial White Loading Page with Animated Big Logo */}
+      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
+
       {/* 1. Header / Navigation */}
       <Navbar onOpenBooking={handleOpenBooking} />
 

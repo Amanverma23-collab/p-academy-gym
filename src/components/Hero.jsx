@@ -1,11 +1,14 @@
-import React, { useState, useEffect, Suspense } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef, Suspense } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronRight, Play, Star, MapPin, Clock, ArrowUpRight } from 'lucide-react';
 
 const SplashCursor = React.lazy(() => import('./SplashCursor'));
+const BookCallButton = React.lazy(() => import('./BookCallButton'));
 
 export default function Hero({ onOpenBooking, onWatchVideo }) {
+  const heroRef = useRef(null);
   const [enableSplash, setEnableSplash] = useState(false);
+  const [isDesktopParallax, setIsDesktopParallax] = useState(false);
 
   useEffect(() => {
     const checkSupport = () => {
@@ -18,6 +21,36 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
     window.addEventListener('resize', checkSupport);
     return () => window.removeEventListener('resize', checkSupport);
   }, []);
+
+  // Check desktop and reduced-motion for scroll parallax
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const hoverQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const updateParallax = () => {
+      setIsDesktopParallax(hoverQuery.matches && !motionQuery.matches);
+    };
+
+    updateParallax();
+    hoverQuery.addEventListener('change', updateParallax);
+    motionQuery.addEventListener('change', updateParallax);
+
+    return () => {
+      hoverQuery.removeEventListener('change', updateParallax);
+      motionQuery.removeEventListener('change', updateParallax);
+    };
+  }, []);
+
+  // Framer Motion scroll parallax setup
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+
+  const athleteY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
+  const textY = useTransform(scrollYProgress, [0, 1], ['0%', '28%']);
 
   // Bottom ribbon ticker items
   const marqueeItems = [
@@ -32,7 +65,11 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
   ];
 
   return (
-    <section className="relative w-full min-h-svh bg-[#112708] flex flex-col justify-between overflow-hidden select-none">
+    <section 
+      id="hero" 
+      ref={heroRef} 
+      className="relative w-full min-h-svh bg-[#112708] flex flex-col justify-between overflow-hidden select-none"
+    >
       {/* Interactive WebGL Fluid Splash Cursor Effect - Desktop Only */}
       {enableSplash && (
         <Suspense fallback={null}>
@@ -55,13 +92,16 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
       )}
       
       {/* Subtle Warm Amber-Yellow Backlight Glow behind athlete (Desktop only) */}
-      <div 
-        className="hidden md:block absolute right-0 md:right-[4%] lg:right-[8%] top-[50%] -translate-y-1/2 w-[520px] sm:w-[620px] md:w-[720px] lg:w-[820px] h-[520px] sm:h-[620px] md:h-[720px] lg:h-[820px] rounded-full pointer-events-none -z-0"
-        style={{
-          background: 'radial-gradient(circle, rgba(250, 204, 21, 0.22) 0%, rgba(180, 140, 15, 0.12) 44%, rgba(17, 39, 8, 0) 72%)',
-          filter: 'blur(35px)',
-        }}
-      />
+      <div className="hidden md:block absolute right-0 md:right-[4%] lg:right-[8%] top-[50%] -translate-y-1/2 pointer-events-none -z-0">
+        <motion.div 
+          className="w-[520px] sm:w-[620px] md:w-[720px] lg:w-[820px] h-[520px] sm:h-[620px] md:h-[720px] lg:h-[820px] rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(250, 204, 21, 0.22) 0%, rgba(180, 140, 15, 0.12) 44%, rgba(17, 39, 8, 0) 72%)',
+            filter: 'blur(35px)',
+            ...(isDesktopParallax ? { y: athleteY } : {}),
+          }}
+        />
+      </div>
 
       {/* Subtle Ambient Radial Highlight Top-Left */}
       <div 
@@ -149,27 +189,8 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
               <span className="font-headline text-[48px] xs:text-[56px] uppercase tracking-tight text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.95)] pl-1">
                 ACHIEVE
               </span>
-              <span className="font-headline text-[52px] xs:text-[60px] uppercase tracking-tight text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.95)] pr-1 inline-flex items-center">
-                <span>Y</span>
-                <span className="relative inline-flex items-center justify-center">
-                  <span>O</span>
-                  {/* Subtle warm glow behind the bolt */}
-                  <span
-                    className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2 w-[75%] h-[45%] rounded-full pointer-events-none"
-                    style={{
-                      background: 'radial-gradient(circle, rgba(254, 240, 138, 0.8) 0%, rgba(250, 204, 21, 0.35) 40%, transparent 70%)',
-                      filter: 'blur(3px)',
-                    }}
-                  />
-                  {/* Lightning bolt inside O */}
-                  <svg
-                    className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2 w-[58%] h-[38%] text-[#facc15] fill-[#facc15] pointer-events-none drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]"
-                    viewBox="0 0 24 24"
-                  >
-                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                  </svg>
-                </span>
-                <span>UR</span>
+              <span className="font-headline text-[48px] xs:text-[56px] uppercase tracking-tight text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.95)] pr-1">
+                YOUR
               </span>
             </div>
 
@@ -201,17 +222,31 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
 
           {/* FLANKING ACTION BUTTONS: Left (Join Now) and Right (Watch Video) Flanking Waist Above Ribbon */}
           <div className="absolute bottom-5 xs:bottom-7 left-0 right-0 z-30 px-1 xs:px-2 flex items-center justify-between pointer-events-auto">
-            {/* Left: Join Now Button */}
-            <motion.button
+            {/* Left: BookCallButton with Suspense Fallback */}
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              onClick={onOpenBooking}
-              className="bg-[#facc15] hover:bg-[#eab308] active:scale-95 text-[#081303] font-sans-clean font-bold text-xs xs:text-[13px] py-2.5 xs:py-3 px-3.5 xs:px-4.5 rounded-full flex items-center gap-1 shadow-md transition-all duration-200 cursor-pointer whitespace-nowrap"
             >
-              <span>Join Now</span>
-              <ChevronRight className="w-3.5 h-3.5 stroke-[3]" />
-            </motion.button>
+              <Suspense
+                fallback={
+                  <button
+                    type="button"
+                    onClick={onOpenBooking}
+                    aria-label="Book a call"
+                    className="w-[150px] xs:w-[168px] h-[40px] xs:h-[44px] bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-bold text-xs rounded-full flex items-center justify-center gap-1 shadow-md cursor-pointer"
+                  >
+                    <span>Book a call</span>
+                    <ChevronRight className="w-3.5 h-3.5 stroke-[3]" />
+                  </button>
+                }
+              >
+                <BookCallButton
+                  onClick={onOpenBooking}
+                  className="w-[150px] xs:w-[168px] h-[40px] xs:h-[44px]"
+                />
+              </Suspense>
+            </motion.div>
 
             {/* Right: Watch Video Button */}
             <motion.button
@@ -246,7 +281,11 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="col-span-7 flex flex-col justify-center text-left py-8 sm:py-12 z-20"
           >
-            {/* Location & Timings Badge Row */}
+            <motion.div
+              style={isDesktopParallax ? { y: textY } : undefined}
+              className="w-full flex flex-col justify-center text-left"
+            >
+              {/* Location & Timings Badge Row */}
             <div className="flex flex-wrap items-center gap-2.5 mb-5">
               <a
                 href="https://maps.app.goo.gl/e3T3Vqe8W6evK8jN8"
@@ -270,29 +309,7 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
             {/* Main Punchy Condensed Typography Headline */}
             <h1 className="font-headline font-normal text-5xl sm:text-6xl md:text-6xl lg:text-[76px] xl:text-[88px] uppercase leading-[0.92] tracking-tight text-white mb-6">
               <span className="block whitespace-nowrap">
-                ACHIEVE{' '}
-                <span className="inline-block relative whitespace-nowrap">
-                  <span>Y</span>
-                  <span className="relative inline-flex items-center justify-center">
-                    <span className="text-white">O</span>
-                    {/* Subtle warm glow behind the bolt */}
-                    <span
-                      className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2 w-[72%] h-[40%] rounded-full pointer-events-none"
-                      style={{
-                        background: 'radial-gradient(circle, rgba(254, 240, 138, 0.8) 0%, rgba(250, 204, 21, 0.35) 40%, transparent 70%)',
-                        filter: 'blur(3.5px)',
-                      }}
-                    />
-                    {/* Lightning bolt inside O */}
-                    <svg
-                      className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2 w-[56%] h-[35%] text-[#facc15] fill-[#facc15] pointer-events-none drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]"
-                      viewBox="0 0 24 24"
-                    >
-                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                    </svg>
-                  </span>
-                  <span>UR</span>
-                </span>
+                ACHIEVE YOUR
               </span>
               <span className="block whitespace-nowrap text-white">
                 FITNESS DREAMS
@@ -301,27 +318,38 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
 
             {/* Subtitle / Descriptive Copy */}
             <p className="font-sans-clean text-zinc-300 text-sm sm:text-base leading-relaxed max-w-lg mb-8 font-normal">
-              Through personalized coaching, cutting edge techniques and support we will help you achieve the fitness goals you have always wanted
+              Certified coaching, heavy plate-loaded equipment, and a disciplined community in Uttam Nagar to help you build real, lasting strength.
             </p>
 
             {/* Dual CTA Actions Row */}
             <div className="flex flex-wrap items-center gap-4 sm:gap-6 mb-10 relative z-40">
-              {/* Join Now Pill Button */}
-              <button
-                onClick={onOpenBooking}
-                className="bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-bold text-sm sm:text-[14.5px] px-7 sm:px-8 py-3.5 rounded-full flex items-center gap-1.5 shadow-md hover:shadow-lg hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+              {/* Interactive Book Call Button with Suspense Fallback */}
+              <Suspense
+                fallback={
+                  <button
+                    type="button"
+                    onClick={onOpenBooking}
+                    aria-label="Book a call"
+                    className="w-[185px] sm:w-[205px] h-[44px] sm:h-[48px] bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-bold text-xs sm:text-[13.5px] rounded-full flex items-center justify-center gap-1.5 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
+                  >
+                    <span>Book a call</span>
+                    <ChevronRight className="w-3.5 h-3.5 stroke-[3]" />
+                  </button>
+                }
               >
-                <span>Join Now</span>
-                <ChevronRight className="w-4 h-4 stroke-[3]" />
-              </button>
+                <BookCallButton
+                  onClick={onOpenBooking}
+                  className="w-[185px] sm:w-[205px] h-[44px] sm:h-[48px]"
+                />
+              </Suspense>
 
               {/* Watch Video Circular Play Trigger: scrolls to and plays the video below */}
               <button
                 onClick={onWatchVideo}
-                className="flex items-center gap-3 group cursor-pointer text-left focus:outline-none"
+                className="flex items-center gap-3 group cursor-pointer text-left focus:outline-none hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
                 aria-label="Watch gym video below"
               >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-[#facc15] transition-all duration-200">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:bg-[#facc15] transition-all duration-200">
                   <Play className="w-4 h-4 fill-[#081303] text-[#081303] ml-0.5" />
                 </div>
                 <span className="font-sans-clean font-semibold text-white text-sm sm:text-base group-hover:text-[#facc15] transition-colors">
@@ -383,7 +411,7 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
                 </span>
               </div>
             </div>
-
+            </motion.div>
           </motion.div>
 
           {/* Right Column: Muscular Athlete Standing Flush on Top of Ribbon, Below Navbar */}
@@ -393,7 +421,10 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
             transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
             className="col-span-5 flex items-end justify-center md:justify-center lg:justify-center self-end z-10 -mb-[1px]"
           >
-            <div className="relative w-full flex items-end justify-center pt-2 md:pt-4">
+            <motion.div 
+              style={isDesktopParallax ? { y: athleteY } : undefined}
+              className="relative w-full flex items-end justify-center pt-2 md:pt-4"
+            >
               <img
                 src="/hero-athlete.webp"
                 alt="P Academy Gym Professional Bodybuilder"
@@ -401,7 +432,7 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
                 decoding="async"
                 className="w-full max-w-[460px] sm:max-w-[540px] md:max-w-[620px] lg:max-w-[720px] xl:max-w-[800px] 2xl:max-w-[880px] max-h-[calc(100vh-100px)] md:max-h-[calc(100vh-85px)] lg:max-h-[calc(100vh-75px)] h-auto object-contain object-bottom select-none pointer-events-none drop-shadow-[0_20px_45px_rgba(0,0,0,0.85)] scale-[1.08] lg:scale-[1.15] xl:scale-[1.20] origin-bottom"
               />
-            </div>
+            </motion.div>
           </motion.div>
 
         </div>
@@ -416,13 +447,8 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
               <span className="font-sans-clean font-extrabold text-sm sm:text-base tracking-wide text-[#081303] uppercase mx-4">
                 {text}
               </span>
-              {/* 4-Pointed Sparkle Star Icon */}
-              <svg
-                className="w-4 h-4 text-[#081303] fill-[#081303] mx-3 flex-shrink-0"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
-              </svg>
+              {/* Clean Athletic Divider Dot */}
+              <span className="w-1.5 h-1.5 rounded-full bg-[#081303] mx-3 flex-shrink-0" />
             </div>
           ))}
         </div>

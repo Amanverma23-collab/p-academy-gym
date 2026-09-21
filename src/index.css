@@ -2,8 +2,8 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
     font-family: 'Inter', sans-serif;
+    scroll-padding-top: 80px;
   }
 
   body {
@@ -16,6 +16,23 @@
     font-family: 'Satoshi', sans-serif;
     letter-spacing: -0.03em;
   }
+}
+
+/* Lenis Smooth Scroll Integration Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
 }
 
 /* Custom Typography Utilities */
