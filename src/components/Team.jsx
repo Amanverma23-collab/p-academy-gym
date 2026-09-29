@@ -379,58 +379,62 @@ export default function Team({ onOpenBooking, isAppLoaded = true }) {
               </p>
             </div>
 
-            {/* Center Hanging Lanyard Canvas */}
-            <div className="w-full h-[440px] sm:h-[480px] relative -mt-4 flex flex-col justify-end items-center overflow-visible">
-              
-              {/* Sleek top anchor mount where lanyard connects to the Coach section ceiling */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center pointer-events-none">
-                <div className="w-14 h-2 bg-gradient-to-r from-zinc-800 via-[#facc15]/90 to-zinc-800 rounded-b-md shadow-md border-b border-[#facc15]/40" />
-                <div className="w-5 h-0.5 bg-[#081303] rounded-full mt-[-1px] opacity-75" />
-              </div>
+            {/* Mobile Coach Real Photo Card (No hanging card on mobile) */}
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-b from-[#142e09] to-[#071303] border border-[#facc15]/30 shadow-2xl">
+              {/* Coach Photo Container */}
+              <div className="relative aspect-[4/5] max-h-[460px] w-full overflow-hidden bg-zinc-950">
+                <img
+                  src="/trainers/trainer-rayhan.webp"
+                  alt="Coach Devender Dahiya - Head Trainer P Academy Gym"
+                  className="w-full h-full object-cover object-top"
+                  loading="lazy"
+                  decoding="async"
+                />
 
-              {/* 3D Lanyard Canvas */}
-              <div
-                className="absolute inset-y-0 overflow-visible z-20 pointer-events-auto flex items-center justify-center"
-                style={{ width: '160%', left: '-30%' }}
-              >
-                {shouldRender3D && !isDesktop ? (
-                  <Lanyard
-                    position={[0, 0.25, 15.5]}
-                    gravity={[0, -38, 0]}
-                    fov={22}
-                    frontImage="/coach-card.png"
-                    backImage="/coach-card.png"
-                    lanyardImage="/p-academy-lanyard.png?v=3"
-                    lanyardWidth={1.2}
-                    imageFit="cover"
-                    transparent={true}
-                  />
-                ) : (
-                  <div className="flex flex-col items-center justify-center h-full pt-6">
-                    <img
-                      src="/coach-card.png"
-                      alt="Coach Devender Dahiya Badge"
-                      className="w-[160px] h-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.6)]"
-                    />
+                {/* Subtle cinematic gradient overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071303] via-[#071303]/40 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent pointer-events-none" />
+
+                {/* Floating Top Badges */}
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none">
+                  <span className="px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-[#facc15]/40 text-[#facc15] text-[10.5px] font-bold tracking-wide shadow-md">
+                    ★ Head Coach
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-[#facc15] text-[#081303] text-[10.5px] font-black tracking-wide shadow-md">
+                    500+ Transformed
+                  </span>
+                </div>
+
+                {/* Bottom Overlay with Coach Name & Title & Socials */}
+                <div className="absolute bottom-3 left-3 right-3">
+                  <div className="bg-[#071303]/85 backdrop-blur-md border border-white/10 rounded-xl p-3 shadow-lg">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="font-headline font-black text-lg text-white tracking-tight">
+                          Devender Dahiya
+                        </h3>
+                        <p className="text-[11px] text-[#facc15] font-semibold">
+                          Head Coach &bull; Master Trainer (8+ Yrs)
+                        </p>
+                      </div>
+
+                      {/* Social icons on mobile */}
+                      <div className="flex items-center gap-1.5">
+                        {socialLinks.map(({ label, href, Icon, bgClass }) => (
+                          <a
+                            key={label}
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Follow Coach Devender on ${label}`}
+                            className={`w-7 h-7 rounded-lg flex items-center justify-center ${bgClass} hover:scale-110 active:scale-95 transition-all shadow-sm`}
+                          >
+                            <Icon className="w-3.5 h-3.5" />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                )}
-              </div>
-
-              {/* Social links below the card */}
-              <div className="relative z-20 text-center pb-1 pointer-events-auto">
-                <div className="flex items-center justify-center gap-2 mt-2">
-                  {socialLinks.map(({ label, href, Icon, bgClass }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Follow Coach Devender on ${label}`}
-                      className={`w-7 h-7 rounded-md flex items-center justify-center ${bgClass} hover:scale-110 active:scale-95 transition-all`}
-                    >
-                      <Icon className="w-3.5 h-3.5" />
-                    </a>
-                  ))}
                 </div>
               </div>
             </div>
