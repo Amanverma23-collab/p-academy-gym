@@ -56,27 +56,6 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
       ref={heroRef} 
       className="relative w-full min-h-svh bg-[#112708] flex flex-col justify-between overflow-hidden select-none"
     >
-      {/* Interactive WebGL Fluid Splash Cursor Effect - Desktop Only */}
-      {enableSplash && (
-        <Suspense fallback={null}>
-          <SplashCursor
-            DENSITY_DISSIPATION={3.2}
-            VELOCITY_DISSIPATION={2}
-            PRESSURE={0.1}
-            CURL={3}
-            SPLAT_RADIUS={0.28}
-            SPLAT_FORCE={6000}
-            COLOR_UPDATE_SPEED={10}
-            SHADING={true}
-            RAINBOW_MODE={false}
-            COLOR="#facc15"
-            DYE_RESOLUTION={1024}
-            PRESSURE_ITERATIONS={14}
-            zIndex={35}
-          />
-        </Suspense>
-      )}
-      
       {/* Subtle Warm Amber-Yellow Backlight Glow behind athlete (Desktop only) */}
       <div className="hidden md:block absolute right-0 md:right-[4%] lg:right-[8%] top-[50%] -translate-y-1/2 pointer-events-none -z-0">
         <motion.div 
