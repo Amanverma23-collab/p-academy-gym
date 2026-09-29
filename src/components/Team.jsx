@@ -1,311 +1,477 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Check, 
-  Award, 
-  Flame, 
-  Star, 
-  Dumbbell, 
-  Apple, 
-  Target, 
-  MessageCircle, 
-  ArrowRight,
-  ShieldCheck,
-  Quote
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { GYM_INFO } from '../data/gymData';
+import Lanyard from './Lanyard';
+
+// Inline SVG brand icons with authentic official logos and colors
+const InstagramIcon = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" strokeWidth="2" />
+    <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
+    <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
+  </svg>
+);
+
+const YoutubeIcon = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+  </svg>
+);
+
+const FacebookIcon = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+  </svg>
+);
+
+const socialLinks = [
+  { 
+    label: 'Instagram', 
+    href: GYM_INFO.instagramUrl, 
+    Icon: InstagramIcon, 
+    bgClass: 'bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white shadow-sm' 
+  },
+  { 
+    label: 'YouTube',   
+    href: 'https://youtube.com', 
+    Icon: YoutubeIcon,   
+    bgClass: 'bg-[#FF0000] text-white shadow-sm' 
+  },
+  { 
+    label: 'Facebook',  
+    href: GYM_INFO.facebookUrl, 
+    Icon: FacebookIcon,  
+    bgClass: 'bg-[#1877F2] text-white shadow-sm' 
+  },
+];
+
+const expertiseLeft = [
+  { 
+    number: '01',
+    title: 'Muscle Building & Strength',
+    desc: 'Learn proper lifting form and follow a workout routine that builds strength safely.' 
+  },
+  { 
+    number: '02',
+    title: 'Simple Indian Diet Plans',
+    desc: 'Easy-to-follow meal plans using regular home-cooked food (veg & non-veg).' 
+  },
+];
+
+const expertiseRight = [
+  { 
+    number: '03',
+    title: 'Fat Loss & Body Toning',
+    desc: 'Burn fat and build stamina with the right mix of weights and cardio.' 
+  },
+  { 
+    number: '04',
+    title: 'Personal Support & Tracking',
+    desc: 'Daily posture checks on the floor and direct guidance whenever you need help.' 
+  },
+];
+
+const stats = [
+  { value: '8+',     label: 'Years Coaching' },
+  { value: '500+',   label: 'Transformations' },
+  { value: '4.9★',   label: 'Member Rating' },
+  { value: '1-on-1', label: 'Personal Training' },
+];
+
+const credentials = [
+  'Certified Personal Trainer (8+ Years Experience)',
+  'Custom Diet Planning (Veg & Non-Veg)',
+  'Safe Lifting & Injury-Free Training',
+  '500+ Transformations in Delhi NCR',
+];
 
 export default function Team({ onOpenBooking }) {
-  const highlights = [
-    'Certified Master Personal Trainer & Transformation Specialist',
-    'Personalized Indian Macro & Diet Planning (Veg & Non-Veg)',
-    'Strict Biomechanical Form & Injury Prevention Protocol',
-    'Documented 500+ Transformations across Delhi & NCR',
-  ];
-
-  const pillars = [
-    {
-      icon: Dumbbell,
-      title: 'Hypertrophy & Strength',
-      desc: 'Science-backed progressive overload and customized split programming for injury-free muscle gains.',
-    },
-    {
-      icon: Apple,
-      title: 'Custom Indian Diets',
-      desc: 'Culturally relevant, sustainable meal plans built for your metabolic rate and daily routine.',
-    },
-    {
-      icon: Target,
-      title: 'Body Recomposition',
-      desc: 'Targeted calorie-deficit protocols that strip stubborn fat while maintaining and toning lean muscle.',
-    },
-    {
-      icon: MessageCircle,
-      title: 'Direct WhatsApp Support',
-      desc: 'Daily habit accountability, weekly body measurement audits, and continuous routine fine-tuning.',
-    },
-  ];
-
-  const stats = [
-    { value: '8+', label: 'Years Experience', sub: 'In Elite Coaching' },
-    { value: '500+', label: 'Transformations', sub: 'Documented' },
-    { value: '1-on-1', label: 'Personal Guidance', sub: 'On Gym Floor' },
-    { value: '4.9 ★', label: 'Member Rating', sub: 'Verified Reviews' },
-  ];
-
-  const whatsappConsultUrl = `https://wa.me/${GYM_INFO.whatsappNumber}?text=${encodeURIComponent(
-    'Hi Coach Devender, I want to consult regarding 1-on-1 personal training and custom workout/diet plans at P Academy Gym.'
+  const whatsappUrl = `https://wa.me/${GYM_INFO.whatsappNumber}?text=${encodeURIComponent(
+    'Hi Coach Devender, I want to consult regarding personal training and custom diet plans at P Academy Gym.'
   )}`;
 
   return (
-    <section id="team" className="relative bg-[#0d2106] py-16 sm:py-20 lg:py-24 overflow-hidden select-none">
-      {/* Ambient background glows */}
-      <div 
-        className="absolute left-[-100px] top-[20%] w-[500px] h-[500px] rounded-full pointer-events-none -z-0"
-        style={{
-          background: 'radial-gradient(circle, rgba(250, 204, 21, 0.12) 0%, rgba(132, 204, 22, 0.06) 40%, transparent 70%)',
-        }}
-      />
-      <div 
-        className="absolute right-[-100px] bottom-[15%] w-[500px] h-[500px] rounded-full pointer-events-none -z-0"
-        style={{
-          background: 'radial-gradient(circle, rgba(74, 130, 20, 0.2) 0%, transparent 70%)',
-        }}
-      />
+    <section id="team" className="relative bg-[#071303] pt-6 pb-16 sm:pt-8 sm:pb-20 lg:pt-10 lg:pb-24 overflow-visible">
+      
+      {/* Ambient Gym Lighting Spotlight in Center (clipped inside so no page horizontal scrollbar) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 70% 60% at 50% 35%, rgba(250,204,21,0.11) 0%, rgba(13,33,6,0.35) 45%, transparent 80%)',
+          }}
+        />
+        <div
+          className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] opacity-20 blur-3xl rounded-full bg-[#facc15]/30"
+        />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <div className="text-left sm:text-center max-w-3xl sm:mx-auto mb-12 sm:mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-[#facc15] text-[#081303] text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider shadow-md mb-4"
-          >
-            <Award className="w-4 h-4 stroke-[2.5]" />
-            <span>Head Coach Spotlight</span>
-          </motion.div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-headline font-black text-4xl sm:text-5xl lg:text-6xl text-white uppercase leading-[0.95] tracking-tight mb-4"
-          >
-            Train Personally Under <br className="hidden sm:inline" />
-            <span className="text-[#facc15]">Coach Devender Dahiya</span>
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-sans-clean text-[#b4ceaf] text-sm sm:text-base leading-relaxed"
-          >
-            Direct 1-on-1 Mentorship • Science-Backed Protocols • Personalized Nutrition • Guaranteed Real Results
-          </motion.p>
-        </div>
-
-        {/* Spotlight Showcase Grid: Left Info & Pillars + Right Coach Spotlight Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+        {/* ── DESKTOP VIEW (lg+): Balanced 3-Column Centerpiece Layout ── */}
+        <div className="hidden lg:grid lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Column (7 cols): Bio, Pillars, Highlights, Stats, CTAs */}
+          {/* ── LEFT COLUMN (4 Cols): Coach Profile, Philosophy & Core Pillars ── */}
           <motion.div
             initial={{ opacity: 0, x: -25 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 bg-[#0a1a04]/90 border border-[#1a380c] rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between shadow-2xl backdrop-blur-sm"
+            className="lg:col-span-4 flex flex-col gap-6 pt-6 relative z-10 pointer-events-auto"
           >
+            {/* Editorial Header */}
             <div>
-              {/* Coach Badge & Title */}
-              <div className="flex flex-wrap items-center gap-2.5 mb-4">
-                <span className="bg-[#18360a] border border-[#2d5c14] text-[#facc15] text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#facc15]" />
-                  Founder & Head Coach
-                </span>
-                <span className="text-zinc-400 text-xs font-sans-clean">
-                  • P Academy Gym, Uttam Nagar
-                </span>
-              </div>
-
-              {/* Bio Narrative */}
-              <p className="font-sans-clean text-zinc-200 text-sm sm:text-[15px] font-normal leading-relaxed mb-8">
-                At P Academy, your transformation is never outsourced or left to generic gym routines. 
-                <strong className="text-white font-semibold"> Head Coach Devender Dahiya</strong> personally evaluates your posture, structural mobility, and metabolic response to formulate an exact lifting and dietary roadmap built around your lifestyle.
+              <span className="text-[11px] font-mono tracking-[0.25em] text-[#facc15]/85 uppercase font-semibold block mb-2">
+                Head Coach &amp; Biomechanics Director
+              </span>
+              <h2 className="font-headline font-black text-3xl sm:text-4xl lg:text-[42px] text-white tracking-tight leading-[1.06]">
+                Devender Dahiya
+              </h2>
+              <p className="text-xs sm:text-[13px] text-zinc-400 font-medium tracking-wide mt-1.5">
+                Master Personal Trainer &bull; 8+ Years On The Floor
               </p>
+            </div>
 
-              {/* 4 Pillars Mini-Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {pillars.map((pillar, idx) => {
-                  const Icon = pillar.icon;
-                  return (
-                    <div 
-                      key={idx}
-                      className="bg-[#0f2407]/70 border border-[#1b3a0e] rounded-2xl p-4 hover:border-[#facc15]/40 transition-colors group"
-                    >
-                      <div className="w-9 h-9 rounded-xl bg-[#facc15]/10 border border-[#facc15]/20 flex items-center justify-center text-[#facc15] mb-3 group-hover:scale-105 group-hover:bg-[#facc15] group-hover:text-[#081303] transition-all duration-300">
-                        <Icon className="w-4 h-4 stroke-[2.5]" />
-                      </div>
-                      <h4 className="font-sans-clean font-bold text-white text-sm mb-1">
-                        {pillar.title}
+            {/* Philosophy Statement: Clean Editorial Border-Left */}
+            <div className="border-l border-white/20 pl-4 py-1">
+              <p className="text-[13.5px] text-zinc-300 leading-relaxed font-normal">
+                &ldquo;At P Academy, transformations are never outsourced to junior trainers or automated algorithms. Every lift, meal adjustment, and biomechanical form check is personally evaluated on the floor.&rdquo;
+              </p>
+            </div>
+
+            {/* 2 Specialization Columns: Typographic, Numbered, Clean */}
+            <div className="flex flex-col gap-4 pt-1">
+              <span className="text-[10.5px] font-mono uppercase tracking-[0.2em] text-zinc-500 font-semibold">
+                Core Specializations
+              </span>
+              <div className="flex flex-col gap-4">
+                {expertiseLeft.map(({ number, title, desc }) => (
+                  <div key={number} className="group">
+                    <div className="flex items-baseline gap-2.5">
+                      <span className="text-xs font-mono text-[#facc15]/85 font-bold">{number}</span>
+                      <h4 className="text-sm font-semibold text-white tracking-tight">
+                        {title}
                       </h4>
-                      <p className="font-sans-clean text-[#a2c29d] text-xs leading-relaxed">
-                        {pillar.desc}
-                      </p>
                     </div>
-                  );
-                })}
-              </div>
-
-              {/* Highlights Checklist */}
-              <div className="bg-[#071303]/60 border border-[#163309] rounded-2xl p-5 mb-8 flex flex-col gap-3">
-                <h5 className="font-sans-clean text-xs font-bold text-[#facc15] uppercase tracking-wider mb-1">
-                  Why Members Trust Coach Devender:
-                </h5>
-                {highlights.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <div className="w-4 h-4 rounded-full bg-[#facc15] text-[#081303] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
-                      <Check className="w-2.5 h-2.5 stroke-[3.5]" />
-                    </div>
-                    <span className="font-sans-clean text-xs sm:text-[13px] font-medium text-zinc-200 leading-snug">
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Stats Row */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-[#18360a] mb-8">
-                {stats.map((stat, idx) => (
-                  <div key={idx} className="text-center sm:text-left">
-                    <div className="font-headline font-black text-2xl sm:text-3xl text-[#facc15] leading-none mb-1">
-                      {stat.value}
-                    </div>
-                    <div className="font-sans-clean text-xs font-bold text-white leading-tight">
-                      {stat.label}
-                    </div>
-                    <div className="font-sans-clean text-[10px] text-[#93b38e] mt-0.5">
-                      {stat.sub}
-                    </div>
+                    <p className="text-xs text-zinc-400 leading-relaxed pl-6 mt-1">
+                      {desc}
+                    </p>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-4">
-              <button
-                onClick={onOpenBooking}
-                className="flex-1 bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-extrabold text-sm py-3.5 px-6 rounded-xl hover:-translate-y-0.5 active:translate-y-0 transition-all shadow-md flex items-center justify-center gap-2 group cursor-pointer"
-              >
-                <span>Book Free Consultation with Coach</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-
-              <a
-                href={whatsappConsultUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#142e09] hover:bg-[#1a3b0d] border border-[#2d5c14] hover:border-[#facc15]/50 text-white font-sans-clean font-bold text-sm py-3.5 px-6 rounded-xl hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
-              >
-                <MessageCircle className="w-4 h-4 text-[#25D366]" />
-                <span>WhatsApp Coach</span>
-              </a>
+            {/* Direct 1-on-1 guarantee strip */}
+            <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-zinc-400">
+              <span className="font-medium text-zinc-300">1-on-1 Dedicated Floor Mentorship</span>
+              <span className="text-zinc-500 font-mono text-[11px]">Sector 12, Dwarka</span>
             </div>
           </motion.div>
 
-          {/* Right Column (5 cols): Devender Dahiya Spotlight Card */}
+          {/* ── CENTER COLUMN (4 Cols): Hanging 3D Lanyard Card (NO BOX) ── */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65, delay: 0.1 }}
+            className="lg:col-span-4 flex flex-col items-center justify-start -mt-6 sm:-mt-8 lg:-mt-10 relative z-20 overflow-visible"
+          >
+            {/* 3D Hanging Lanyard Canvas Container - Expands across side boxes */}
+            <div className="w-full h-[580px] relative flex flex-col justify-end items-center overflow-visible">
+              
+              {/* Sleek top anchor mount where lanyard connects to the Coach section ceiling */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center pointer-events-none">
+                <div className="w-16 h-2 bg-gradient-to-r from-zinc-800 via-[#facc15]/90 to-zinc-800 rounded-b-md shadow-md border-b border-[#facc15]/40" />
+                <div className="w-6 h-0.5 bg-[#081303] rounded-full mt-[-1px] opacity-75" />
+              </div>
+
+              {/* The 3D Canvas: Anchored flush to section top (top-0) & spans 310% width for side swinging */}
+              <div
+                className="absolute top-0 -bottom-16 overflow-visible pointer-events-auto z-20"
+                style={{ width: '310%', left: '-105%' }}
+              >
+                <Lanyard
+                  position={[0, 0.25, 14.5]}
+                  gravity={[0, -38, 0]}
+                  fov={20}
+                  frontImage="/coach-card.png"
+                  backImage="/coach-card.png"
+                  lanyardImage="/p-academy-lanyard.png?v=3"
+                  lanyardWidth={1.2}
+                  imageFit="cover"
+                  transparent={true}
+                />
+              </div>
+
+              {/* Social links below the card */}
+              <div className="relative z-30 text-center pb-2 pointer-events-auto">
+                <div className="flex items-center justify-center gap-2.5 mt-2">
+                  {socialLinks.map(({ label, href, Icon, bgClass }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Follow Coach Devender on ${label}`}
+                      className={`w-8 h-8 rounded-lg flex items-center justify-center ${bgClass} shadow-md hover:scale-115 active:scale-95 transition-all`}
+                    >
+                      <Icon className="w-4 h-4" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ── RIGHT COLUMN (4 Cols): Specializations, Credentials, Stats & CTAs ── */}
           <motion.div
             initial={{ opacity: 0, x: 25 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5 flex flex-col"
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="lg:col-span-4 flex flex-col gap-5 pt-6 relative z-10 pointer-events-auto"
           >
-            <div className="group relative rounded-3xl overflow-hidden shadow-2xl flex flex-col bg-[#071303] border border-[#1a380c] hover:border-[#facc15]/60 transition-all duration-300 h-full">
-              
-              {/* Coach Photo Container with Badges */}
-              <div className="relative min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] flex-1 overflow-hidden bg-zinc-950">
-                <img
-                  src="/trainers/trainer-rayhan.webp"
-                  alt="Coach Devender Dahiya - Head Coach P Academy Gym"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 select-none"
-                />
-
-                {/* Subtle cinematic gradient overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#071303] via-black/20 to-transparent pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent pointer-events-none" />
-
-                {/* Floating Top Badges */}
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 pointer-events-none">
-                  <div className="bg-black/80 backdrop-blur-md border border-[#facc15]/40 text-[#facc15] px-3.5 py-1.5 rounded-full text-xs font-extrabold flex items-center gap-1.5 shadow-lg">
-                    <Star className="w-3.5 h-3.5 fill-[#facc15] text-[#facc15]" />
-                    <span>Head Coach</span>
-                  </div>
-
-                  <div className="bg-[#facc15] text-[#081303] px-3.5 py-1.5 rounded-full text-xs font-black flex items-center gap-1.5 shadow-lg">
-                    <Flame className="w-3.5 h-3.5 fill-[#081303] text-[#081303]" />
-                    <span>500+ Transformed</span>
-                  </div>
-                </div>
-
-                {/* Personal Quote Overlay Box */}
-                <div className="absolute bottom-4 left-4 right-4 bg-[#0a1a04]/90 backdrop-blur-md border border-[#234512] rounded-2xl p-4 shadow-xl pointer-events-none">
-                  <div className="flex items-start gap-2.5">
-                    <Quote className="w-5 h-5 text-[#facc15] flex-shrink-0 opacity-80" />
-                    <p className="font-sans-clean text-xs sm:text-[12.5px] italic text-zinc-200 leading-snug">
-                      "Consistency beats motivation every single time. Put in the discipline, trust the process, and I will personally guarantee your results."
+            {/* 2 Specialization Columns: Typographic, Numbered, Clean */}
+            <div className="flex flex-col gap-4">
+              <span className="text-[10.5px] font-mono uppercase tracking-[0.2em] text-zinc-500 font-semibold">
+                Methodology &amp; Standards
+              </span>
+              <div className="flex flex-col gap-4">
+                {expertiseRight.map(({ number, title, desc }) => (
+                  <div key={number} className="group">
+                    <div className="flex items-baseline gap-2.5">
+                      <span className="text-xs font-mono text-[#facc15]/85 font-bold">{number}</span>
+                      <h4 className="text-sm font-semibold text-white tracking-tight">
+                        {title}
+                      </h4>
+                    </div>
+                    <p className="text-xs text-zinc-400 leading-relaxed pl-6 mt-1">
+                      {desc}
                     </p>
                   </div>
-                  <div className="text-right mt-1.5">
-                    <span className="text-[11px] font-bold text-[#facc15] uppercase tracking-wider font-sans-clean">
-                      Coach Devender Dahiya, Head Trainer
-                    </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Credentials: Clean Typographic Bullets */}
+            <div className="pt-1">
+              <span className="text-[10.5px] font-mono uppercase tracking-[0.2em] text-zinc-500 font-semibold block mb-2.5">
+                Verified Credentials
+              </span>
+              <div className="flex flex-col gap-2">
+                {credentials.map((item, idx) => (
+                  <div key={idx} className="flex items-baseline gap-2.5 text-xs text-zinc-300">
+                    <span className="text-[#facc15] font-bold select-none">&bull;</span>
+                    <span className="leading-snug">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Stats Metric Strip */}
+            <div className="grid grid-cols-4 gap-2 py-3 border-y border-white/10">
+              {stats.map(({ value, label }, idx) => (
+                <div key={idx}>
+                  <div className="font-headline font-black text-xl lg:text-2xl text-white tracking-tight leading-none mb-1">
+                    {value}
+                  </div>
+                  <div className="text-[10px] uppercase font-mono text-zinc-400 tracking-wider leading-tight">
+                    {label}
                   </div>
                 </div>
-              </div>
-
-              {/* Bottom Coach Identity Bar */}
-              <div className="bg-[#facc15] text-[#081303] py-4 px-6 text-center flex flex-col justify-center items-center shadow-lg">
-                <h3 className="font-sans-clean font-black text-lg sm:text-xl leading-tight text-[#081303] tracking-tight">
-                  Coach Devender Dahiya
-                </h3>
-                <p className="font-sans-clean text-xs sm:text-[13px] font-bold text-[#081303]/85 mt-0.5">
-                  Head Coach & Transformation Specialist
-                </p>
-                <div className="mt-2 pt-2 border-t border-[#081303]/15 w-full flex items-center justify-between text-[11px] font-semibold text-[#081303]/80">
-                  <span>• 1-on-1 Personal Training</span>
-                  <span>• Custom Indian Diet Plans</span>
-                </div>
-              </div>
-
-              {/* Real Member Testimonial Card */}
-              <div className="bg-[#050f02] p-4 sm:p-5 border-t border-[#132c07]">
-                <div className="flex items-center gap-1 text-[#facc15] mb-1.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-[#facc15] text-[#facc15]" />
-                  ))}
-                  <span className="text-[11px] font-bold text-white ml-1.5">5.0 Star Member Review</span>
-                </div>
-                <p className="font-sans-clean text-xs text-[#a9c9a3] italic leading-relaxed">
-                  "Awesome place to workout.... getting trained by Devender Dahiya... do not want to change as getting results here only... 😎🤟"
-                </p>
-                <div className="mt-2 flex items-center justify-between text-[10px] text-zinc-400">
-                  <span>Verified Google Review</span>
-                  <span className="text-[#facc15] font-semibold">P Academy Gym, Uttam Nagar, Delhi</span>
-                </div>
-              </div>
-
+              ))}
             </div>
-          </motion.div>
 
+            {/* Member Review: Refined Editorial Quote */}
+            <div className="border-l border-white/20 pl-3.5 py-0.5">
+              <p className="text-xs text-zinc-300 leading-relaxed italic">
+                &ldquo;Awesome place to workout... getting trained by Devender Dahiya... getting results here only.&rdquo;
+              </p>
+              <div className="text-[11px] text-zinc-400 not-italic mt-1 font-mono">
+                5.0 &bull; Google Verified Member Review
+              </div>
+            </div>
+
+            {/* Dual CTAs */}
+            <div className="flex flex-col sm:flex-row gap-2.5 pt-1 relative z-30 pointer-events-auto">
+              <button
+                onClick={onOpenBooking}
+                className="btn-base btn-primary !py-2.5 !px-4 !text-xs flex-1 flex items-center justify-center gap-2 group shadow-xl hover:shadow-[#facc15]/20 font-semibold"
+              >
+                <span>Book Consultation</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
+              </button>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-base btn-outline !py-2.5 !px-4 !text-xs flex items-center justify-center gap-2 font-semibold"
+              >
+                <span>WhatsApp Consult</span>
+              </a>
+            </div>
+
+          </motion.div>
+        </div>
+
+        {/* ── MOBILE VIEW (<lg): Centered Hanging Card from Section Top + Clean Dossier ── */}
+        <div className="block lg:hidden">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col gap-6"
+          >
+            {/* Mobile Editorial Header */}
+            <div className="text-center pt-2">
+              <span className="text-[10.5px] font-mono tracking-[0.25em] text-[#facc15]/85 uppercase font-semibold block mb-1.5">
+                Head Coach &amp; Biomechanics Director
+              </span>
+              <h2 className="font-headline font-black text-3xl text-white tracking-tight leading-tight">
+                Devender Dahiya
+              </h2>
+              <p className="text-xs text-zinc-400 font-medium tracking-wide mt-1">
+                Master Personal Trainer &bull; 8+ Years On The Floor
+              </p>
+            </div>
+
+            {/* Center Hanging Lanyard Canvas */}
+            <div className="w-full h-[440px] sm:h-[480px] relative -mt-4 flex flex-col justify-end items-center overflow-visible">
+              
+              {/* Sleek top anchor mount where lanyard connects to the Coach section ceiling */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center pointer-events-none">
+                <div className="w-14 h-2 bg-gradient-to-r from-zinc-800 via-[#facc15]/90 to-zinc-800 rounded-b-md shadow-md border-b border-[#facc15]/40" />
+                <div className="w-5 h-0.5 bg-[#081303] rounded-full mt-[-1px] opacity-75" />
+              </div>
+
+              {/* 3D Lanyard Canvas */}
+              <div
+                className="absolute inset-y-0 overflow-visible z-20 pointer-events-auto"
+                style={{ width: '160%', left: '-30%' }}
+              >
+                <Lanyard
+                  position={[0, 0.25, 15.5]}
+                  gravity={[0, -38, 0]}
+                  fov={22}
+                  frontImage="/coach-card.png"
+                  backImage="/coach-card.png"
+                  lanyardImage="/p-academy-lanyard.png?v=3"
+                  lanyardWidth={1.2}
+                  imageFit="cover"
+                  transparent={true}
+                />
+              </div>
+
+              {/* Social links below the card */}
+              <div className="relative z-20 text-center pb-1 pointer-events-auto">
+                <div className="flex items-center justify-center gap-2 mt-2">
+                  {socialLinks.map(({ label, href, Icon, bgClass }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Follow Coach Devender on ${label}`}
+                      className={`w-7 h-7 rounded-md flex items-center justify-center ${bgClass} hover:scale-110 active:scale-95 transition-all`}
+                    >
+                      <Icon className="w-3.5 h-3.5" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Bio statement */}
+            <div className="border-l border-white/20 pl-3.5 py-1">
+              <p className="text-xs text-zinc-300 leading-relaxed font-normal">
+                &ldquo;At P Academy, transformations are never outsourced to junior trainers or automated algorithms. Every lift, meal adjustment, and biomechanical form check is personally evaluated on the floor.&rdquo;
+              </p>
+            </div>
+
+            {/* 4 Pillars Grid on Mobile: Numbered, No Toy Icons */}
+            <div className="flex flex-col gap-3">
+              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 font-semibold">
+                Core Specializations &amp; Protocols
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {[...expertiseLeft, ...expertiseRight].map(({ number, title, desc }) => (
+                  <div key={number} className="pt-2 border-t border-white/10">
+                    <div className="flex items-baseline gap-2 mb-1">
+                      <span className="text-[11px] font-mono text-[#facc15]/85 font-bold">{number}</span>
+                      <h4 className="text-xs font-semibold text-white tracking-tight">
+                        {title}
+                      </h4>
+                    </div>
+                    <p className="text-[11px] text-zinc-400 leading-relaxed pl-5">
+                      {desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Credentials */}
+            <div className="pt-1">
+              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 font-semibold block mb-2">
+                Verified Credentials
+              </span>
+              <div className="flex flex-col gap-1.5">
+                {credentials.map((item, idx) => (
+                  <div key={idx} className="flex items-baseline gap-2 text-[11px] text-zinc-300">
+                    <span className="text-[#facc15] font-bold select-none">&bull;</span>
+                    <span className="leading-snug">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Stats 4-Grid */}
+            <div className="grid grid-cols-4 gap-2 py-3 border-y border-white/10 text-center">
+              {stats.map(({ value, label }, idx) => (
+                <div key={idx}>
+                  <div className="font-headline font-black text-base text-white leading-none mb-0.5">
+                    {value}
+                  </div>
+                  <div className="text-[9px] uppercase font-mono text-zinc-400 tracking-wider leading-tight">
+                    {label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Review quote */}
+            <div className="border-l border-white/20 pl-3 py-0.5">
+              <p className="text-[11px] text-zinc-300 italic leading-snug">
+                &ldquo;Awesome place to workout... getting trained by Devender Dahiya... getting results here only.&rdquo;
+              </p>
+              <div className="text-[10px] text-zinc-400 not-italic mt-0.5 font-mono">
+                5.0 &bull; Google Verified Member Review
+              </div>
+            </div>
+
+            {/* Mobile Dual Action Buttons */}
+            <div className="grid grid-cols-2 gap-2 pt-1">
+              <button
+                onClick={onOpenBooking}
+                className="btn-base btn-primary !py-2.5 !px-2 !text-xs flex items-center justify-center gap-1 shadow-lg font-semibold"
+              >
+                <span>Book Consult</span>
+                <ArrowRight className="w-3 h-3" />
+              </button>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-base btn-outline !py-2.5 !px-2 !text-xs flex items-center justify-center gap-1 font-semibold"
+              >
+                <span>WhatsApp</span>
+              </a>
+            </div>
+
+          </motion.div>
         </div>
 
       </div>

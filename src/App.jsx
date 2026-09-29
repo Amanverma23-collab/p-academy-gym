@@ -9,7 +9,7 @@ import Team from './components/Team';
 import Reviews from './components/Reviews';
 import Pricing from './components/Pricing';
 import Gallery from './components/Gallery';
-import ReadyCta from './components/ReadyCta';
+import FreeQuoteMap from './components/FreeQuoteMap';
 import Footer from './components/Footer';
 import BookVisitModal from './components/BookVisitModal';
 import Preloader from './components/Preloader';
@@ -56,7 +56,7 @@ export default function App() {
         />
 
         {/* Section 2: About (The Power Behind Your Vision + Video Banner + 4 Stats) */}
-        <About playTrigger={videoPlayTrigger} />
+        <About playTrigger={videoPlayTrigger} onOpenBooking={handleOpenBooking} />
 
         {/* Section 3: Gym Machines & Equipment Fleet (Interactive Slideshow) */}
         <Machines onOpenBooking={handleOpenBooking} />
@@ -76,8 +76,8 @@ export default function App() {
         {/* Section 8: Gallery (Explore Our Gym Atmosphere & Spaces + Lightbox) */}
         <Gallery onOpenBooking={handleOpenBooking} />
 
-        {/* Section 9: Call To Action (We're Ready When You Are) */}
-        <ReadyCta onOpenBooking={handleOpenBooking} />
+        {/* Section 9: Free Quote Form & Live Google Map */}
+        <FreeQuoteMap onOpenBooking={handleOpenBooking} />
       </main>
 
       {/* Footer / CTA Banner */}

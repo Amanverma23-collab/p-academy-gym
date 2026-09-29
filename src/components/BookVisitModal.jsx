@@ -55,7 +55,7 @@ export default function BookVisitModal({ isOpen, onClose }) {
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-5 right-5 p-2 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-600 hover:text-black"
+            className="absolute top-5 right-5 p-2 rounded-full bg-zinc-100 hover:bg-[#081303] border border-zinc-200 text-zinc-600 hover:text-white hover:scale-110 active:scale-90 transition-all duration-300 cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -85,7 +85,7 @@ export default function BookVisitModal({ isOpen, onClose }) {
                   setSubmitted(false);
                   onClose();
                 }}
-                className="mt-6 px-6 py-3 rounded-full bg-black text-white font-bold text-xs uppercase tracking-wider shadow-md"
+                className="mt-6 px-6 py-3 rounded-full bg-black hover:bg-[#facc15] text-white hover:text-[#081303] font-bold text-xs uppercase tracking-wider shadow-md hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
               >
                 Close Window
               </button>
@@ -158,16 +158,16 @@ export default function BookVisitModal({ isOpen, onClose }) {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 rounded-xl bg-[#facc15] hover:bg-[#eab308] disabled:opacity-75 disabled:cursor-not-allowed text-[#081303] font-sans-clean font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer"
+                  className="w-full py-3.5 rounded-xl bg-[#facc15] hover:bg-[#081303] disabled:opacity-75 disabled:cursor-not-allowed text-[#081303] hover:text-[#facc15] font-sans-clean font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-xl hover:-translate-y-0.5 hover:scale-[1.01] active:scale-95 transition-all duration-300 cursor-pointer group"
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="w-4 h-4 border-2 border-[#081303] border-t-transparent rounded-full animate-spin" />
+                      <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
                       <span>Confirming Request...</span>
                     </>
                   ) : (
                     <>
-                      <Send className="w-4 h-4" />
+                      <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-200" />
                       <span>Confirm Visit on WhatsApp</span>
                     </>
                   )}

@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Design Tokens: Easing Curves */
+:root {
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+}
+
 @layer base {
   html {
     font-family: 'Inter', sans-serif;
@@ -12,9 +19,25 @@
     overflow-x: hidden;
   }
 
+  /* Universal Clickable Button & Interactive Hover Micro-animations */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  .cursor-pointer {
+    cursor: pointer;
+    transition-property: color, background-color, border-color, transform, box-shadow, opacity, filter;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    transition-duration: 250ms;
+  }
+
+  button:not(:disabled):active,
+  [role="button"]:not([aria-disabled="true"]):active {
+    transform: scale(0.96);
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Satoshi', sans-serif;
-    letter-spacing: -0.03em;
+    font-family: 'Plus Jakarta Sans', 'Satoshi', sans-serif;
+    letter-spacing: -0.025em;
+    font-weight: 800;
   }
 }
 
@@ -41,8 +64,9 @@ html.lenis, html.lenis body {
 }
 
 .font-headline {
-  font-family: 'Anton', 'Impact', sans-serif;
-  letter-spacing: 0.02em;
+  font-family: 'Plus Jakarta Sans', 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.025em;
+  font-weight: 800;
 }
 
 .font-sans-clean {
@@ -131,3 +155,236 @@ html.lenis, html.lenis body {
 ::-webkit-scrollbar-thumb:hover {
   background: #10b981;
 }
+
+/* Custom Coach Slidebar for Mobile View */
+.custom-coach-slidebar {
+  scrollbar-width: thin;
+  scrollbar-color: #facc15 rgba(255, 255, 255, 0.08);
+  -webkit-overflow-scrolling: touch;
+}
+
+.custom-coach-slidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-coach-slidebar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 9999px;
+  margin: 4px 0;
+}
+
+.custom-coach-slidebar::-webkit-scrollbar-thumb {
+  background: #facc15;
+  border-radius: 9999px;
+  box-shadow: 0 0 8px rgba(250, 204, 21, 0.6);
+}
+
+.custom-coach-slidebar::-webkit-scrollbar-thumb:hover {
+  background: #fde047;
+}
+
+/* Liquid Glass Morphism Styles (High-End Frosted Glass with Specular Reflection) */
+.liquid-glass-capsule {
+  background: linear-gradient(180deg, rgba(26, 32, 22, 0.75) 0%, rgba(8, 12, 7, 0.88) 100%);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.35),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.85),
+    0 16px 40px rgba(0, 0, 0, 0.65);
+}
+
+.liquid-glass-active-tab {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.07) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.45),
+    inset 0 -1px 1.5px rgba(0, 0, 0, 0.7),
+    0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+/* ==========================================================================
+   Unified Button Design System (Resolves Usability Consistency: <= 5 Styles)
+   ========================================================================== */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  padding: 0.625rem 1.375rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-base:focus-visible {
+  outline: 2px solid #facc15;
+  outline-offset: 2px;
+}
+
+/* 1. Primary CTA: Brand Yellow Gold */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  padding: 0.6875rem 1.5rem;
+  border-radius: 9999px;
+  background-color: #facc15;
+  color: #081303;
+  border: 1px solid #facc15;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-primary:hover {
+  background-color: #ffffff;
+  color: #081303;
+  border-color: #ffffff;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* 2. Secondary CTA: Dark Athletic Charcoal */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  padding: 0.6875rem 1.5rem;
+  border-radius: 9999px;
+  background-color: #081303;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-secondary:hover {
+  background-color: #facc15;
+  color: #081303;
+  border-color: #facc15;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* 3. Outline CTA: Subdued / Translucent Border */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* 4. Glass / Capsule CTA: Liquid Glass Island */
+.btn-glass,
+.liquid-glass-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, rgba(26, 32, 22, 0.75) 0%, rgba(8, 12, 7, 0.88) 100%);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.38),
+    inset 0 -1.5px 2px rgba(0, 0, 0, 0.85),
+    0 10px 28px rgba(0, 0, 0, 0.55);
+  color: #f4f4f5;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-glass:hover,
+.liquid-glass-btn:hover {
+  background: #facc15;
+  color: #081303;
+  border-color: #facc15;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* 5. Filter Chip / Tag Toggle */
+.btn-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.375rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  background-color: #f4f4f5;
+  color: #52525b;
+  border: 1px solid #e4e4e7;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-chip:hover {
+  background-color: #081303;
+  color: #facc15;
+  border-color: #081303;
+}
+.btn-chip-active {
+  background-color: #facc15;
+  color: #081303;
+  border-color: #facc15;
+}
+
+/* Loading state for async CTA buttons */
+.btn-loading {
+  pointer-events: none;
+  opacity: 0.75;
+  cursor: not-allowed !important;
+}
+
+.btn-loading .btn-icon {
+  display: none;
+}
+
+.btn-spinner {
+  display: none;
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 9999px;
+  animation: btn-spin 0.6s linear infinite;
+}
+
+.btn-loading .btn-spinner {
+  display: inline-block;
+}
+
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}
+
+

@@ -93,18 +93,17 @@ export default function Programs({ onOpenBooking }) {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7 flex flex-col justify-start text-left"
           >
-            {/* Pill Tag: Services */}
-            <div className="mb-4">
-              <span className="font-sans-clean bg-[#facc15] text-[#081303] text-xs font-extrabold px-5 py-1.5 rounded-full inline-block uppercase tracking-wider shadow-sm">
-                Services
+            {/* Eyebrow Label */}
+            <div className="inline-flex items-center gap-2.5 mb-3.5">
+              <span className="w-6 h-[2px] bg-[#facc15]"></span>
+              <span className="font-sans-clean text-xs font-black uppercase tracking-[0.22em] text-[#facc15]">
+                Tailored Services
               </span>
             </div>
 
-            {/* Headline: TAILORED PROGRAMS FOR EVERY GOAL */}
-            <h2 className="font-headline font-black text-5xl sm:text-6xl lg:text-[76px] xl:text-[84px] leading-[0.92] text-white uppercase tracking-tight">
-              TAILORED <span className="text-[#facc15]">PROGRAMS</span>
-              <br />
-              FOR EVERY GOAL
+            {/* Headline */}
+            <h2 className="font-headline font-extrabold text-2xl sm:text-3xl lg:text-[42px] leading-[1.12] text-white tracking-tight">
+              Tailored Programs For Every Goal
             </h2>
           </motion.div>
 
@@ -131,7 +130,7 @@ export default function Programs({ onOpenBooking }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.45 }}
+              transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch"
             >
               
@@ -159,7 +158,7 @@ export default function Programs({ onOpenBooking }) {
                   </div>
 
                   {/* Program Title */}
-                  <h3 className="font-headline font-black text-3xl sm:text-4xl text-[#0e2205] uppercase tracking-wide mb-3">
+                  <h3 className="font-headline font-bold text-xl sm:text-2xl text-[#0e2205] tracking-tight mb-2">
                     {current.title}
                   </h3>
 
@@ -187,10 +186,10 @@ export default function Programs({ onOpenBooking }) {
                 <div className="pt-2">
                   <button
                     onClick={onOpenBooking}
-                    className="bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-extrabold text-xs sm:text-sm px-7 py-3 rounded-full inline-flex items-center gap-1.5 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                    className="bg-[#facc15] hover:bg-[#081303] text-[#081303] hover:text-[#facc15] font-sans-clean font-extrabold text-xs sm:text-sm px-7 py-3 rounded-full inline-flex items-center gap-1.5 shadow-md hover:-translate-y-0.5 hover:scale-[1.02] active:scale-95 transition-all duration-250 cursor-pointer group"
                   >
                     <span>Join Now</span>
-                    <ChevronRight className="w-4 h-4 stroke-[3]" />
+                    <ChevronRight className="w-4 h-4 stroke-[3] group-hover:translate-x-1.5 transition-transform duration-200" />
                   </button>
                 </div>
               </div>
@@ -203,16 +202,16 @@ export default function Programs({ onOpenBooking }) {
             <button
               onClick={prevProgram}
               aria-label="Previous Program"
-              className="w-11 h-11 rounded-full bg-[#facc15] hover:bg-[#eab308] text-[#081303] flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+              className="w-11 h-11 rounded-full bg-[#facc15] hover:bg-white text-[#081303] flex items-center justify-center shadow-md hover:scale-110 hover:-translate-y-0.5 active:scale-95 transition-all duration-250 cursor-pointer group"
             >
-              <ArrowLeft className="w-5 h-5 stroke-[2.5]" />
+              <ArrowLeft className="w-5 h-5 stroke-[2.5] group-hover:-translate-x-0.5 transition-transform duration-200" />
             </button>
             <button
               onClick={nextProgram}
               aria-label="Next Program"
-              className="w-11 h-11 rounded-full bg-[#facc15] hover:bg-[#eab308] text-[#081303] flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+              className="w-11 h-11 rounded-full bg-[#facc15] hover:bg-white text-[#081303] flex items-center justify-center shadow-md hover:scale-110 hover:-translate-y-0.5 active:scale-95 transition-all duration-250 cursor-pointer group"
             >
-              <ArrowRight className="w-5 h-5 stroke-[2.5]" />
+              <ArrowRight className="w-5 h-5 stroke-[2.5] group-hover:translate-x-0.5 transition-transform duration-200" />
             </button>
           </div>
         </div>

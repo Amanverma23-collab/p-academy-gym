@@ -3,17 +3,17 @@ import { motion } from 'framer-motion';
 import { Heart, MessageCircle, ArrowUpRight } from 'lucide-react';
 import { INSTAGRAM_POSTS, GYM_INFO } from '../data/gymData';
 
-const InstagramIcon = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+const InstagramIcon = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" strokeWidth="2"/>
+    <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2"/>
+    <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
   </svg>
 );
 
-const FacebookIcon = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+const FacebookIcon = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
   </svg>
 );
 
@@ -38,22 +38,22 @@ export default function SocialFeed() {
               href={GYM_INFO.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-full bg-white border border-zinc-200 text-black font-heading font-bold text-xs uppercase tracking-wider flex items-center gap-2 hover:border-pink-500 hover:text-pink-600 transition-colors shadow-sm"
+              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] text-white font-heading font-bold text-xs uppercase tracking-wider flex items-center gap-2 hover:opacity-95 hover:scale-105 transition-all shadow-sm"
             >
-              <InstagramIcon className="w-4 h-4 text-pink-500" />
-              @p_academy_gym
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <InstagramIcon className="w-4 h-4 text-white" />
+              <span>@p_academy_gym</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-white" />
             </a>
 
             <a
               href={GYM_INFO.facebookUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-full bg-white border border-zinc-200 text-black font-heading font-bold text-xs uppercase tracking-wider flex items-center gap-2 hover:border-blue-500 hover:text-blue-600 transition-colors shadow-sm"
+              className="px-5 py-2.5 rounded-full bg-[#1877F2] text-white font-heading font-bold text-xs uppercase tracking-wider flex items-center gap-2 hover:bg-[#166fe5] hover:scale-105 transition-all shadow-sm"
             >
-              <FacebookIcon className="w-4 h-4 text-blue-500" />
-              Facebook Page
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <FacebookIcon className="w-4 h-4 text-white" />
+              <span>Facebook Page</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-white" />
             </a>
           </div>
         </div>

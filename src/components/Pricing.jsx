@@ -26,11 +26,6 @@ export default function Pricing({ onOpenBooking }) {
         'Basic workout split & BMI check',
         'Free vehicle parking space',
       ],
-      buttonBg: 'bg-[#facc15] hover:bg-[#eab308] text-[#081303]',
-      cardBg: 'bg-white text-zinc-900 border border-zinc-100 shadow-xl',
-      priceColor: 'text-black',
-      checkBg: 'bg-[#0e2205] text-[#facc15]',
-      dividerColor: 'bg-zinc-200',
     },
     {
       name: 'Quarterly Plan',
@@ -52,11 +47,6 @@ export default function Pricing({ onOpenBooking }) {
         'Floor trainer assistance on form',
         'Dedicated locker & changing room',
       ],
-      buttonBg: 'bg-[#081303] hover:bg-black text-white shadow-md',
-      cardBg: 'bg-[#facc15] text-[#081303] border-2 border-[#eab308] shadow-xl',
-      priceColor: 'text-[#081303]',
-      checkBg: 'bg-[#081303] text-[#facc15]',
-      dividerColor: 'bg-[#081303]/20',
     },
     {
       name: 'Yearly Plan',
@@ -79,11 +69,6 @@ export default function Pricing({ onOpenBooking }) {
         'Priority floor trainer support',
         'Quarterly fitness audits & checkups',
       ],
-      buttonBg: 'bg-[#facc15] hover:bg-[#eab308] text-[#081303]',
-      cardBg: 'bg-white text-zinc-900 border border-zinc-100 shadow-xl',
-      priceColor: 'text-black',
-      checkBg: 'bg-[#0e2205] text-[#facc15]',
-      dividerColor: 'bg-zinc-200',
     },
   ];
 
@@ -107,11 +92,6 @@ export default function Pricing({ onOpenBooking }) {
         'Locker & shower facilities',
         'Free vehicle parking space',
       ],
-      buttonBg: 'bg-[#facc15] hover:bg-[#eab308] text-[#081303]',
-      cardBg: 'bg-white text-zinc-900 border border-zinc-100 shadow-xl',
-      priceColor: 'text-black',
-      checkBg: 'bg-[#0e2205] text-[#facc15]',
-      dividerColor: 'bg-zinc-200',
     },
     {
       name: 'Quarterly Cardio',
@@ -133,11 +113,6 @@ export default function Pricing({ onOpenBooking }) {
         'Locker & changing room privileges',
         'Trainer supervision across both floors',
       ],
-      buttonBg: 'bg-[#081303] hover:bg-black text-white shadow-md',
-      cardBg: 'bg-[#facc15] text-[#081303] border-2 border-[#eab308] shadow-xl',
-      priceColor: 'text-[#081303]',
-      checkBg: 'bg-[#081303] text-[#facc15]',
-      dividerColor: 'bg-[#081303]/20',
     },
     {
       name: 'Yearly Cardio',
@@ -160,11 +135,6 @@ export default function Pricing({ onOpenBooking }) {
         'Year-round trainer goal accountability',
         'Quarterly body composition checkups',
       ],
-      buttonBg: 'bg-[#facc15] hover:bg-[#eab308] text-[#081303]',
-      cardBg: 'bg-white text-zinc-900 border border-zinc-100 shadow-xl',
-      priceColor: 'text-black',
-      checkBg: 'bg-[#0e2205] text-[#facc15]',
-      dividerColor: 'bg-zinc-200',
     },
   ];
 
@@ -190,38 +160,38 @@ export default function Pricing({ onOpenBooking }) {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto mb-8 sm:mb-12"
         >
-          {/* Pill Badge: Pricing */}
-          <div className="mb-4">
-            <span className="font-sans-clean bg-[#facc15] text-[#081303] text-xs font-extrabold px-5 py-1.5 rounded-full inline-block uppercase tracking-wider shadow-sm">
+          {/* Eyebrow Label */}
+          <div className="inline-flex items-center justify-center gap-2.5 mb-3.5">
+            <span className="w-6 h-[2px] bg-[#facc15]"></span>
+            <span className="font-sans-clean text-xs font-black uppercase tracking-[0.22em] text-[#facc15]">
               Membership Plans
             </span>
+            <span className="w-6 h-[2px] bg-[#facc15]"></span>
           </div>
 
-          {/* Headline: CHOOSE THE BEST PRICING FOR YOU */}
-          <h2 className="font-headline font-black text-5xl sm:text-6xl lg:text-[76px] xl:text-[84px] leading-[0.92] text-white uppercase tracking-tight mb-6">
-            CHOOSE <span className="text-[#facc15]">THE BEST</span>
-            <br />
-            PRICING FOR YOU
+          {/* Headline */}
+          <h2 className="font-headline font-extrabold text-2xl sm:text-3xl lg:text-[42px] leading-[1.12] text-white tracking-tight mb-6">
+            Choose The Best Plan For You
           </h2>
 
           {/* Functional Category Toggle Switch */}
           <div className="inline-flex items-center p-1 rounded-full bg-[#122b09] border border-[#234c14] shadow-inner">
             <button
               onClick={() => setActiveTab('strength')}
-              className={`px-5 py-2 rounded-full font-sans-clean text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
+              className={`px-5 py-2.5 rounded-full font-sans-clean text-xs sm:text-sm font-extrabold transition-all duration-300 cursor-pointer ${
                 activeTab === 'strength'
-                  ? 'bg-[#facc15] text-[#081303] shadow-sm'
-                  : 'text-zinc-300 hover:text-white'
+                  ? 'bg-[#facc15] text-[#081303] shadow-md scale-[1.02]'
+                  : 'text-zinc-300 hover:text-[#facc15] hover:bg-white/5 hover:scale-[1.02]'
               }`}
             >
               Strength Training Floor
             </button>
             <button
               onClick={() => setActiveTab('cardio')}
-              className={`px-5 py-2 rounded-full font-sans-clean text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
+              className={`px-5 py-2.5 rounded-full font-sans-clean text-xs sm:text-sm font-extrabold transition-all duration-300 cursor-pointer ${
                 activeTab === 'cardio'
-                  ? 'bg-[#facc15] text-[#081303] shadow-sm'
-                  : 'text-zinc-300 hover:text-white'
+                  ? 'bg-[#facc15] text-[#081303] shadow-md scale-[1.02]'
+                  : 'text-zinc-300 hover:text-[#facc15] hover:bg-white/5 hover:scale-[1.02]'
               }`}
             >
               Strength + Cardio Floor
@@ -236,7 +206,7 @@ export default function Pricing({ onOpenBooking }) {
               key={`${activeTab}-${plan.name}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: idx * 0.08 }}
+              transition={{ duration: 0.35, delay: idx * 0.07, ease: [0.25, 0.46, 0.45, 0.94] }}
               className={`h-full ${plan.isFeatured ? 'lg:-translate-y-3' : ''}`}
             >
               <ElectricBorder
@@ -248,91 +218,86 @@ export default function Pricing({ onOpenBooking }) {
                 className="h-full"
               >
                 <div
-                  className={`rounded-3xl p-8 sm:p-10 flex flex-col justify-between text-left h-full transition-transform duration-300 ${
-                    plan.cardBg
-                  }`}
+                  className={`group rounded-3xl flex flex-col justify-between text-left h-full transition-colors duration-300 bg-white border shadow-lg overflow-hidden cursor-default hover:bg-amber-50
+                    ${ plan.isFeatured
+                      ? 'border-[#facc15]'
+                      : 'border-zinc-200 hover:border-[#facc15]/60'
+                    }`}
                 >
-                  <div>
-                    {/* Badge Tag & Savings Row */}
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className={`font-sans-clean text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full ${
-                        plan.isFeatured
-                          ? 'bg-[#081303] text-[#facc15]'
-                          : 'bg-zinc-100 text-zinc-800 border border-zinc-200'
-                      }`}>
-                        {plan.badge}
-                      </span>
-                      {plan.savings && (
-                        <span className={`font-sans-clean text-[11.5px] font-extrabold ${
-                          plan.isFeatured ? 'text-[#081303]' : 'text-emerald-600'
+
+                  <div className="p-8 sm:p-10 flex flex-col h-full">
+                    <div>
+                      {/* Badge & Savings Row */}
+                      <div className="flex items-center justify-between gap-2 mb-3">
+                        <span className={`font-sans-clean text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full ${
+                          plan.isFeatured
+                            ? 'bg-[#facc15] text-[#081303]'
+                            : 'bg-zinc-100 text-zinc-700 border border-zinc-200'
                         }`}>
-                          {plan.savings}
+                          {plan.badge}
                         </span>
-                      )}
-                    </div>
-
-                    {/* Plan Name */}
-                    <h3 className={`font-headline font-black text-3xl uppercase tracking-wide mb-1 ${plan.priceColor}`}>
-                      {plan.name}
-                    </h3>
-
-                    {/* Subtitle */}
-                    <p className={`text-xs leading-relaxed mb-6 font-sans-clean ${
-                      plan.isFeatured ? 'text-[#081303]/85 font-medium' : 'text-zinc-500 font-normal'
-                    }`}>
-                      {plan.subtitle}
-                    </p>
-
-                    {/* Price Display */}
-                    <div className="flex items-baseline mb-6">
-                      <span className={`font-headline font-black text-5xl sm:text-6xl tracking-tight ${plan.priceColor}`}>
-                        ₹{plan.price}
-                      </span>
-                      <div className="flex flex-col ml-2.5">
-                        <span className={`text-xs font-sans-clean ${
-                          plan.isFeatured ? 'text-[#081303]/90 font-bold' : 'text-zinc-600 font-semibold'
-                        }`}>
-                          {plan.duration}
-                        </span>
-                        {plan.effectivePrice && (
-                          <span className={`text-[11px] font-sans-clean font-bold ${
-                            plan.isFeatured ? 'text-[#081303]/75' : 'text-emerald-600'
-                          }`}>
-                            ({plan.effectivePrice})
+                        {plan.savings && (
+                          <span className="font-sans-clean text-[11.5px] font-extrabold text-emerald-600">
+                            {plan.savings}
                           </span>
                         )}
                       </div>
-                    </div>
 
-                    {/* Thin Divider Line */}
-                    <div className={`w-full h-[1px] my-6 ${plan.dividerColor}`}></div>
+                      {/* Plan Name */}
+                      <h3 className="font-headline font-bold text-2xl tracking-tight mb-1 text-zinc-900">
+                        {plan.name}
+                      </h3>
 
-                    {/* Checklist Features */}
-                    <div className="flex flex-col gap-3.5 mb-8">
-                      {plan.features.map((feat, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <div className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm ${plan.checkBg}`}>
-                            <Check className="w-2.5 h-2.5 stroke-[3.5]" />
-                          </div>
-                          <span className={`font-sans-clean text-xs sm:text-[13px] leading-snug ${
-                            plan.isFeatured ? 'font-semibold text-[#081303]' : 'font-medium text-zinc-700'
-                          }`}>
-                            {feat}
+                      {/* Subtitle */}
+                      <p className="text-xs leading-relaxed mb-6 font-sans-clean text-zinc-500 font-normal">
+                        {plan.subtitle}
+                      </p>
+
+                      {/* Price */}
+                      <div className="flex items-baseline mb-6">
+                        <span className="font-headline font-black text-4xl sm:text-5xl tracking-tight text-zinc-900">
+                          ₹{plan.price}
+                        </span>
+                        <div className="flex flex-col ml-2.5">
+                          <span className="text-xs font-sans-clean text-zinc-600 font-semibold">
+                            {plan.duration}
                           </span>
+                          {plan.effectivePrice && (
+                            <span className="text-[11px] font-sans-clean font-bold text-emerald-600">
+                              ({plan.effectivePrice})
+                            </span>
+                          )}
                         </div>
-                      ))}
-                    </div>
-                  </div>
+                      </div>
 
-                  {/* Select Plan Pill CTA Button */}
-                  <div className="pt-2">
-                    <button
-                      onClick={onOpenBooking}
-                      className={`font-sans-clean font-extrabold text-xs sm:text-sm px-7 py-3 rounded-full inline-flex items-center gap-1.5 hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer ${plan.buttonBg}`}
-                    >
-                      <span>Select Plan</span>
-                      <ChevronRight className="w-4 h-4 stroke-[3]" />
-                    </button>
+                      {/* Divider */}
+                      <div className="w-full h-[1px] my-6 bg-zinc-200 group-hover:bg-[#facc15]/40 transition-colors duration-300" />
+
+                      {/* Features */}
+                      <div className="flex flex-col gap-3.5 mb-8">
+                        {plan.features.map((feat, i) => (
+                          <div key={i} className="flex items-start gap-3">
+                            <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-[#0e2205] text-[#facc15]">
+                              <Check className="w-2.5 h-2.5 stroke-[3.5]" />
+                            </div>
+                            <span className="font-sans-clean text-xs sm:text-[13px] leading-snug font-medium text-zinc-700">
+                              {feat}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* CTA */}
+                    <div className="pt-2 mt-auto">
+                      <button
+                        onClick={onOpenBooking}
+                        className="btn-base btn-primary gap-1.5 group/btn w-full sm:w-auto"
+                      >
+                        <span>Select Plan</span>
+                        <ChevronRight className="w-4 h-4 stroke-[3] group-hover/btn:translate-x-1 transition-transform duration-200" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </ElectricBorder>

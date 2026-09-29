@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, Suspense } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ChevronRight, Play, Star, MapPin, Clock, ArrowUpRight } from 'lucide-react';
+import { ChevronRight, Play, MapPin, Clock, ArrowUpRight } from 'lucide-react';
 
 const SplashCursor = React.lazy(() => import('./SplashCursor'));
 const BookCallButton = React.lazy(() => import('./BookCallButton'));
@@ -186,20 +186,20 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
             
             {/* Row 1: ACHIEVE (left) + YOUR (right) framing head and ears */}
             <div className="absolute top-[8%] left-0 right-0 flex items-center justify-between w-full">
-              <span className="font-headline text-[48px] xs:text-[56px] uppercase tracking-tight text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.95)] pl-1">
+              <span className="font-headline font-extrabold text-[36px] xs:text-[42px] uppercase tracking-tight text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.95)] pl-1">
                 ACHIEVE
               </span>
-              <span className="font-headline text-[48px] xs:text-[56px] uppercase tracking-tight text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.95)] pr-1">
+              <span className="font-headline font-extrabold text-[36px] xs:text-[42px] uppercase tracking-tight text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.95)] pr-1">
                 YOUR
               </span>
             </div>
 
             {/* Row 2: FITNESS (left) + DREAMS (right) framing deltoids & upper traps */}
             <div className="absolute top-[20%] left-0 right-0 flex items-center justify-between w-full">
-              <span className="font-headline text-[40px] xs:text-[48px] uppercase tracking-tight text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)] pl-1">
+              <span className="font-headline font-extrabold text-[30px] xs:text-[36px] uppercase tracking-tight text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)] pl-1">
                 FITNESS
               </span>
-              <span className="font-headline text-[40px] xs:text-[48px] uppercase tracking-tight text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)] pr-1">
+              <span className="font-headline font-extrabold text-[30px] xs:text-[36px] uppercase tracking-tight text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)] pr-1">
                 DREAMS
               </span>
             </div>
@@ -234,10 +234,10 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
                     type="button"
                     onClick={onOpenBooking}
                     aria-label="Book a call"
-                    className="w-[150px] xs:w-[168px] h-[40px] xs:h-[44px] bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-bold text-xs rounded-full flex items-center justify-center gap-1 shadow-md cursor-pointer"
+                    className="w-[150px] xs:w-[168px] h-[40px] xs:h-[44px] bg-[#facc15] hover:bg-white text-[#081303] font-sans-clean font-extrabold text-xs rounded-full flex items-center justify-center gap-1 shadow-md hover:shadow-[0_8px_20px_rgba(250,204,21,0.4)] hover:-translate-y-0.5 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer group"
                   >
                     <span>Book a call</span>
-                    <ChevronRight className="w-3.5 h-3.5 stroke-[3]" />
+                    <ChevronRight className="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-0.5 transition-transform duration-200" />
                   </button>
                 }
               >
@@ -254,13 +254,13 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
               onClick={onWatchVideo}
-              className="flex items-center gap-1.5 xs:gap-2 py-2.5 xs:py-3 px-3 xs:px-3.5 rounded-full bg-black/60 hover:bg-black/80 active:scale-95 border border-white/25 md:backdrop-blur-md text-white font-sans-clean font-semibold text-xs xs:text-[12.5px] shadow-[0_4px_20px_rgba(0,0,0,0.6)] transition-all duration-200 cursor-pointer whitespace-nowrap"
+              className="flex items-center gap-1.5 xs:gap-2 py-2.5 xs:py-3 px-3 xs:px-3.5 rounded-full bg-black/60 hover:bg-[#facc15] hover:text-[#081303] border border-white/25 hover:border-[#facc15] active:scale-95 md:backdrop-blur-md text-white font-sans-clean font-bold text-xs xs:text-[12.5px] shadow-[0_4px_20px_rgba(0,0,0,0.6)] hover:shadow-[0_4px_25px_rgba(250,204,21,0.4)] hover:scale-105 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer whitespace-nowrap group"
               aria-label="Watch gym video"
             >
-              <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center shadow">
-                <Play className="w-2.5 h-2.5 fill-[#081303] text-[#081303] ml-0.5" />
+              <div className="w-5 h-5 rounded-full bg-white group-hover:bg-[#081303] flex items-center justify-center shadow transition-colors duration-200">
+                <Play className="w-2.5 h-2.5 fill-[#081303] group-hover:fill-[#facc15] text-[#081303] group-hover:text-[#facc15] ml-0.5 transition-colors duration-200" />
               </div>
-              <span>Watch video</span>
+              <span className="group-hover:text-[#081303] transition-colors duration-200">Watch video</span>
             </motion.button>
           </div>
 
@@ -278,7 +278,7 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="col-span-7 flex flex-col justify-center text-left py-8 sm:py-12 z-20"
           >
             <motion.div
@@ -306,8 +306,8 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
               </div>
             </div>
 
-            {/* Main Punchy Condensed Typography Headline */}
-            <h1 className="font-headline font-normal text-5xl sm:text-6xl md:text-6xl lg:text-[76px] xl:text-[88px] uppercase leading-[0.92] tracking-tight text-white mb-6">
+            {/* Main Punchy Typography Headline */}
+            <h1 className="font-headline font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] uppercase leading-[1.04] tracking-tight text-white mb-6">
               <span className="block whitespace-nowrap">
                 ACHIEVE YOUR
               </span>
@@ -330,10 +330,10 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
                     type="button"
                     onClick={onOpenBooking}
                     aria-label="Book a call"
-                    className="w-[185px] sm:w-[205px] h-[44px] sm:h-[48px] bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-bold text-xs sm:text-[13.5px] rounded-full flex items-center justify-center gap-1.5 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
+                    className="w-[185px] sm:w-[205px] h-[44px] sm:h-[48px] bg-[#facc15] hover:bg-white text-[#081303] font-sans-clean font-extrabold text-xs sm:text-[13.5px] rounded-full flex items-center justify-center gap-1.5 shadow-md hover:shadow-[0_10px_25px_rgba(250,204,21,0.4)] hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer group"
                   >
                     <span>Book a call</span>
-                    <ChevronRight className="w-3.5 h-3.5 stroke-[3]" />
+                    <ChevronRight className="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-1 transition-transform duration-200" />
                   </button>
                 }
               >
@@ -346,71 +346,18 @@ export default function Hero({ onOpenBooking, onWatchVideo }) {
               {/* Watch Video Circular Play Trigger: scrolls to and plays the video below */}
               <button
                 onClick={onWatchVideo}
-                className="flex items-center gap-3 group cursor-pointer text-left focus:outline-none hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+                className="flex items-center gap-3 group cursor-pointer text-left focus:outline-none hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300"
                 aria-label="Watch gym video below"
               >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:bg-[#facc15] transition-all duration-200">
-                  <Play className="w-4 h-4 fill-[#081303] text-[#081303] ml-0.5" />
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:bg-[#facc15] group-hover:shadow-[0_0_25px_rgba(250,204,21,0.6)] group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                  <Play className="w-4 h-4 fill-[#081303] text-[#081303] ml-0.5 group-hover:scale-110 transition-transform duration-200" />
                 </div>
-                <span className="font-sans-clean font-semibold text-white text-sm sm:text-base group-hover:text-[#facc15] transition-colors">
+                <span className="font-sans-clean font-semibold text-white text-sm sm:text-base group-hover:text-[#facc15] transition-colors duration-200">
                   Watch video
                 </span>
               </button>
             </div>
 
-            {/* Social Proof Row */}
-            <div className="flex items-center gap-4">
-              {/* 3 Overlapping Avatars */}
-              <div className="flex items-center">
-                <img
-                  src="/avatars/vikrant.webp"
-                  alt="Vikrant Sharma - Google Reviewer"
-                  loading="lazy"
-                  decoding="async"
-                  width="44"
-                  height="44"
-                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-white object-cover shadow-md"
-                />
-                <img
-                  src="/avatars/prateek.webp"
-                  alt="Prateek Verma - Google Reviewer"
-                  loading="lazy"
-                  decoding="async"
-                  width="44"
-                  height="44"
-                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-white object-cover -ml-3 shadow-md"
-                />
-                <img
-                  src="/avatars/aditya.webp"
-                  alt="Aditya Chaudhary - Google Reviewer"
-                  loading="lazy"
-                  decoding="async"
-                  width="44"
-                  height="44"
-                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-white object-cover -ml-3 shadow-md"
-                />
-              </div>
-
-              {/* Stars & Rating */}
-              <div className="flex flex-col justify-center">
-                <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-0.5 text-[#facc15]">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-3.5 h-3.5 fill-[#facc15] text-[#facc15]"
-                      />
-                    ))}
-                  </div>
-                  <span className="font-sans-clean font-bold text-white text-sm sm:text-base leading-none">
-                    4.7
-                  </span>
-                </div>
-                <span className="font-sans-clean text-[#b4ceaf] text-xs font-normal mt-1">
-                  Based On 40+ Google Reviews
-                </span>
-              </div>
-            </div>
             </motion.div>
           </motion.div>
 

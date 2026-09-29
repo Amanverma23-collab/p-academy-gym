@@ -5,22 +5,36 @@ import StickerPeel from './StickerPeel';
 
 export default function Navbar({ onOpenBooking }) {
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
+      setScrolled(window.scrollY > 25);
+
+      const sectionIds = ['gallery', 'pricing', 'team', 'machines', 'about', 'hero'];
+      const scrollPos = window.scrollY + 220;
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollPos) {
+          setActiveSection(id);
+          break;
+        }
+      }
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Machines', href: '#machines' },
-    { name: 'Coach', href: '#team' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Gallery', href: '#gallery' },
+    { name: 'Home', href: '#hero', id: 'hero' },
+    { name: 'About', href: '#about', id: 'about' },
+    { name: 'Machines', href: '#machines', id: 'machines' },
+    { name: 'Coach', href: '#team', id: 'team' },
+    { name: 'Pricing', href: '#pricing', id: 'pricing' },
+    { name: 'Gallery', href: '#gallery', id: 'gallery' },
   ];
 
   const mobileNavItems = [
@@ -42,18 +56,18 @@ export default function Navbar({ onOpenBooking }) {
 
   return (
     <>
-      {/* Desktop Navigation (>= md) */}
+      {/* Desktop Navigation (>= md) - Liquid Glass Style */}
       <header
-        className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent ${
-          scrolled ? 'py-3 md:py-4' : 'py-3.5 md:py-7'
+        className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 select-none ${
+          scrolled ? 'py-3' : 'py-5 sm:py-6'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
-          {/* Logo: P Academy Gym with StickerPeel Effect */}
-          <div className="flex items-center group py-1 cursor-pointer">
+          {/* Left: Gym Logo with StickerPeel */}
+          <a href="#hero" className="flex items-center group py-1 cursor-pointer">
             <StickerPeel
               imageSrc="/logo.webp"
-              width={145}
+              width={140}
               rotate={0}
               peelBackHoverPct={32}
               peelBackActivePct={42}
@@ -62,30 +76,37 @@ export default function Navbar({ onOpenBooking }) {
               initialPosition="center"
               peelDirection={0}
             />
-          </div>
+          </a>
 
-          {/* Desktop Nav Links */}
-          <nav className="flex items-center gap-7 lg:gap-9">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="font-sans-clean text-[14px] font-medium text-zinc-200 hover:text-[#facc15] transition-colors relative py-1 group"
-              >
-                {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#facc15] group-hover:w-full transition-all duration-200"></span>
-              </a>
-            ))}
+          {/* Center: Liquid Glass Capsule Island */}
+          <nav className="flex items-center gap-1 p-1.5 rounded-full liquid-glass-capsule">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setActiveSection(link.id)}
+                  className={`font-sans-clean text-xs lg:text-[13px] px-4 lg:px-5 py-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                    isActive
+                      ? 'liquid-glass-active-tab text-white font-semibold shadow-sm'
+                      : 'text-zinc-400 hover:text-white hover:bg-white/[0.06] font-medium'
+                  }`}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
           </nav>
 
-          {/* Right Action: Pill CTA "Start Free Trial >" */}
+          {/* Right Action: Liquid Glass Pill CTA Button */}
           <div className="flex items-center">
             <button
               onClick={onOpenBooking}
-              className="bg-[#facc15] hover:bg-[#eab308] text-[#091204] font-sans-clean font-bold text-[13.5px] px-6 py-2.5 rounded-full flex items-center gap-1.5 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
+              className="liquid-glass-btn font-sans-clean font-extrabold text-xs lg:text-[13px] px-6 py-2.5 rounded-full text-zinc-100 flex items-center gap-1.5 group cursor-pointer"
             >
               <span>Start Free Trial</span>
-              <ChevronRight className="w-4 h-4 stroke-[2.5]" />
+              <ChevronRight className="w-3.5 h-3.5 stroke-[2.5] group-hover:translate-x-0.5 transition-transform duration-200" />
             </button>
           </div>
         </div>

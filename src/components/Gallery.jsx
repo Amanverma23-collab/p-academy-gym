@@ -89,15 +89,11 @@ export default function Gallery({ onOpenBooking }) {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
         {/* Header Row */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-7 sm:mb-8 gap-4">
-          <div>
-            <div className="mb-2">
-              <span className="font-sans-clean bg-[#facc15] text-[#081303] text-[11px] font-black px-3.5 py-1 rounded-full inline-block uppercase tracking-wider shadow-xs">
-                Gallery
-              </span>
-            </div>
-            <h2 className="font-headline font-black text-4xl sm:text-5xl lg:text-6xl text-[#081404] uppercase tracking-tight leading-none">
-              INSIDE <span className="text-[#ca8a04]">P ACADEMY GYM</span>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 sm:mb-8 gap-4">
+          <div className="inline-flex items-center gap-2.5">
+            <span className="w-5 h-[2px] bg-[#ca8a04]"></span>
+            <h2 className="font-sans-clean text-xs sm:text-sm font-black uppercase tracking-[0.22em] text-[#ca8a04]">
+              Photo Gallery
             </h2>
           </div>
 
@@ -109,11 +105,7 @@ export default function Gallery({ onOpenBooking }) {
                 <button
                   key={cat}
                   onClick={() => setSelectedFilter(cat)}
-                  className={`font-sans-clean text-xs font-bold px-4 py-1.5 rounded-full transition-all duration-200 cursor-pointer ${
-                    isActive
-                      ? 'bg-[#facc15] text-[#081303] shadow-sm scale-105 font-black'
-                      : 'bg-zinc-100 hover:bg-zinc-200 text-zinc-600 hover:text-zinc-900 border border-zinc-200'
-                  }`}
+                  className={`btn-chip ${isActive ? 'btn-chip-active' : ''}`}
                 >
                   {cat}
                 </button>
@@ -185,7 +177,7 @@ export default function Gallery({ onOpenBooking }) {
                       <span className="text-[10px] font-sans-clean font-extrabold uppercase text-[#facc15] tracking-wider block">
                         {item.category}
                       </span>
-                      <h3 className="font-headline font-black text-white text-base sm:text-lg uppercase tracking-wide leading-tight">
+                      <h3 className="font-headline font-bold text-white text-sm sm:text-base tracking-tight leading-tight">
                         {item.title}
                       </h3>
                     </div>
@@ -226,7 +218,7 @@ export default function Gallery({ onOpenBooking }) {
                         <span className="text-[10px] font-sans-clean font-extrabold uppercase text-[#facc15] tracking-wider block">
                           {item.category}
                         </span>
-                        <h3 className="font-headline font-black text-white text-base uppercase tracking-wide">
+                        <h3 className="font-headline font-bold text-white text-sm sm:text-base tracking-tight leading-tight">
                           {item.title}
                         </h3>
                       </div>
@@ -241,7 +233,7 @@ export default function Gallery({ onOpenBooking }) {
         {/* Bottom Simple Action Bar */}
         <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 sm:p-5 rounded-2xl bg-zinc-50 border border-zinc-200 shadow-xs">
           <div className="text-center sm:text-left">
-            <h4 className="font-headline font-black text-[#081404] text-lg sm:text-xl uppercase tracking-wide">
+            <h4 className="font-headline font-bold text-[#081404] text-base sm:text-lg tracking-tight">
               Visit P Academy Gym In Person
             </h4>
             <span className="font-sans-clean text-xs text-zinc-600 font-medium">
@@ -252,19 +244,19 @@ export default function Gallery({ onOpenBooking }) {
           <div className="flex items-center gap-3">
             <button
               onClick={onOpenBooking}
-              className="bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-extrabold text-xs px-5 py-2.5 rounded-full inline-flex items-center gap-1.5 shadow-sm hover:scale-105 active:scale-95 transition-all cursor-pointer"
+              className="btn-primary py-2 px-5 text-xs gap-1.5 group"
             >
               <span>Book Free Visit</span>
-              <ArrowRight className="w-3.5 h-3.5 stroke-[3]" />
+              <ArrowRight className="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-1 transition-transform duration-200" />
             </button>
             <a
               href={GYM_INFO.googleShareUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-zinc-900 hover:bg-black text-white font-sans-clean font-bold text-xs px-4 py-2.5 rounded-full inline-flex items-center gap-1.5 border border-zinc-800 transition-colors"
+              className="btn-secondary py-2 px-4 text-xs gap-1.5 group"
             >
               <span>Google Maps</span>
-              <ExternalLink className="w-3 h-3 opacity-70" />
+              <ExternalLink className="w-3 h-3 opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
             </a>
           </div>
         </div>

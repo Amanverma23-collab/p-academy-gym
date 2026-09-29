@@ -37,10 +37,10 @@ class BookCallErrorBoundary extends React.Component {
           type="button"
           onClick={this.props.onClick}
           aria-label="Book a call"
-          className={`w-[260px] sm:w-[320px] aspect-[3.8/1] bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-bold text-sm sm:text-base rounded-full flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer ${this.props.className || ''}`}
+          className={`w-[260px] sm:w-[320px] aspect-[3.8/1] bg-[#facc15] hover:bg-white text-[#081303] font-sans-clean font-extrabold text-sm sm:text-base rounded-full flex items-center justify-center gap-2 shadow-md hover:shadow-[0_10px_25px_rgba(250,204,21,0.4)] hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer group ${this.props.className || ''}`}
         >
           <span>Book a call</span>
-          <ChevronRight className="w-4 h-4 stroke-[3]" />
+          <ChevronRight className="w-4 h-4 stroke-[3] group-hover:translate-x-1 transition-transform duration-200" />
         </button>
       );
     }
@@ -134,10 +134,10 @@ function BookCallButtonInner({ onClick, className = '' }) {
         type="button"
         onClick={onClick}
         aria-label="Book a call"
-        className={`bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-bold text-sm sm:text-base rounded-full flex items-center justify-center gap-1.5 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer ${sizeClasses}`}
+        className={`bg-[#facc15] hover:bg-white text-[#081303] font-sans-clean font-extrabold text-sm sm:text-base rounded-full flex items-center justify-center gap-1.5 shadow-md hover:shadow-[0_10px_25px_rgba(250,204,21,0.4)] hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer group ${sizeClasses}`}
       >
         <span>Book a call</span>
-        <ChevronRight className="w-4 h-4 stroke-[3]" />
+        <ChevronRight className="w-4 h-4 stroke-[3] group-hover:translate-x-1 transition-transform duration-200" />
       </button>
     );
   }
@@ -147,7 +147,7 @@ function BookCallButtonInner({ onClick, className = '' }) {
       type="button"
       onClick={onClick}
       aria-label="Book a call"
-      className={`relative cursor-pointer overflow-hidden p-0 bg-transparent border-0 flex items-center justify-center transition-transform duration-200 hover:scale-[1.03] active:scale-[0.98] ${sizeClasses}`}
+      className={`relative cursor-pointer overflow-hidden p-0 bg-transparent border-0 flex items-center justify-center transition-all duration-300 hover:scale-105 hover:-translate-y-1 active:scale-95 hover:drop-shadow-[0_10px_20px_rgba(250,204,21,0.5)] rounded-full ${sizeClasses}`}
     >
       <DotLottieReact
         src={currentSrc}

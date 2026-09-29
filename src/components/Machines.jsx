@@ -37,13 +37,16 @@ export default function Machines() {
         
         {/* Simple Clean Section Header */}
         <div className="text-center mb-8 sm:mb-12 px-4 max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-[#facc15] text-[#081303] text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm mb-3">
-            <Dumbbell className="w-3.5 h-3.5 stroke-[2.5]" />
-            <span>Gym Equipment</span>
+          {/* Eyebrow Label */}
+          <div className="inline-flex items-center justify-center gap-2 text-[#facc15] mb-3.5">
+            <Dumbbell className="w-4 h-4 stroke-[2.5]" />
+            <span className="font-sans-clean text-xs font-black uppercase tracking-[0.22em]">
+              Gym Equipment & Machinery
+            </span>
           </div>
 
-          <h2 className="font-headline font-black text-4xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight">
-            OUR <span className="text-[#facc15]">MACHINES</span>
+          <h2 className="font-headline font-extrabold text-2xl sm:text-3xl lg:text-[42px] text-white tracking-tight">
+            Commercial-Grade Equipment
           </h2>
         </div>
 
@@ -79,7 +82,7 @@ export default function Machines() {
 
                 {/* Machine Name Bar at Bottom */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 text-center">
-                  <h3 className="font-headline font-black text-lg sm:text-xl text-white uppercase tracking-wide group-hover:text-[#facc15] transition-colors leading-tight">
+                  <h3 className="font-headline font-bold text-base sm:text-lg text-white tracking-wide group-hover:text-[#facc15] transition-colors leading-tight">
                     {machine.name}
                   </h3>
                 </div>

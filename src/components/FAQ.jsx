@@ -71,13 +71,16 @@ export default function FAQ({ onOpenBooking }) {
         
         {/* Centered Clean Header */}
         <div className="text-center mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 bg-[#facc15] text-[#081303] text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm mb-3.5">
-            <HelpCircle className="w-3.5 h-3.5 stroke-[2.5]" />
-            <span>Got Questions?</span>
+          {/* Eyebrow Label */}
+          <div className="inline-flex items-center justify-center gap-2 text-[#facc15] mb-3.5">
+            <HelpCircle className="w-4 h-4 stroke-[2.5]" />
+            <span className="font-sans-clean text-xs font-black uppercase tracking-[0.22em]">
+              Got Questions?
+            </span>
           </div>
 
-          <h2 className="font-headline font-black text-4xl sm:text-5xl lg:text-6xl text-white uppercase tracking-tight leading-[0.95] mb-4">
-            FREQUENTLY ASKED <span className="text-[#facc15]">QUESTIONS</span>
+          <h2 className="font-headline font-extrabold text-2xl sm:text-3xl lg:text-[42px] text-white tracking-tight leading-tight mb-4">
+            Frequently Asked Questions
           </h2>
 
           <p className="font-sans-clean text-[#b4ceaf] text-xs sm:text-sm max-w-lg mx-auto leading-relaxed">
@@ -156,7 +159,7 @@ export default function FAQ({ onOpenBooking }) {
         {/* Bottom Contact Help Card */}
         <div className="bg-[#091a04]/90 border border-[#1a380c] rounded-3xl p-6 sm:p-7 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
           <div className="text-center sm:text-left">
-            <h4 className="font-headline font-black text-white text-lg sm:text-xl uppercase tracking-wide">
+            <h4 className="font-headline font-bold text-white text-base sm:text-lg tracking-tight">
               Still Have A Question?
             </h4>
             <p className="font-sans-clean text-xs text-[#a1c499] mt-0.5">
@@ -167,27 +170,27 @@ export default function FAQ({ onOpenBooking }) {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <button
               onClick={onOpenBooking}
-              className="bg-[#facc15] hover:bg-[#eab308] text-[#081303] font-sans-clean font-extrabold text-xs px-5 py-3 rounded-xl inline-flex items-center gap-2 shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer"
+              className="bg-[#facc15] hover:bg-white text-[#081303] font-sans-clean font-extrabold text-xs px-5 py-3 rounded-full inline-flex items-center gap-2 shadow-md hover:-translate-y-0.5 hover:scale-[1.02] active:scale-95 transition-all duration-250 cursor-pointer group"
             >
               <span>Book Free Trial</span>
-              <ArrowRight className="w-3.5 h-3.5 stroke-[3]" />
+              <ArrowRight className="w-3.5 h-3.5 stroke-[3] group-hover:translate-x-1 transition-transform duration-200" />
             </button>
 
             <a
               href={whatsappInquiryUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#12280a] hover:bg-[#1a390e] border border-[#214713] hover:border-[#facc15]/50 text-white font-sans-clean font-bold text-xs px-4 py-3 rounded-xl inline-flex items-center gap-2 transition-all shadow-sm cursor-pointer"
+              className="bg-[#12280a] hover:bg-[#25D366] hover:text-[#081303] border border-[#214713] hover:border-[#25D366] text-white font-sans-clean font-bold text-xs px-4 py-3 rounded-full inline-flex items-center gap-2 hover:-translate-y-0.5 hover:scale-[1.02] active:scale-95 transition-all duration-250 shadow-sm cursor-pointer group"
             >
-              <MessageCircle className="w-4 h-4 text-[#25D366]" />
-              <span>WhatsApp</span>
+              <MessageCircle className="w-4 h-4 text-[#25D366] group-hover:text-[#081303] transition-colors duration-200" />
+              <span>Chat on WhatsApp</span>
             </a>
 
             <a
               href={`tel:${GYM_INFO.phone}`}
-              className="bg-[#12280a] hover:bg-[#1a390e] border border-[#214713] hover:border-[#facc15]/50 text-white font-sans-clean font-bold text-xs px-4 py-3 rounded-xl inline-flex items-center gap-2 transition-all shadow-sm cursor-pointer"
+              className="bg-[#12280a] hover:bg-[#facc15] hover:text-[#081303] border border-[#214713] hover:border-[#facc15] text-white font-sans-clean font-bold text-xs px-4 py-3 rounded-full inline-flex items-center gap-2 hover:-translate-y-0.5 hover:scale-[1.02] active:scale-95 transition-all duration-250 shadow-sm cursor-pointer group"
             >
-              <Phone className="w-4 h-4 text-[#facc15]" />
+              <Phone className="w-4 h-4 text-[#facc15] group-hover:text-[#081303] transition-colors duration-200" />
               <span>Call Us</span>
             </a>
           </div>

@@ -189,10 +189,10 @@ export default function LocationContact() {
 
                   <button
                     type="submit"
-                    className="w-full bg-emerald-500 text-black hover:bg-emerald-400 transition-colors font-heading font-bold text-xs uppercase tracking-wider py-4 rounded-xl flex items-center justify-center gap-2 shadow-md"
+                    className="w-full bg-[#facc15] text-[#081303] hover:bg-black hover:text-[#facc15] transition-all duration-300 font-sans-clean font-extrabold text-xs uppercase tracking-wider py-4 rounded-xl flex items-center justify-center gap-2 shadow-md hover:shadow-xl hover:-translate-y-1 hover:scale-[1.01] active:scale-95 cursor-pointer group"
                   >
-                    <Send className="w-4 h-4" />
-                    Submit & Chat on WhatsApp
+                    <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                    <span>Submit & Chat on WhatsApp</span>
                   </button>
                 </form>
               )}
@@ -226,7 +226,7 @@ export default function LocationContact() {
 
         </div>
 
-        {/* Large Contact CTA Banner */}
+        {/* Bottom Banner */}
         <div className="rounded-3xl p-10 sm:p-16 bg-black text-white border border-zinc-800 text-center relative overflow-hidden shadow-2xl">
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -244,7 +244,7 @@ export default function LocationContact() {
 
           <a
             href={`tel:${GYM_INFO.phone}`}
-            className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-white text-black hover:bg-emerald-400 hover:text-black transition-all duration-300 font-heading font-extrabold text-sm uppercase tracking-wider shadow-2xl"
+            className="inline-flex items-center gap-2 px-10 py-4.5 rounded-full bg-[#facc15] text-[#081303] hover:bg-white hover:text-black hover:-translate-y-1 hover:scale-105 active:scale-95 hover:shadow-[0_15px_30px_rgba(250,204,21,0.4)] transition-all duration-300 font-sans-clean font-extrabold text-sm sm:text-base tracking-wide shadow-2xl cursor-pointer"
           >
             Visit P Academy Gym Today
           </a>

@@ -47,22 +47,38 @@
 
 .eb-glow-1 {
   border: 2px solid var(--electric-border-color);
-  opacity: 0.75;
+  opacity: 0;
   filter: blur(1.5px);
+  transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .eb-glow-2 {
   border: 2px solid var(--electric-border-color);
-  opacity: 0.85;
+  opacity: 0;
   filter: blur(6px);
+  transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .eb-background-glow {
   z-index: -1;
   transform: scale(1.08);
   filter: blur(32px);
-  opacity: 0.45;
+  opacity: 0;
   background: radial-gradient(circle, var(--electric-border-color) 0%, transparent 70%);
+  transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Reveal glow layers on hover */
+.electric-border:hover .eb-glow-1 {
+  opacity: 0.45;
+}
+
+.electric-border:hover .eb-glow-2 {
+  opacity: 0.5;
+}
+
+.electric-border:hover .eb-background-glow {
+  opacity: 0.2;
 }
 
 @media (max-width: 1023px), (pointer: coarse) {
