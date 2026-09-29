@@ -14,9 +14,9 @@ export default function Preloader({ onComplete }) {
       }
     }
 
-    // 2. Smooth progress increment from 0 to 100
-    const duration = 2000; // 2.0 seconds total load time
-    const intervalTime = 30;
+    // 2. Smooth progress increment from 0 to 100 with efficient interval
+    const duration = 1500; // 1.5s fast, responsive load time
+    const intervalTime = 50; // Smooth 50ms tick (20 updates/sec instead of 33)
     const step = 100 / (duration / intervalTime);
 
     const timer = setInterval(() => {
@@ -33,7 +33,7 @@ export default function Preloader({ onComplete }) {
     // 3. Mark finished once progress completes + tiny pause
     const finishTimeout = setTimeout(() => {
       setIsFinished(true);
-    }, duration + 200);
+    }, duration + 100);
 
     return () => {
       clearInterval(timer);
@@ -75,10 +75,11 @@ export default function Preloader({ onComplete }) {
           exit={{
             y: '-100%',
             transition: {
-              duration: 0.85,
+              duration: 0.65,
               ease: [0.76, 0, 0.24, 1], // Luxury cubic-bezier curtain reveal
             },
           }}
+          style={{ willChange: 'transform' }}
           onClick={handleSkip}
           className="fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center select-none cursor-pointer overflow-hidden"
           aria-label="Loading P Academy Gym"
@@ -92,52 +93,54 @@ export default function Preloader({ onComplete }) {
           />
 
           <div className="relative z-10 flex flex-col items-center justify-center px-6">
-            {/* Ambient gold glow behind big logo */}
+            {/* Ambient gold glow behind big logo - Pure CSS hardware-accelerated, NO heavy blur filter */}
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.85, opacity: 0.3 }}
               animate={{
-                scale: [1, 1.12, 1],
-                opacity: [0.4, 0.75, 0.4],
+                scale: [1, 1.08, 1],
+                opacity: [0.35, 0.65, 0.35],
               }}
               transition={{
                 duration: 2.2,
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
-              className="absolute w-72 sm:w-96 md:w-[440px] h-72 sm:h-96 md:h-[440px] rounded-full pointer-events-none -z-10"
+              className="absolute w-72 sm:w-96 md:w-[460px] h-72 sm:h-96 md:h-[460px] rounded-full pointer-events-none -z-10"
               style={{
-                background: 'radial-gradient(circle, rgba(250, 204, 21, 0.28) 0%, rgba(234, 179, 8, 0.12) 40%, transparent 70%)',
-                filter: 'blur(20px)',
+                background: 'radial-gradient(circle, rgba(250, 204, 21, 0.32) 0%, rgba(234, 179, 8, 0.14) 35%, rgba(250, 204, 21, 0.04) 55%, transparent 72%)',
+                willChange: 'transform, opacity',
               }}
             />
 
             {/* BIG GYM LOGO WITH ANIMATION */}
             <motion.div
-              initial={{ scale: 0.82, opacity: 0, y: 25 }}
+              initial={{ scale: 0.88, opacity: 0, y: 16 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               transition={{
-                duration: 0.9,
+                duration: 0.7,
                 ease: [0.22, 1, 0.36, 1],
               }}
+              style={{ willChange: 'transform, opacity' }}
               className="relative flex items-center justify-center"
             >
               {/* Gentle floating breathing animation */}
               <motion.div
                 animate={{
-                  y: [0, -6, 0],
+                  y: [0, -5, 0],
                 }}
                 transition={{
-                  duration: 2.4,
+                  duration: 2.2,
                   repeat: Infinity,
                   ease: 'easeInOut',
                 }}
+                style={{ willChange: 'transform' }}
               >
                 <img
                   src="/logo.webp"
                   alt="P Academy Gym Logo"
                   width="420"
                   height="160"
-                  className="w-[260px] xs:w-[300px] sm:w-[380px] md:w-[460px] lg:w-[500px] max-w-[85vw] h-auto object-contain drop-shadow-[0_12px_32px_rgba(0,0,0,0.12)]"
+                  className="w-[260px] xs:w-[300px] sm:w-[380px] md:w-[460px] lg:w-[500px] max-w-[85vw] h-auto object-contain drop-shadow-[0_10px_25px_rgba(0,0,0,0.1)]"
                   priority="true"
                 />
               </motion.div>
@@ -145,9 +148,10 @@ export default function Preloader({ onComplete }) {
 
             {/* Subtitle / Athletic Gym Tagline */}
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35, duration: 0.7 }}
+              transition={{ delay: 0.25, duration: 0.5 }}
+              style={{ willChange: 'transform, opacity' }}
               className="mt-6 sm:mt-8 flex items-center gap-3"
             >
               <span className="w-5 sm:w-8 h-[1.5px] bg-[#facc15] rounded-full" />
@@ -161,15 +165,17 @@ export default function Preloader({ onComplete }) {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.45, duration: 0.6 }}
+              transition={{ delay: 0.35, duration: 0.5 }}
               className="mt-6 sm:mt-7 flex flex-col items-center gap-2.5 w-full max-w-[200px] sm:max-w-[260px]"
             >
               {/* Progress Track */}
               <div className="w-full h-[3px] sm:h-[3.5px] bg-zinc-200/80 rounded-full overflow-hidden relative shadow-inner">
-                <motion.div
-                  className="h-full bg-gradient-to-r from-[#facc15] via-[#091404] to-[#facc15] rounded-full"
-                  style={{ width: `${Math.min(100, Math.round(progress))}%` }}
-                  transition={{ ease: 'linear' }}
+                <div
+                  className="h-full bg-gradient-to-r from-[#facc15] via-[#091404] to-[#facc15] rounded-full transition-all duration-150 ease-out"
+                  style={{
+                    width: `${Math.min(100, Math.round(progress))}%`,
+                    willChange: 'width',
+                  }}
                 />
               </div>
 
@@ -185,7 +191,7 @@ export default function Preloader({ onComplete }) {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.5 }}
-            transition={{ delay: 1, duration: 0.6 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
             className="absolute bottom-6 font-sans-clean text-[10.5px] tracking-wider uppercase text-zinc-400"
           >
             Tap anywhere to skip

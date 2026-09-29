@@ -2,25 +2,11 @@ import React, { useState, useEffect, useRef, Suspense } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronRight, Play, MapPin, Clock, ArrowUpRight } from 'lucide-react';
 
-const SplashCursor = React.lazy(() => import('./SplashCursor'));
 const BookCallButton = React.lazy(() => import('./BookCallButton'));
 
 export default function Hero({ onOpenBooking, onWatchVideo }) {
   const heroRef = useRef(null);
-  const [enableSplash, setEnableSplash] = useState(false);
   const [isDesktopParallax, setIsDesktopParallax] = useState(false);
-
-  useEffect(() => {
-    const checkSupport = () => {
-      // Enable on all desktop/laptop screens (min-width: 1024px)
-      const isDesktop = window.innerWidth >= 1024 || window.matchMedia('(min-width: 1024px)').matches;
-      setEnableSplash(isDesktop);
-    };
-
-    checkSupport();
-    window.addEventListener('resize', checkSupport);
-    return () => window.removeEventListener('resize', checkSupport);
-  }, []);
 
   // Check desktop and reduced-motion for scroll parallax
   useEffect(() => {

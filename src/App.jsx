@@ -65,7 +65,7 @@ export default function App() {
         <WhyChooseUs onOpenBooking={handleOpenBooking} />
 
         {/* Section 5: Head Coach Spotlight (Devender Dahiya) */}
-        <Team onOpenBooking={handleOpenBooking} />
+        <Team onOpenBooking={handleOpenBooking} isAppLoaded={!isLoading} />
 
         {/* Section 6: Testimonials (Hear From Happy Clients + Interactive Carousel) */}
         <Reviews />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { GYM_INFO } from '../data/gymData';
@@ -86,13 +86,44 @@ const credentials = [
   '500+ Transformations in Delhi NCR',
 ];
 
-export default function Team({ onOpenBooking }) {
+export default function Team({ onOpenBooking, isAppLoaded = true }) {
+  const sectionRef = useRef(null);
+  const [isNearView, setIsNearView] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(() => (typeof window !== 'undefined' ? window.innerWidth >= 1024 : false));
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (!isAppLoaded) return;
+    if (!sectionRef.current) return;
+
+    // Preload 3D Lanyard when user scrolls within 500px of Team section
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsNearView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '500px' }
+    );
+
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, [isAppLoaded]);
+
+  const shouldRender3D = isAppLoaded && isNearView;
+
   const whatsappUrl = `https://wa.me/${GYM_INFO.whatsappNumber}?text=${encodeURIComponent(
     'Hi Coach Devender, I want to consult regarding personal training and custom diet plans at P Academy Gym.'
   )}`;
 
   return (
-    <section id="team" className="relative bg-[#071303] pt-6 pb-16 sm:pt-8 sm:pb-20 lg:pt-10 lg:pb-24 overflow-visible">
+    <section ref={sectionRef} id="team" className="relative bg-[#071303] pt-6 pb-16 sm:pt-8 sm:pb-20 lg:pt-10 lg:pb-24 overflow-visible">
       
       {/* Ambient Gym Lighting Spotlight in Center (clipped inside so no page horizontal scrollbar) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -189,20 +220,30 @@ export default function Team({ onOpenBooking }) {
 
               {/* The 3D Canvas: Anchored flush to section top (top-0) & spans 310% width for side swinging */}
               <div
-                className="absolute top-0 -bottom-16 overflow-visible pointer-events-auto z-20"
+                className="absolute top-0 -bottom-16 overflow-visible pointer-events-auto z-20 flex items-center justify-center"
                 style={{ width: '310%', left: '-105%' }}
               >
-                <Lanyard
-                  position={[0, 0.25, 14.5]}
-                  gravity={[0, -38, 0]}
-                  fov={20}
-                  frontImage="/coach-card.png"
-                  backImage="/coach-card.png"
-                  lanyardImage="/p-academy-lanyard.png?v=3"
-                  lanyardWidth={1.2}
-                  imageFit="cover"
-                  transparent={true}
-                />
+                {shouldRender3D && isDesktop ? (
+                  <Lanyard
+                    position={[0, 0.25, 14.5]}
+                    gravity={[0, -38, 0]}
+                    fov={20}
+                    frontImage="/coach-card.png"
+                    backImage="/coach-card.png"
+                    lanyardImage="/p-academy-lanyard.png?v=3"
+                    lanyardWidth={1.2}
+                    imageFit="cover"
+                    transparent={true}
+                  />
+                ) : (
+                  <div className="flex flex-col items-center justify-center h-full pt-10">
+                    <img
+                      src="/coach-card.png"
+                      alt="Coach Devender Dahiya Badge"
+                      className="w-[190px] h-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.6)]"
+                    />
+                  </div>
+                )}
               </div>
 
               {/* Social links below the card */}
@@ -349,20 +390,30 @@ export default function Team({ onOpenBooking }) {
 
               {/* 3D Lanyard Canvas */}
               <div
-                className="absolute inset-y-0 overflow-visible z-20 pointer-events-auto"
+                className="absolute inset-y-0 overflow-visible z-20 pointer-events-auto flex items-center justify-center"
                 style={{ width: '160%', left: '-30%' }}
               >
-                <Lanyard
-                  position={[0, 0.25, 15.5]}
-                  gravity={[0, -38, 0]}
-                  fov={22}
-                  frontImage="/coach-card.png"
-                  backImage="/coach-card.png"
-                  lanyardImage="/p-academy-lanyard.png?v=3"
-                  lanyardWidth={1.2}
-                  imageFit="cover"
-                  transparent={true}
-                />
+                {shouldRender3D && !isDesktop ? (
+                  <Lanyard
+                    position={[0, 0.25, 15.5]}
+                    gravity={[0, -38, 0]}
+                    fov={22}
+                    frontImage="/coach-card.png"
+                    backImage="/coach-card.png"
+                    lanyardImage="/p-academy-lanyard.png?v=3"
+                    lanyardWidth={1.2}
+                    imageFit="cover"
+                    transparent={true}
+                  />
+                ) : (
+                  <div className="flex flex-col items-center justify-center h-full pt-6">
+                    <img
+                      src="/coach-card.png"
+                      alt="Coach Devender Dahiya Badge"
+                      className="w-[160px] h-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.6)]"
+                    />
+                  </div>
+                )}
               </div>
 
               {/* Social links below the card */}
