@@ -33,6 +33,18 @@ export default function Preloader({ onComplete }) {
     // 3. Mark finished once progress completes + tiny pause
     const finishTimeout = setTimeout(() => {
       setIsFinished(true);
+      // Fail-safe: Ensure scroll is unlocked and onComplete is fired even if exit callback is dropped
+      setTimeout(() => {
+        if (typeof document !== 'undefined') {
+          document.body.style.overflow = '';
+          if (window.__lenis) {
+            window.__lenis.start();
+          }
+        }
+        if (onComplete) {
+          onComplete();
+        }
+      }, 700);
     }, duration + 100);
 
     return () => {
@@ -46,7 +58,7 @@ export default function Preloader({ onComplete }) {
         }
       }
     };
-  }, []);
+  }, [onComplete]);
 
   // When exit animation completes, notify parent
   const handleExitComplete = () => {
@@ -64,6 +76,17 @@ export default function Preloader({ onComplete }) {
   // Skip on click or keypress
   const handleSkip = () => {
     setIsFinished(true);
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = '';
+      if (window.__lenis) {
+        window.__lenis.start();
+      }
+    }
+    setTimeout(() => {
+      if (onComplete) {
+        onComplete();
+      }
+    }, 200);
   };
 
   return (
